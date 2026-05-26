@@ -103,6 +103,8 @@ h1.hero-name em { color: var(--forest); font-style: italic; }
 .btn-primary:hover { background: var(--forest2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(46,125,50,0.3); }
 .btn-ghost { background: rgba(255,255,255,0.8); color: var(--bark); padding: 0.75rem 1.75rem; border-radius: 100px; text-decoration: none; font-weight: 700; font-size: 0.9rem; border: 1.5px solid var(--border2); transition: all 0.2s; cursor: pointer; }
 .btn-ghost:hover { border-color: var(--forest); color: var(--forest); transform: translateY(-2px); }
+[data-theme="dark"] .btn-ghost { background: rgba(255,255,255,0.1); color: var(--bark); border-color: var(--border2); }
+[data-theme="dark"] .btn-ghost:hover { background: rgba(255,255,255,0.15); border-color: var(--forest); color: var(--forest); }
 .hero-stats { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 2; }
 .stat-pill { background: rgba(255,255,255,0.85); border: 1.5px solid var(--border); border-radius: 100px; padding: 0.5rem 1.1rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; }
 .stat-pill .val { font-family: var(--serif); font-weight: 600; color: var(--forest); font-size: 1rem; }

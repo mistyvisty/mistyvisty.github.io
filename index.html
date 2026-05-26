@@ -301,7 +301,24 @@ h1.hero-name { animation: fadeUp 0.5s ease 0.2s both; }
 
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">Preeti <span>B.</span></a>
+  <a href="#hero" class="nav-logo" style="display:flex;align-items:center;gap:0.4rem;text-decoration:none;">
+    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="18" cy="20" r="13" fill="#FFE0B2"/>
+      <ellipse cx="11" cy="23" rx="3.5" ry="2" fill="#FFAB91" opacity="0.6"/>
+      <ellipse cx="25" cy="23" rx="3.5" ry="2" fill="#FFAB91" opacity="0.6"/>
+      <ellipse cx="13.5" cy="20" rx="2.2" ry="2.5" fill="#3e2723"/>
+      <ellipse cx="22.5" cy="20" rx="2.2" ry="2.5" fill="#3e2723"/>
+      <circle cx="14.3" cy="19" r="0.8" fill="white"/>
+      <circle cx="23.3" cy="19" r="0.8" fill="white"/>
+      <path d="M14 25 Q18 28.5 22 25" stroke="#3e2723" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+      <ellipse cx="18" cy="10" rx="13" ry="8" fill="#5d4037"/>
+      <ellipse cx="6" cy="18" rx="3.5" ry="6" fill="#5d4037"/>
+      <ellipse cx="30" cy="18" rx="3.5" ry="6" fill="#5d4037"/>
+      <ellipse cx="13" cy="8" rx="3" ry="1.5" fill="#8d6e63" opacity="0.5"/>
+      <ellipse cx="26" cy="8" rx="3" ry="1.8" fill="#2e7d32" transform="rotate(-20 26 8)"/>
+      <line x1="26" y1="9.5" x2="26" y2="13" stroke="#2e7d32" stroke-width="1"/>
+    </svg>
+  </a>
   <ul class="nav-links">
     <li><a href="#projects">Projects</a></li>
     <li><a href="#blog">Writing</a></li>
@@ -369,11 +386,6 @@ h1.hero-name { animation: fadeUp 0.5s ease 0.2s both; }
         <div class="now-label">In Progress</div>
         <h4>AI CSV Analyst</h4>
         <p>Upload a CSV, chat with your data. LLM auto-generates insights and renders charts. FastAPI + Streamlit.</p>
-      </div>
-      <div class="now-card">
-        <div class="now-label">Planning</div>
-        <h4>Industrial Energy Predictor</h4>
-        <p>Steel plant energy consumption forecasting using sensor time-series data. LSTM + gradient boosting ensemble.</p>
       </div>
       <div class="now-card">
         <div class="now-label">In Progress</div>
@@ -822,4 +834,3 @@ if (localStorage.getItem('theme') === 'dark') {
 </script>
 </body>
 </html>
-

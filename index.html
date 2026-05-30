@@ -277,13 +277,28 @@ h1.hero-name { animation: fadeUp 0.5s ease 0.2s both; }
   <div class="hero-btns">
     <a href="#projects" class="btn-primary">See my work 🍃</a>
   </div>
-  <div class="hero-stats">
-    <div class="stat-pill"><span class="val">0.97</span><span class="lbl">AUC (PCOS)</span></div>
-    <div class="stat-pill"><span class="val">$125K</span><span class="lbl">Loss Identified</span></div>
-    <div class="stat-pill"><span class="val">4</span><span class="lbl">Live Projects</span></div>
-    <div class="stat-pill"><span class="val">RAG</span><span class="lbl">GenAI deployed</span></div>
+
+  <!-- Skills Pills -->
+  <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:0.6rem;align-items:center;position:relative;z-index:2;">
+    <div style="display:flex;flex-wrap:wrap;gap:0.4rem;justify-content:center;">
+      <span style="background:rgba(46,125,50,0.12);border:1.5px solid rgba(46,125,50,0.25);color:#2e7d32;font-family:var(--mono);font-size:0.72rem;padding:0.28rem 0.75rem;border-radius:100px;font-weight:600;">Python</span>
+      <span style="background:rgba(46,125,50,0.12);border:1.5px solid rgba(46,125,50,0.25);color:#2e7d32;font-family:var(--mono);font-size:0.72rem;padding:0.28rem 0.75rem;border-radius:100px;font-weight:600;">SQL</span>
+      <span style="background:rgba(46,125,50,0.12);border:1.5px solid rgba(46,125,50,0.25);color:#2e7d32;font-family:var(--mono);font-size:0.72rem;padding:0.28rem 0.75rem;border-radius:100px;font-weight:600;">XGBoost</span>
+      <span style="background:rgba(46,125,50,0.12);border:1.5px solid rgba(46,125,50,0.25);color:#2e7d32;font-family:var(--mono);font-size:0.72rem;padding:0.28rem 0.75rem;border-radius:100px;font-weight:600;">SHAP</span>
+      <span style="background:rgba(46,125,50,0.12);border:1.5px solid rgba(46,125,50,0.25);color:#2e7d32;font-family:var(--mono);font-size:0.72rem;padding:0.28rem 0.75rem;border-radius:100px;font-weight:600;">Power BI</span>
+      <span style="background:rgba(46,125,50,0.12);border:1.5px solid rgba(46,125,50,0.25);color:#2e7d32;font-family:var(--mono);font-size:0.72rem;padding:0.28rem 0.75rem;border-radius:100px;font-weight:600;">scikit-learn</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:0.4rem;justify-content:center;">
+      <span style="background:rgba(255,143,0,0.1);border:1.5px solid rgba(255,143,0,0.3);color:#e65100;font-family:var(--mono);font-size:0.72rem;padding:0.28rem 0.75rem;border-radius:100px;font-weight:600;">LangChain</span>
+      <span style="background:rgba(255,143,0,0.1);border:1.5px solid rgba(255,143,0,0.3);color:#e65100;font-family:var(--mono);font-size:0.72rem;padding:0.28rem 0.75rem;border-radius:100px;font-weight:600;">FAISS</span>
+      <span style="background:rgba(255,143,0,0.1);border:1.5px solid rgba(255,143,0,0.3);color:#e65100;font-family:var(--mono);font-size:0.72rem;padding:0.28rem 0.75rem;border-radius:100px;font-weight:600;">Groq LLaMA</span>
+      <span style="background:rgba(255,143,0,0.1);border:1.5px solid rgba(255,143,0,0.3);color:#e65100;font-family:var(--mono);font-size:0.72rem;padding:0.28rem 0.75rem;border-radius:100px;font-weight:600;">RAG</span>
+      <span style="background:rgba(255,143,0,0.1);border:1.5px solid rgba(255,143,0,0.3);color:#e65100;font-family:var(--mono);font-size:0.72rem;padding:0.28rem 0.75rem;border-radius:100px;font-weight:600;">Streamlit</span>
+      <span style="background:rgba(255,143,0,0.1);border:1.5px solid rgba(255,143,0,0.3);color:#e65100;font-family:var(--mono);font-size:0.72rem;padding:0.28rem 0.75rem;border-radius:100px;font-weight:600;">HuggingFace</span>
+    </div>
   </div>
-  <div class="contact-strip">
+
+  <div class="contact-strip" style="margin-top:1.5rem;">
     <a href="mailto:bhardwajpreeti357@gmail.com" class="contact-chip">✉️ Email</a>
     <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank" class="contact-chip">🐙 GitHub</a>
     <a href="https://medium.com/@bhardwajpreeti357" target="_blank" class="contact-chip">✍️ Medium</a>
@@ -308,10 +323,10 @@ h1.hero-name { animation: fadeUp 0.5s ease 0.2s both; }
         <h4>Medical RAG Assistant</h4>
         <p>PCOS Q&A on real clinical research papers. LangChain + FAISS + Groq (LLaMA). Hallucination-aware with source page citations. Built and running in Google Colab.</p>
       </div>
-      <div class="now-card">
-        <div class="now-label">In Progress</div>
+      <div class="now-card" style="border-left-color:var(--forest2);">
+        <div class="now-label done">✅ Shipped!</div>
         <h4>AI CSV Analyst</h4>
-        <p>Upload a CSV, chat with your data. LLM auto-generates insights and renders charts. FastAPI + Streamlit.</p>
+        <p>Upload any CSV and chat with your data using Groq LLaMA. AI generates insights and renders charts live. Deployed on Streamlit Cloud. <a href="https://preeti-ai-csv-analyst.streamlit.app" target="_blank" style="color:var(--forest);font-weight:700;">Try it live →</a></p>
       </div>
       <div class="now-card">
         <div class="now-label">In Progress</div>
@@ -362,6 +377,38 @@ h1.hero-name { animation: fadeUp 0.5s ease 0.2s both; }
         <div class="project-links-row">
           <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank" class="project-link">🐙 GitHub Notebook →</a>
           <a href="#" onclick="openArticle('a2'); return false;" class="project-link">📝 How I built it →</a>
+        </div>
+      </div>
+
+      <!-- AI CSV ANALYST -->
+      <div class="project-card featured">
+        <span class="project-icon">📊</span>
+        <div class="project-type">GenAI · Data Analysis · Streamlit App</div>
+        <span class="status-badge live">Live — Deployed</span>
+        <h3>AI CSV Analyst — Chat With Your Data</h3>
+        <p>A deployed Streamlit web app that lets anyone upload a CSV and chat with their data using Groq LLaMA AI. Ask plain English questions, get instant insights, and generate charts automatically — no coding required. Built end-to-end: from data ingestion to LLM-powered analysis to live deployment.</p>
+        <div class="metrics-row">
+          <span class="metric-chip">Natural language Q&A</span>
+          <span class="metric-chip">Auto chart generation</span>
+          <span class="metric-chip orange">Live on Streamlit Cloud</span>
+          <span class="metric-chip blue">Groq LLaMA 3.3 70B</span>
+        </div>
+        <div class="arch-diagram">
+          <p>App Architecture</p>
+          <div class="arch-flow">
+            <span class="arch-node">CSV Upload</span><span class="arch-arrow">→</span>
+            <span class="arch-node">pandas summary</span><span class="arch-arrow">→</span>
+            <span class="arch-node">Groq LLaMA</span><span class="arch-arrow">→</span>
+            <span class="arch-node">Insights + Charts</span>
+          </div>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Groq</span>
+          <span class="tag">LLaMA 3.3</span><span class="tag">pandas</span><span class="tag">matplotlib</span>
+        </div>
+        <div class="project-links-row">
+          <a href="https://preeti-ai-csv-analyst.streamlit.app" target="_blank" class="project-link">🚀 Live App →</a>
+          <a href="https://github.com/mistyvisty/ai-csv-analyst" target="_blank" class="project-link">🐙 GitHub →</a>
         </div>
       </div>
 
@@ -549,32 +596,7 @@ h1.hero-name { animation: fadeUp 0.5s ease 0.2s both; }
         </div>
       </div>
       <div>
-        <div class="timeline">
-          <div class="t-item">
-            <div class="t-year">2026</div>
-            <div class="t-dot"></div>
-            <div class="t-body"><h4>Medical RAG Assistant — Shipped ✅</h4><p>Built a hallucination-aware RAG pipeline on PCOS clinical literature. LangChain + FAISS + Groq. Real papers, real citations.</p></div>
-          </div>
-          <div class="t-item">
-            <div class="t-year">2025</div>
-            <div class="t-dot"></div>
-            <div class="t-body"><h4>ML Engineering Portfolio</h4><p>PCOS detection (0.97 AUC), bank churn, superstore SQL analysis — 3 end-to-end projects</p></div>
-          </div>
-          <div class="t-item">
-            <div class="t-year">2024</div>
-            <div class="t-dot"></div>
-            <div class="t-body"><h4>Data Analytics Foundation</h4><p>Python, SQL, Power BI, statistical modeling, scikit-learn pipeline engineering</p></div>
-          </div>
-          <div class="t-item">
-            <div class="t-year">Earlier</div>
-            <div class="t-dot"></div>
-            <div class="t-body"><h4>ECE Engineering Degree</h4><p>Electronics & Communication — maths, signal processing, systems fundamentals</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        </div></div></section>
 
 <!-- CONTACT -->
 <section id="contact">

@@ -302,6 +302,11 @@ h1.hero-name { animation: fadeUp 0.5s ease 0.2s both; }
     <div class="now-grid">
       <div class="now-card" style="border-left-color:var(--forest2);">
         <div class="now-label done">✅ Shipped!</div>
+        <h4>Hospital Readmission Predictor</h4>
+        <p>XGBoost model served via FastAPI, containerized with Docker, tested and deployed automatically through GitHub Actions CI/CD. A full MLOps loop, not just a notebook.</p>
+      </div>
+      <div class="now-card" style="border-left-color:var(--forest2);">
+        <div class="now-label done">✅ Shipped!</div>
         <h4>Medical RAG Assistant</h4>
         <p>PCOS Q&A on real clinical research papers. LangChain + FAISS + Groq (LLaMA). Hallucination-aware with source page citations. Built and running in Google Colab.</p>
       </div>
@@ -408,6 +413,40 @@ h1.hero-name { animation: fadeUp 0.5s ease 0.2s both; }
         <div class="project-links-row">
           <a href="https://preeti-ai-csv-analyst.streamlit.app" target="_blank" class="project-link">🚀 Live App →</a>
           <a href="https://github.com/mistyvisty/ai-csv-analyst" target="_blank" class="project-link">🐙 GitHub →</a>
+        </div>
+      </div>
+
+      <!-- HOSPITAL READMISSION PREDICTOR - NEW -->
+      <div class="project-card featured">
+        <span class="project-icon">🏥</span>
+        <div class="project-type">MLOps · Healthcare AI · Production ML</div>
+        <span class="status-badge live">Live — CI/CD Running</span>
+        <h3>Hospital Readmission Risk Predictor</h3>
+        <p>An end-to-end MLOps project, not just a notebook. An XGBoost model trained to flag patients at risk of readmission, served through a FastAPI endpoint, packaged into a Docker container, and tested automatically on every push with GitHub Actions. The goal was to take a model past "it works on my machine" and into something that actually behaves like a real service.</p>
+        <div class="metrics-row">
+          <span class="metric-chip">XGBoost classifier</span>
+          <span class="metric-chip orange">FastAPI inference endpoint</span>
+          <span class="metric-chip blue">Dockerized</span>
+          <span class="metric-chip">CI/CD on every push</span>
+        </div>
+        <div class="arch-diagram">
+          <p>Pipeline</p>
+          <div class="arch-flow">
+            <span class="arch-node">Patient Data</span><span class="arch-arrow">→</span>
+            <span class="arch-node">Preprocessing</span><span class="arch-arrow">→</span>
+            <span class="arch-node">XGBoost Model</span><span class="arch-arrow">→</span>
+            <span class="arch-node">FastAPI /predict</span><span class="arch-arrow">→</span>
+            <span class="arch-node">Docker</span><span class="arch-arrow">→</span>
+            <span class="arch-node">GitHub Actions CI/CD</span>
+          </div>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">FastAPI</span>
+          <span class="tag">Docker</span><span class="tag">GitHub Actions</span><span class="tag">pytest</span><span class="tag">scikit-learn</span>
+        </div>
+        <div class="project-links-row">
+          <a href="https://github.com/mistyvisty/hospital-readmission-predictor" target="_blank" class="project-link">🐙 GitHub →</a>
+          <a href="#" onclick="openArticle('a5'); return false;" class="project-link">📝 Why I built it this way →</a>
         </div>
       </div>
 
@@ -558,6 +597,15 @@ h1.hero-name { animation: fadeUp 0.5s ease 0.2s both; }
             </div>
             <div class="post-time">Read →<br><span style="font-size:0.65rem;">5 min</span></div>
           </div>
+          <div class="blog-card live" onclick="openArticle('a5')">
+            <div>
+              <span class="live-badge">✓ Published</span>
+              <div class="post-cat" style="color:var(--sky-deep);">MLOps</div>
+              <h3>From Notebook to Endpoint — Taking a Model Past "It Works On My Machine"</h3>
+              <p>FastAPI, Docker, and GitHub Actions — what each one actually buys you when a model has to leave your laptop, built around the Hospital Readmission Predictor.</p>
+            </div>
+            <div class="post-time">Read →<br><span style="font-size:0.65rem;">7 min</span></div>
+          </div>
         </div>
         <div class="blog-soon-note">
           ✨ More articles on <a href="https://medium.com/@bhardwajpreeti357" target="_blank" style="color:var(--forest);font-weight:700;">Medium @bhardwajpreeti357</a> — follow to get notified
@@ -577,6 +625,10 @@ h1.hero-name { animation: fadeUp 0.5s ease 0.2s both; }
           <span class="topic-pill">EDA</span>
           <span class="topic-pill">LLMs</span>
           <span class="topic-pill">Python</span>
+          <span class="topic-pill">MLOps</span>
+          <span class="topic-pill">FastAPI</span>
+          <span class="topic-pill">Docker</span>
+          <span class="topic-pill">CI/CD</span>
         </div>
         <div class="sidebar-box">
           <h4>RAG Architecture</h4>
@@ -790,6 +842,59 @@ print(f"Mean AUC: {scores.mean():.3f}")</code></pre>
     <p>Using ImbPipeline with SMOTE inside StratifiedKFold on 541 patient records gave a <strong>Mean ROC-AUC of 0.97 across 5 folds</strong> with <strong>90%+ recall on positive cases</strong>. That's a result I trust — because the evaluation was honest.</p>
     <p>When someone asks me "how do you know this will generalise?" I can point to the pipeline and show them exactly why leakage was impossible.</p>
     <div class="article-footer">From the <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank">PCOS Detection project</a> · <a href="https://mistyvisty.github.io">mistyvisty.github.io</a></div>
+  </div>
+</div>
+
+<!-- ARTICLE 5 — MLOPS / NOTEBOOK TO ENDPOINT -->
+<div class="article-overlay" id="overlay-a5">
+  <div class="article-nav"><button class="back-btn" onclick="closeArticle('a5')">← Back to blog</button></div>
+  <div class="article-body">
+    <div class="art-cat">MLOps · 7 min read</div>
+    <h1>From Notebook to Endpoint — Taking a Model Past "It Works On My Machine"</h1>
+    <div class="article-meta">Preeti Bhardwaj &nbsp;·&nbsp; June 2026</div>
+    <p>Most ML portfolios stop at a notebook. You train a model, get a good AUC, plot a confusion matrix, and call it done. That's a real skill — but it's not the same skill as putting a model somewhere another piece of software can actually call it. The <strong>Hospital Readmission Predictor</strong> was my attempt to close that gap, end to end.</p>
+    <h2>The question that started it</h2>
+    <p>A trained model sitting in a <code>.pkl</code> file isn't useful to anyone except the person who trained it. A hospital's existing software doesn't know how to "open a notebook." It needs something it can send patient data to and get a risk score back — instantly, reliably, the same way every time. That's the gap between a model and a product.</p>
+    <h2>Step 1 — Wrapping the model in an API</h2>
+    <p>I used <strong>FastAPI</strong> to expose the trained XGBoost model as an HTTP endpoint. The pattern is simple but it matters: incoming data gets validated with <code>pydantic</code> schemas before it ever reaches the model, so malformed input fails loudly with a clear error instead of silently breaking a prediction.</p>
+    <pre><code>from fastapi import FastAPI
+from pydantic import BaseModel
+import joblib
+
+app = FastAPI()
+model = joblib.load("model.pkl")
+
+class PatientData(BaseModel):
+    age: int
+    num_procedures: int
+    num_diagnoses: int
+    # ...remaining features
+
+@app.post("/predict")
+def predict(data: PatientData):
+    features = [[data.age, data.num_procedures, data.num_diagnoses]]
+    risk_score = model.predict_proba(features)[0][1]
+    return {"readmission_risk": float(risk_score)}</code></pre>
+    <p>That's the whole contract: send patient features, get a probability back. Anything downstream — a dashboard, an internal hospital tool, a scheduling system — can now talk to the model without knowing it's XGBoost underneath.</p>
+    <h2>Step 2 — Why Docker, not just "pip install"</h2>
+    <p>"It works on my machine" is the most expensive sentence in software. My laptop has a specific Python version, specific package versions, specific OS quirks. None of that is guaranteed to exist wherever this actually needs to run.</p>
+    <p><strong>Docker</strong> solves this by packaging the exact environment — Python version, dependencies, the app itself — into one image that runs identically anywhere a container can run.</p>
+    <pre><code>FROM python:3.11-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+EXPOSE 8000
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]</code></pre>
+    <p>Once this builds, the question "does it work on your machine?" stops being relevant. It works inside the container, and the container is the same everywhere.</p>
+    <h2>Step 3 — CI/CD: catching breakage before it ships</h2>
+    <p>The last piece is <strong>GitHub Actions</strong>. Every time code is pushed, a workflow automatically spins up, installs dependencies, and runs the test suite against the FastAPI app. If a change breaks the <code>/predict</code> endpoint or the model loading logic, the pipeline fails immediately — before it ever reaches anything resembling production.</p>
+    <blockquote>The point of CI/CD isn't speed. It's that a human doesn't have to remember to test things — the pipeline remembers for you, every single time.</blockquote>
+    <p>This is the same underlying principle behind using <code>ImbPipeline</code> with SMOTE in my PCOS project: don't trust a manual step that's easy to forget. Encode the correct behavior into the system itself, so it happens automatically whether you remember to do it or not.</p>
+    <h2>Why this matters more than another 0.01 AUC</h2>
+    <p>It's tempting to chase model accuracy as the main metric of a project. But a model with excellent AUC that can't be reliably served, breaks silently on bad input, or can't be redeployed without manual babysitting isn't actually usable in a real setting. A slightly simpler model wrapped in a tested, containerized, automatically-verified pipeline is worth more in practice — because it's the version that can actually be trusted to run unattended.</p>
+    <p>That's the real lesson from building this: in healthcare especially, "did we test this properly before it touched real data" is not optional, and it shouldn't depend on someone remembering to do it by hand.</p>
+    <div class="article-footer">From the <a href="https://github.com/mistyvisty/hospital-readmission-predictor" target="_blank">Hospital Readmission Predictor</a> · <a href="https://mistyvisty.github.io">mistyvisty.github.io</a></div>
   </div>
 </div>
 

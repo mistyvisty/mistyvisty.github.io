@@ -272,7 +272,7 @@ h1.hero-name { animation: fadeUp 0.5s ease 0.2s both; }
   <div class="hero-title">Data Analytics &nbsp;·&nbsp; Machine Learning &nbsp;·&nbsp; GenAI</div>
   <p class="hero-desc">
     Building <strong>practical ML and GenAI systems</strong> for healthcare and data-intensive domains —
-    from PCOS prediction at 0.97 AUC to a <strong>live Medical RAG Assistant</strong> that answers clinical questions with source citations.
+    from PCOS prediction at 0.97 AUC to a <strong>Medical RAG Assistant</strong> grounded in 5 peer-reviewed papers on PCOS × Neurodivergence.
     I care about models that work <strong>in production</strong>, not just on paper.
   </p>
   <div class="hero-btns">
@@ -307,8 +307,8 @@ h1.hero-name { animation: fadeUp 0.5s ease 0.2s both; }
       </div>
       <div class="now-card" style="border-left-color:var(--forest2);">
         <div class="now-label done">✅ Shipped!</div>
-        <h4>Medical RAG Assistant</h4>
-        <p>PCOS Q&A on real clinical research papers. LangChain + FAISS + Groq (LLaMA). Hallucination-aware with source page citations. Built and running in Google Colab.</p>
+        <h4>PCOS × Neurodivergence RAG</h4>
+        <p>Clinical Q&A on 5 peer-reviewed papers. LangChain + FAISS + Groq LLaMA 3.3 70B. Hallucination-aware prompt with author + page citations on every answer. <a href="https://github.com/mistyvisty/pcos-neurodivergence-rag" target="_blank" style="color:var(--forest);font-weight:700;">View repo →</a></p>
       </div>
       <div class="now-card" style="border-left-color:var(--forest2);">
         <div class="now-label done">✅ Shipped!</div>
@@ -333,36 +333,36 @@ h1.hero-name { animation: fadeUp 0.5s ease 0.2s both; }
 
     <div class="projects-grid">
 
-      <!-- MEDICAL RAG - NEW FEATURED -->
+      <!-- MEDICAL RAG - FEATURED -->
       <div class="project-card featured">
-        <span class="project-icon">🩺</span>
+        <span class="project-icon">🧠</span>
         <div class="project-type">GenAI · RAG · Medical AI · NLP</div>
-        <span class="status-badge live">Live — Running</span>
-        <h3>Medical RAG Assistant — PCOS Clinical Literature</h3>
-        <p>A hallucination-aware Retrieval-Augmented Generation pipeline that answers clinical questions about PCOS — grounded in real research papers, with source page citations. Built with real PDFs from PubMed/Sensors journal. The system explicitly refuses to answer when the papers don't cover something, preventing medical hallucination.</p>
+        <span class="status-badge live">Live — Running on Colab</span>
+        <h3>PCOS × Neurodivergence — Medical RAG Assistant</h3>
+        <p>A hallucination-aware RAG pipeline that answers clinical questions about the PCOS–neurodivergence connection — grounded in <strong>5 peer-reviewed research papers</strong> (Cherskov, Redkar, Berni, Dubey, Chen). The system explicitly refuses to answer when the papers don't cover something, and provides author + page-number citations on every response. Interactive Q&A widget runs directly in Colab.</p>
         <div class="metrics-row">
-          <span class="metric-chip">2 clinical papers indexed</span>
-          <span class="metric-chip">178 chunks embedded</span>
+          <span class="metric-chip">5 peer-reviewed papers</span>
+          <span class="metric-chip">~376 chunks embedded</span>
           <span class="metric-chip orange">Hallucination-aware prompt</span>
-          <span class="metric-chip blue">Source citations on every answer</span>
+          <span class="metric-chip blue">Author + page citations on every answer</span>
         </div>
         <div class="arch-diagram">
           <p>RAG Architecture</p>
           <div class="arch-flow">
-            <span class="arch-node">PDF papers</span><span class="arch-arrow">→</span>
-            <span class="arch-node">Chunks (600 chars)</span><span class="arch-arrow">→</span>
+            <span class="arch-node">5 PDFs</span><span class="arch-arrow">→</span>
+            <span class="arch-node">Chunks (800 chars)</span><span class="arch-arrow">→</span>
             <span class="arch-node">MiniLM embeddings</span><span class="arch-arrow">→</span>
-            <span class="arch-node">FAISS index</span><span class="arch-arrow">→</span>
-            <span class="arch-node">Groq LLaMA</span><span class="arch-arrow">→</span>
+            <span class="arch-node">FAISS (~376 vectors)</span><span class="arch-arrow">→</span>
+            <span class="arch-node">Groq LLaMA 3.3 70B</span><span class="arch-arrow">→</span>
             <span class="arch-node">Cited answer</span>
           </div>
         </div>
         <div class="project-tags">
           <span class="tag">LangChain</span><span class="tag">FAISS</span><span class="tag">Groq</span>
-          <span class="tag">LLaMA 3.1</span><span class="tag">MiniLM</span><span class="tag">Python</span><span class="tag">RAG</span>
+          <span class="tag">LLaMA 3.3 70B</span><span class="tag">MiniLM</span><span class="tag">PyMuPDF</span><span class="tag">ipywidgets</span><span class="tag">Python</span>
         </div>
         <div class="project-links-row">
-          <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank" class="project-link">🐙 GitHub Notebook →</a>
+          <a href="https://github.com/mistyvisty/pcos-neurodivergence-rag" target="_blank" class="project-link">🐙 GitHub Repo →</a>
           <a href="#" onclick="openArticle('a2'); return false;" class="project-link">📝 How I built it →</a>
         </div>
       </div>
@@ -720,7 +720,7 @@ h1.hero-name { animation: fadeUp 0.5s ease 0.2s both; }
     <div class="art-cat">GenAI · 8 min read</div>
     <h1>Building Your First RAG Pipeline — No Fluff, Just Steps</h1>
     <div class="article-meta">Preeti Bhardwaj &nbsp;·&nbsp; May 2026</div>
-    <p>This is the tutorial I wish I had when I built the Medical RAG Assistant — no fluff, no jargon walls, just the actual steps to build a working RAG pipeline from scratch.</p>
+    <p>This is the tutorial I wish I had when I built the PCOS × Neurodivergence RAG Assistant — no fluff, no jargon walls, just the actual steps to build a working RAG pipeline from scratch. The full project indexes 5 peer-reviewed clinical papers and answers questions with source citations.</p>
     <h2>What is RAG and why does it matter?</h2>
     <p><strong>RAG = Retrieval-Augmented Generation.</strong> LLMs don't know your documents. RAG fixes this: it takes your documents, turns them into searchable chunks, finds the most relevant ones for your question, and sends them to the LLM as context. The LLM answers <em>from your documents</em>, not from training data — and can cite the source.</p>
     <h2>Stack</h2>
@@ -747,7 +747,7 @@ retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
 # Now build your chain and ask questions!</code></pre>
     <h2>The hallucination-aware trick</h2>
     <p>The most important part is your prompt. Tell the model explicitly: <strong>"If the answer is not in the context, say you cannot find it. Never make up medical facts."</strong> This is what separates a toy RAG from a trustworthy one.</p>
-    <div class="article-footer"><a href="https://mistyvisty.github.io">mistyvisty.github.io</a> · <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank">GitHub Portfolio</a></div>
+    <div class="article-footer"><a href="https://mistyvisty.github.io">mistyvisty.github.io</a> · <a href="https://github.com/mistyvisty/pcos-neurodivergence-rag" target="_blank">PCOS × Neurodivergence RAG Repo</a></div>
   </div>
 </div>
 

@@ -3,925 +3,159 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Preeti Bhardwaj — Data Analytics & ML Engineer</title>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root {
-  --sky: #e8f4f8; --sky2: #d4ecf7; --meadow: #c8e6c9; --cream: #fdf6e3;
-  --warm: #fff8ee; --paper: #fffdf7; --bark: #5d4037; --bark2: #795548;
-  --forest: #2e7d32; --forest2: #388e3c; --moss: #558b2f; --dust: #a5835a;
-  --dust2: #8d6e63; --rose: #e91e8c; --rose-soft: #f48fb1; --sky-blue: #4fc3f7;
-  --sky-deep: #0288d1; --amber: #ff8f00; --amber-soft: #ffcc02;
-  --text: #3e2723; --text2: #6d4c41; --text3: #a1887f;
-  --border: rgba(93,64,55,0.12); --border2: rgba(93,64,55,0.2);
-  --serif: 'Lora', Georgia, serif; --sans: 'Nunito', sans-serif; --mono: 'Fira Code', monospace;
-  --radius: 16px; --radius-lg: 24px; --radius-xl: 32px;
-}
-[data-theme="dark"] {
-  --cream: #1a1612; --warm: #1f1b15; --paper: #231e18;
-  --bark: #d7ccc8; --bark2: #bcaaa4; --text: #efebe9; --text2: #bcaaa4; --text3: #8d6e63;
-  --border: rgba(215,204,200,0.12); --border2: rgba(215,204,200,0.22);
-  --forest: #66bb6a; --forest2: #81c784; --moss: #aed581;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { background: var(--cream); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.7; overflow-x: hidden; cursor: default; transition: background 0.3s, color 0.3s; }
-.particle { position: fixed; pointer-events: none; z-index: 0; opacity: 0; font-size: 1.1rem; animation: floatLeaf linear infinite; }
-@keyframes floatLeaf { 0% { transform: translateY(100vh) rotate(0deg); opacity: 0; } 10% { opacity: 0.6; } 90% { opacity: 0.4; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; background: rgba(253,246,227,0.88); backdrop-filter: blur(12px); border-bottom: 1.5px solid var(--border); transition: background 0.3s; }
-[data-theme="dark"] nav { background: rgba(26,22,18,0.88); }
-.nav-logo { font-family: var(--serif); font-size: 1.2rem; color: var(--bark); text-decoration: none; font-style: italic; }
-.nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
-.nav-links a { color: var(--text2); text-decoration: none; font-size: 0.875rem; font-weight: 700; transition: color 0.2s; }
-.nav-links a:hover { color: var(--forest); }
-.nav-cta { background: var(--forest) !important; color: white !important; padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.82rem !important; }
-.nav-cta:hover { background: var(--forest2) !important; }
-.dark-toggle { background: none; border: 1.5px solid var(--border2); border-radius: 100px; color: var(--text2); cursor: pointer; font-size: 0.85rem; padding: 0.3rem 0.75rem; transition: all 0.2s; font-family: var(--sans); font-weight: 700; }
-.dark-toggle:hover { border-color: var(--forest); color: var(--forest); }
-.nav-actions { display: flex; align-items: center; gap: 0.6rem; }
-#hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 7rem 2rem 3rem; position: relative; overflow: hidden; background: linear-gradient(180deg, #e0f2fe 0%, #e8f5e9 40%, #fdf6e3 100%); text-align: center; }
-[data-theme="dark"] #hero { background: linear-gradient(180deg, #0d1b2a 0%, #0d1f0d 40%, #1a1612 100%); }
-.cloud { position: absolute; background: white; border-radius: 50px; opacity: 0.75; animation: driftCloud linear infinite; }
-.cloud::before, .cloud::after { content: ''; background: white; border-radius: 50%; position: absolute; }
-.cloud1 { width: 120px; height: 35px; top: 12%; left: -140px; animation-duration: 40s; animation-delay: 0s; }
-.cloud1::before { width: 55px; height: 55px; top: -25px; left: 15px; }
-.cloud1::after { width: 40px; height: 40px; top: -18px; left: 50px; }
-.cloud2 { width: 80px; height: 25px; top: 22%; left: -100px; animation-duration: 55s; animation-delay: -20s; opacity: 0.5; }
-.cloud2::before { width: 38px; height: 38px; top: -18px; left: 10px; }
-.cloud2::after { width: 28px; height: 28px; top: -12px; left: 34px; }
-.cloud3 { width: 100px; height: 30px; top: 8%; left: -120px; animation-duration: 48s; animation-delay: -35s; opacity: 0.6; }
-.cloud3::before { width: 46px; height: 46px; top: -22px; left: 12px; }
-.cloud3::after { width: 34px; height: 34px; top: -16px; left: 44px; }
-@keyframes driftCloud { from { transform: translateX(0); } to { transform: translateX(calc(100vw + 160px)); } }
-.hills { position: absolute; bottom: 0; left: 0; right: 0; height: 160px; pointer-events: none; }
-.hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.8); border: 1.5px solid rgba(46,125,50,0.2); color: var(--forest); padding: 0.35rem 1rem; border-radius: 100px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1.5rem; font-family: var(--mono); }
-.hero-badge::before { content: ''; width: 7px; height: 7px; background: var(--forest2); border-radius: 50%; animation: pulse 2s infinite; }
-@keyframes pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(0.6); opacity: 0.4; } }
-h1.hero-name { font-family: var(--serif); font-size: clamp(2.8rem, 8vw, 5.5rem); line-height: 1.1; letter-spacing: -0.02em; color: var(--bark); margin-bottom: 0.5rem; }
-h1.hero-name em { color: var(--forest); font-style: italic; }
-.hero-title { font-family: var(--mono); font-size: 0.85rem; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.25rem; }
-.hero-desc { color: var(--text2); font-size: 1rem; max-width: 540px; margin: 0 auto 2rem; line-height: 1.8; }
-.hero-desc strong { color: var(--bark); }
-.hero-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; position: relative; z-index: 2; }
-.btn-primary { background: var(--forest); color: white; padding: 0.75rem 1.75rem; border-radius: 100px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: all 0.2s; border: none; cursor: pointer; box-shadow: 0 4px 16px rgba(46,125,50,0.25); }
-.btn-primary:hover { background: var(--forest2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(46,125,50,0.3); }
-.btn-ghost { background: rgba(255,255,255,0.8); color: var(--bark); padding: 0.75rem 1.75rem; border-radius: 100px; text-decoration: none; font-weight: 700; font-size: 0.9rem; border: 1.5px solid var(--border2); transition: all 0.2s; cursor: pointer; }
-.btn-ghost:hover { border-color: var(--forest); color: var(--forest); transform: translateY(-2px); }
-[data-theme="dark"] .btn-ghost { background: rgba(255,255,255,0.1); color: var(--bark); border-color: var(--border2); }
-[data-theme="dark"] .btn-ghost:hover { background: rgba(255,255,255,0.15); border-color: var(--forest); color: var(--forest); }
-.hero-stats { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 2; }
-.stat-pill { background: rgba(255,255,255,0.85); border: 1.5px solid var(--border); border-radius: 100px; padding: 0.5rem 1.1rem; display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; }
-.stat-pill .val { font-family: var(--serif); font-weight: 600; color: var(--forest); font-size: 1rem; }
-.stat-pill .lbl { color: var(--text3); font-size: 0.78rem; }
-.contact-strip { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; position: relative; z-index: 2; }
-.contact-chip { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.75); border: 1.5px solid var(--border2); color: var(--text2); text-decoration: none; padding: 0.35rem 0.9rem; border-radius: 100px; font-size: 0.78rem; font-weight: 700; transition: all 0.2s; }
-.contact-chip:hover { border-color: var(--forest); color: var(--forest); background: rgba(255,255,255,0.95); transform: translateY(-1px); }
-section { padding: 5rem 2rem; position: relative; }
-.section-inner { max-width: 1060px; margin: 0 auto; }
-.section-label { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(46,125,50,0.08); border: 1px solid rgba(46,125,50,0.18); color: var(--forest); font-family: var(--mono); font-size: 0.75rem; padding: 0.25rem 0.8rem; border-radius: 100px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.9rem; }
-h2.section-title { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.2; letter-spacing: -0.02em; color: var(--bark); margin-bottom: 0.75rem; }
-.section-sub { color: var(--text2); max-width: 520px; font-size: 0.97rem; margin-bottom: 2.5rem; line-height: 1.75; }
-#projects { background: var(--warm); }
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem; }
-.project-card { background: var(--paper); border: 1.5px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; transition: all 0.25s; position: relative; overflow: hidden; }
-.project-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--forest), var(--moss)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
-.project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(93,64,55,0.1); border-color: rgba(46,125,50,0.3); }
-.project-card:hover::before { transform: scaleX(1); }
-.project-card.featured { grid-column: span 2; background: linear-gradient(135deg, #f1f8e9, #e8f5e9); border-color: rgba(46,125,50,0.25); }
-[data-theme="dark"] .project-card.featured { background: linear-gradient(135deg, #0d1f0d, #0a1a0a); }
-.project-icon { font-size: 2rem; margin-bottom: 0.9rem; display: block; }
-.project-type { font-family: var(--mono); font-size: 0.7rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.4rem; }
-.project-card h3 { font-family: var(--serif); font-size: 1.2rem; color: var(--bark); margin-bottom: 0.6rem; line-height: 1.35; }
-.project-card p { color: var(--text2); font-size: 0.875rem; line-height: 1.7; margin-bottom: 1.1rem; }
-.result-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(46,125,50,0.1); border: 1px solid rgba(46,125,50,0.22); color: var(--forest); font-family: var(--mono); font-size: 0.75rem; padding: 0.28rem 0.7rem; border-radius: 100px; margin-bottom: 1rem; font-weight: 500; }
-.result-badge.amber { background: rgba(255,143,0,0.1); border-color: rgba(255,143,0,0.25); color: var(--amber); }
-.result-badge.rose { background: rgba(233,30,140,0.08); border-color: rgba(233,30,140,0.2); color: #c2185b; }
-.project-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.1rem; }
-.tag { background: rgba(93,64,55,0.07); color: var(--text3); font-size: 0.7rem; font-family: var(--mono); padding: 0.18rem 0.55rem; border-radius: 6px; }
-.project-link { color: var(--forest); text-decoration: none; font-size: 0.85rem; font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem; transition: gap 0.2s; }
-.project-link:hover { gap: 0.6rem; }
-.project-links-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.25rem; }
-.project-links-row .project-link { border: 1.5px solid var(--border2); border-radius: 100px; padding: 0.3rem 0.85rem; font-size: 0.78rem; transition: all 0.2s; }
-.project-links-row .project-link:hover { border-color: var(--forest); background: rgba(46,125,50,0.06); gap: 0.3rem; }
-.metrics-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1rem; }
-.metric-chip { background: rgba(46,125,50,0.07); border: 1px solid rgba(46,125,50,0.15); color: var(--forest); font-family: var(--mono); font-size: 0.72rem; padding: 0.22rem 0.6rem; border-radius: 8px; font-weight: 500; }
-.metric-chip.orange { background: rgba(255,143,0,0.07); border-color: rgba(255,143,0,0.2); color: var(--amber); }
-.metric-chip.blue { background: rgba(2,136,209,0.07); border-color: rgba(2,136,209,0.2); color: var(--sky-deep); }
-.status-badge { display: inline-flex; align-items: center; gap: 0.35rem; font-family: var(--mono); font-size: 0.68rem; padding: 0.2rem 0.6rem; border-radius: 100px; font-weight: 500; margin-bottom: 0.5rem; }
-.status-badge.live { background: rgba(46,125,50,0.12); border: 1px solid rgba(46,125,50,0.25); color: var(--forest); }
-.status-badge.live::before { content: ''; width: 6px; height: 6px; background: var(--forest); border-radius: 50%; animation: pulse 2s infinite; }
-.status-badge.wip { background: rgba(255,143,0,0.1); border: 1px solid rgba(255,143,0,0.25); color: var(--amber); }
-.arch-diagram { background: rgba(46,125,50,0.04); border: 1.5px solid rgba(46,125,50,0.15); border-radius: var(--radius); padding: 1rem 1.25rem; margin: 1rem 0; }
-.arch-diagram p { font-family: var(--mono); font-size: 0.72rem; color: var(--text3); margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em; }
-.arch-flow { display: flex; align-items: center; flex-wrap: wrap; gap: 0; }
-.arch-node { background: white; border: 1.5px solid var(--border2); color: var(--text2); font-family: var(--mono); font-size: 0.7rem; padding: 0.3rem 0.65rem; border-radius: 8px; font-weight: 500; white-space: nowrap; }
-[data-theme="dark"] .arch-node { background: var(--warm); }
-.arch-arrow { color: var(--forest); font-size: 0.8rem; padding: 0 0.25rem; opacity: 0.7; }
-.coming-card { background: var(--paper); border: 1.5px dashed rgba(93,64,55,0.2); border-radius: var(--radius-lg); padding: 1.75rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.6rem; transition: border-color 0.2s; min-height: 200px; justify-content: center; }
-.coming-card:hover { border-color: var(--forest); }
-.coming-card .coming-tag { background: rgba(255,143,0,0.1); border: 1px solid rgba(255,143,0,0.25); color: var(--amber); font-family: var(--mono); font-size: 0.7rem; padding: 0.22rem 0.65rem; border-radius: 100px; font-weight: 500; }
-.coming-card h3 { font-family: var(--serif); font-size: 1.05rem; color: var(--text2); }
-.coming-card p { font-size: 0.8rem; color: var(--text3); line-height: 1.55; max-width: 200px; }
-#now-building { background: var(--cream); padding: 3rem 2rem; }
-.now-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; max-width: 1060px; margin: 1.5rem auto 0; }
-.now-card { background: var(--paper); border: 1.5px solid var(--border); border-left: 3px solid var(--forest); border-radius: var(--radius); padding: 1.1rem 1.25rem; transition: all 0.2s; }
-.now-card:hover { transform: translateX(4px); border-color: rgba(46,125,50,0.35); }
-.now-card h4 { font-family: var(--serif); font-size: 0.95rem; color: var(--bark); margin-bottom: 0.3rem; }
-.now-card p { font-size: 0.78rem; color: var(--text2); line-height: 1.5; }
-.now-label { display: inline-flex; align-items: center; gap: 0.3rem; font-family: var(--mono); font-size: 0.65rem; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; }
-.now-label::before { content: ''; width: 6px; height: 6px; background: var(--amber); border-radius: 50%; }
-.now-label.done { color: var(--forest); }
-.now-label.done::before { background: var(--forest); }
-#blog { background: var(--cream); }
-.blog-grid { display: grid; grid-template-columns: 1fr 280px; gap: 1.75rem; align-items: start; }
-.blog-list { display: flex; flex-direction: column; gap: 0.75rem; }
-.blog-card { background: var(--paper); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; text-decoration: none; color: inherit; display: flex; gap: 1rem; justify-content: space-between; align-items: flex-start; transition: all 0.2s; }
-.blog-card:hover { opacity: 1; border-color: rgba(46,125,50,0.3); transform: translateX(4px); }
-.blog-card.live { opacity: 1; border-color: rgba(46,125,50,0.25); cursor: pointer; }
-.blog-card.live:hover { border-color: var(--forest); box-shadow: 0 4px 20px rgba(46,125,50,0.1); }
-.blog-card.soon { opacity: 0.55; cursor: default; pointer-events: none; }
-.live-badge { display: inline-block; background: rgba(46,125,50,0.1); color: var(--forest); font-family: var(--mono); font-size: 0.62rem; padding: 0.15rem 0.5rem; border-radius: 100px; border: 1px solid rgba(46,125,50,0.2); margin-bottom: 0.4rem; }
-.post-cat { font-family: var(--mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--forest); margin-bottom: 0.3rem; }
-.post-cat.amber { color: var(--amber); }
-.post-cat.rose { color: #c2185b; }
-.blog-card h3 { font-family: var(--serif); font-size: 1rem; color: var(--bark); margin-bottom: 0.3rem; line-height: 1.4; }
-.blog-card p { font-size: 0.82rem; color: var(--text2); line-height: 1.55; }
-.post-time { font-family: var(--mono); font-size: 0.7rem; color: var(--text3); white-space: nowrap; text-align: right; }
-.blog-soon-note { background: rgba(46,125,50,0.06); border: 1.5px solid rgba(46,125,50,0.15); border-radius: var(--radius); padding: 1rem 1.25rem; font-size: 0.85rem; color: var(--text2); margin-top: 0.75rem; }
-.blog-sidebar { display: flex; flex-direction: column; gap: 1rem; }
-.sidebar-box { background: var(--paper); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 1.2rem; }
-.sidebar-box h4 { font-family: var(--serif); font-size: 1rem; color: var(--bark); margin-bottom: 0.9rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); }
-.topic-pill { display: inline-block; background: rgba(46,125,50,0.07); border: 1px solid rgba(46,125,50,0.15); color: var(--forest); font-size: 0.75rem; padding: 0.25rem 0.65rem; border-radius: 100px; margin: 0.2rem; font-family: var(--mono); cursor: pointer; transition: all 0.15s; font-weight: 500; }
-.topic-pill:hover { background: var(--forest); color: white; }
-#about { background: var(--warm); }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; }
-.about-text p { color: var(--text2); line-height: 1.8; margin-bottom: 0.9rem; font-size: 0.95rem; }
-.about-text p strong { color: var(--bark); }
-.timeline { display: flex; flex-direction: column; }
-.t-item { display: grid; grid-template-columns: 68px 1fr; gap: 1rem; padding-bottom: 1.4rem; position: relative; }
-.t-item:not(:last-child)::after { content: ''; position: absolute; left: 32px; top: 28px; bottom: 0; width: 1.5px; background: var(--border); }
-.t-year { font-family: var(--mono); font-size: 0.72rem; color: var(--text3); padding-top: 0.2rem; text-align: right; }
-.t-dot { width: 9px; height: 9px; background: var(--forest); border-radius: 50%; position: absolute; left: 28px; top: 7px; box-shadow: 0 0 0 3px rgba(46,125,50,0.18); }
-.t-body { padding-left: 1.1rem; }
-.t-body h4 { font-weight: 700; font-size: 0.9rem; color: var(--bark); margin-bottom: 0.15rem; }
-.t-body p { font-size: 0.8rem; color: var(--text2); }
-#contact { background: linear-gradient(180deg, var(--cream) 0%, #e8f5e9 100%); text-align: center; }
-[data-theme="dark"] #contact { background: linear-gradient(180deg, var(--cream) 0%, #0d1f0d 100%); }
-.contact-inner { max-width: 540px; margin: 0 auto; }
-.contact-cards { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-top: 2rem; }
-.contact-card { background: var(--paper); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 0.85rem 1.35rem; text-decoration: none; color: var(--text2); font-size: 0.875rem; font-weight: 700; display: flex; align-items: center; gap: 0.6rem; transition: all 0.2s; }
-.contact-card:hover { border-color: var(--forest); color: var(--forest); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(46,125,50,0.12); }
-footer { background: var(--cream); border-top: 1.5px solid var(--border); padding: 1.75rem 2rem; text-align: center; font-size: 0.8rem; color: var(--text3); font-family: var(--mono); }
-footer span { color: var(--forest); }
-@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.hero-badge { animation: fadeUp 0.5s ease 0.1s both; }
-h1.hero-name { animation: fadeUp 0.5s ease 0.2s both; }
-.hero-title { animation: fadeUp 0.5s ease 0.28s both; }
-.hero-desc { animation: fadeUp 0.5s ease 0.35s both; }
-.hero-btns { animation: fadeUp 0.5s ease 0.42s both; }
-.hero-stats { animation: fadeUp 0.5s ease 0.5s both; }
-.contact-strip { animation: fadeUp 0.5s ease 0.58s both; }
-.article-overlay { position: fixed; inset: 0; z-index: 200; background: var(--cream); overflow-y: auto; transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); }
-.article-overlay.open { transform: translateX(0); }
-.article-nav { position: sticky; top: 0; background: rgba(253,246,227,0.92); backdrop-filter: blur(12px); border-bottom: 1.5px solid var(--border); padding: 0.9rem 2rem; display: flex; align-items: center; gap: 1rem; z-index: 10; }
-[data-theme="dark"] .article-nav { background: rgba(26,22,18,0.92); }
-.back-btn { display: flex; align-items: center; gap: 0.4rem; color: var(--forest); font-weight: 700; font-size: 0.875rem; cursor: pointer; background: none; border: none; font-family: var(--sans); transition: gap 0.2s; }
-.back-btn:hover { gap: 0.7rem; }
-.article-body { max-width: 680px; margin: 0 auto; padding: 3rem 2rem 5rem; }
-.article-body .art-cat { font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--forest); margin-bottom: 0.75rem; }
-.article-body h1 { font-family: var(--serif); font-size: clamp(1.7rem, 4vw, 2.4rem); color: var(--bark); line-height: 1.25; margin-bottom: 1rem; }
-.article-meta { font-family: var(--mono); font-size: 0.75rem; color: var(--text3); margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1.5px solid var(--border); }
-.article-body h2 { font-family: var(--serif); font-size: 1.35rem; color: var(--bark); margin: 2.2rem 0 0.75rem; line-height: 1.35; }
-.article-body p { color: var(--text2); font-size: 0.97rem; line-height: 1.85; margin-bottom: 1.2rem; }
-.article-body strong { color: var(--bark); }
-.article-body em { color: var(--forest); font-style: italic; }
-.article-body pre { background: #1e1e1e; color: #d4d4d4; font-family: var(--mono); font-size: 0.82rem; padding: 1.25rem 1.5rem; border-radius: var(--radius); overflow-x: auto; margin: 1.5rem 0; line-height: 1.65; }
-.article-body code { background: rgba(46,125,50,0.08); color: var(--forest); font-family: var(--mono); font-size: 0.85em; padding: 0.15em 0.4em; border-radius: 5px; }
-.article-body pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
-.article-body ul, .article-body ol { color: var(--text2); font-size: 0.97rem; line-height: 1.85; margin: 0 0 1.2rem 1.5rem; }
-.article-body li { margin-bottom: 0.4rem; }
-.article-body blockquote { border-left: 3px solid var(--forest); padding: 0.75rem 1.25rem; margin: 1.5rem 0; background: rgba(46,125,50,0.05); border-radius: 0 var(--radius) var(--radius) 0; font-style: italic; color: var(--text2); }
-.article-footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1.5px solid var(--border); font-size: 0.85rem; color: var(--text3); font-family: var(--mono); }
-.article-footer a { color: var(--forest); }
-@media (max-width: 768px) {
-  nav { padding: 0.9rem 1.2rem; }
-  .nav-links li:not(:last-child) { display: none; }
-  section { padding: 3.5rem 1.2rem; }
-  #hero { padding: 6rem 1.2rem 2.5rem; }
-  .project-card.featured { grid-column: span 1; }
-  .blog-grid { grid-template-columns: 1fr; }
-  .blog-sidebar { display: none; }
-  .about-grid { grid-template-columns: 1fr; }
-  .hero-stats { gap: 0.5rem; }
-  .arch-flow { gap: 0.25rem; }
-  .arch-node { font-size: 0.65rem; padding: 0.25rem 0.5rem; }
-  .article-body { padding: 2rem 1.2rem 4rem; }
-  .article-nav { padding: 0.9rem 1.2rem; }
-}
-</style>
+<title>Preeti Bhardwaj — Data Scientist, GenAI & Agentic Systems</title>
+<meta name="description" content="Data Scientist building GenAI and agentic systems — RAG pipelines, tool-calling agents, and production ML with explicit rules for when models should refuse or escalate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Work+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="particle" style="left:8%;animation-duration:18s;animation-delay:0s;">🍃</div>
-<div class="particle" style="left:22%;animation-duration:24s;animation-delay:-6s;">🌿</div>
-<div class="particle" style="left:55%;animation-duration:20s;animation-delay:-12s;">✨</div>
-<div class="particle" style="left:75%;animation-duration:28s;animation-delay:-3s;">🍀</div>
-<div class="particle" style="left:88%;animation-duration:16s;animation-delay:-9s;">🌸</div>
-<div class="particle" style="left:40%;animation-duration:22s;animation-delay:-16s;">⭐</div>
-
-<nav>
-  <a href="#hero" class="nav-logo" style="display:flex;align-items:center;gap:0.4rem;text-decoration:none;">
-    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="18" cy="20" r="13" fill="#FFE0B2"/>
-      <ellipse cx="11" cy="23" rx="3.5" ry="2" fill="#FFAB91" opacity="0.6"/>
-      <ellipse cx="25" cy="23" rx="3.5" ry="2" fill="#FFAB91" opacity="0.6"/>
-      <ellipse cx="13.5" cy="20" rx="2.2" ry="2.5" fill="#3e2723"/>
-      <ellipse cx="22.5" cy="20" rx="2.2" ry="2.5" fill="#3e2723"/>
-      <circle cx="14.3" cy="19" r="0.8" fill="white"/>
-      <circle cx="23.3" cy="19" r="0.8" fill="white"/>
-      <path d="M14 25 Q18 28.5 22 25" stroke="#3e2723" stroke-width="1.2" stroke-linecap="round" fill="none"/>
-      <ellipse cx="18" cy="10" rx="13" ry="8" fill="#5d4037"/>
-      <ellipse cx="6" cy="18" rx="3.5" ry="6" fill="#5d4037"/>
-      <ellipse cx="30" cy="18" rx="3.5" ry="6" fill="#5d4037"/>
-      <ellipse cx="13" cy="8" rx="3" ry="1.5" fill="#8d6e63" opacity="0.5"/>
-      <ellipse cx="26" cy="8" rx="3" ry="1.8" fill="#2e7d32" transform="rotate(-20 26 8)"/>
-      <line x1="26" y1="9.5" x2="26" y2="13" stroke="#2e7d32" stroke-width="1"/>
-    </svg>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#blog">Writing</a></li>
-    <li><a href="https://medium.com/@bhardwajpreeti357" target="_blank">Medium ↗</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="mailto:bhardwajpreeti357@gmail.com">Contact</a></li>
-    <li><a href="https://www.kaggle.com/mistyvisty" target="_blank">Kaggle ↗</a></li>
-    <li><a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank" class="nav-cta">GitHub ↗</a></li>
-  </ul>
-  <div class="nav-actions">
-    <button class="dark-toggle" onclick="toggleDark()" id="darkBtn">🌙 Dark</button>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">PB</span>
+      <span class="brand-name">Preeti Bhardwaj</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="is-active">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="writing.html">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="about.html#contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" onclick="toggleDark()" id="darkBtn">◐ Dark</button>
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">☰</button>
+    </div>
   </div>
 </nav>
 
 <!-- HERO -->
-<section id="hero">
-  <div class="cloud cloud1"></div>
-  <div class="cloud cloud2"></div>
-  <div class="cloud cloud3"></div>
-  <div class="hero-badge">🌱 Open to opportunities · India / Remote</div>
-  <h1 class="hero-name">Preeti<br><em>Bhardwaj</em></h1>
-  <div class="hero-title">Data Analytics &nbsp;·&nbsp; Machine Learning &nbsp;·&nbsp; GenAI</div>
-  <p class="hero-desc">
-    Building <strong>practical ML and GenAI systems</strong> for healthcare and data-intensive domains —
-    from PCOS prediction at 0.97 AUC to a <strong>Medical RAG Assistant</strong> grounded in 5 peer-reviewed papers on PCOS × Neurodivergence.
-    I care about models that work <strong>in production</strong>, not just on paper.
-  </p>
-  <div class="hero-btns">
-    <a href="#projects" class="btn-primary">See my work 🍃</a>
-  </div>
-
-  <div class="contact-strip">
-    <a href="mailto:bhardwajpreeti357@gmail.com" class="contact-chip">✉️ Email</a>
-    <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank" class="contact-chip">🐙 GitHub</a>
-    <a href="https://www.kaggle.com/mistyvisty" target="_blank" class="contact-chip">🏆 Kaggle</a>
-    <a href="https://medium.com/@bhardwajpreeti357" target="_blank" class="contact-chip">✍️ Medium</a>
-  </div>
-  <svg class="hills" viewBox="0 0 1440 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,100 C200,40 400,140 600,80 C800,20 1000,120 1200,60 C1350,20 1400,80 1440,70 L1440,160 L0,160 Z" fill="#c8e6c9" opacity="0.6"/>
-    <path d="M0,130 C180,80 360,150 540,110 C720,70 900,140 1080,100 C1260,60 1380,120 1440,100 L1440,160 L0,160 Z" fill="#a5d6a7" opacity="0.5"/>
-    <path d="M0,150 C240,110 480,160 720,140 C960,120 1200,155 1440,145 L1440,160 L0,160 Z" fill="#fdf6e3"/>
-  </svg>
-</section>
-
-<!-- NOW BUILDING -->
-<section id="now-building">
-  <div class="section-inner">
-    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.5rem;">
-      <div class="section-label">🔨 Active Work</div>
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow">Systems that know when to refuse</div>
+    <h1 class="hero-title">Preeti Bhardwaj</h1>
+    <div class="hero-role">Data Scientist · GenAI &amp; Agentic Systems · RAG &amp; LLM Engineering</div>
+    <p class="hero-lede">I build AI systems with an explicit answer to one question: <strong>what happens when the model is wrong?</strong> A pipeline that can't leak into its own evaluation. A RAG assistant that refuses to answer without grounding. An agent that hard-codes escalation for high-stakes tickets instead of leaving it to probability.</p>
+    <div class="hero-actions">
+      <a href="projects.html" class="btn btn-solid">View projects →</a>
+      <a href="mailto:bhardwajpreeti357@gmail.com" class="btn btn-line">Get in touch</a>
     </div>
-    <h2 class="section-title" style="font-size:1.4rem;">Currently Building</h2>
-    <div class="now-grid">
-      <div class="now-card" style="border-left-color:var(--forest2);">
-        <div class="now-label done">✅ Shipped!</div>
-        <h4>Hospital Readmission Predictor</h4>
-        <p>XGBoost model served via FastAPI, containerized with Docker, tested and deployed automatically through GitHub Actions CI/CD. A full MLOps loop, not just a notebook.</p>
+
+    <!-- SIGNATURE: decision logic panel -->
+    <div class="decision-panel">
+      <div class="decision-head">
+        <h2>How my agents decide</h2>
+        <span>same logic that runs the Support Triage Agent</span>
       </div>
-      <div class="now-card" style="border-left-color:var(--forest2);">
-        <div class="now-label done">✅ Shipped!</div>
-        <h4>PCOS × Neurodivergence RAG</h4>
-        <p>Clinical Q&A on 5 peer-reviewed papers. LangChain + FAISS + Groq LLaMA 3.3 70B. Hallucination-aware prompt with author + page citations on every answer. <a href="https://github.com/mistyvisty/pcos-neurodivergence-rag" target="_blank" style="color:var(--forest);font-weight:700;">View repo →</a></p>
+      <div class="decision-grid">
+        <div class="decision-card draft">
+          <span class="decision-tag">Draft</span>
+          <p>Answer directly when the evidence in context actually supports it — no hedging, no filler.</p>
+        </div>
+        <div class="decision-card clarify">
+          <span class="decision-tag">Clarify</span>
+          <p>Ask a question instead of guessing, when a request is genuinely ambiguous.</p>
+        </div>
+        <div class="decision-card escalate">
+          <span class="decision-tag">Escalate</span>
+          <p>Hand off automatically for security or legal stakes — a hard rule, not a model judgment call.</p>
+        </div>
       </div>
-      <div class="now-card" style="border-left-color:var(--forest2);">
-        <div class="now-label done">✅ Shipped!</div>
-        <h4>AI CSV Analyst</h4>
-        <p>Upload any CSV and chat with your data using Groq LLaMA. AI generates insights and renders charts live. Deployed on Streamlit Cloud. <a href="https://preeti-ai-csv-analyst.streamlit.app" target="_blank" style="color:var(--forest);font-weight:700;">Try it live →</a></p>
-      </div>
-      <div class="now-card">
-        <div class="now-label">In Progress</div>
-        <h4>Portfolio Notebooks</h4>
-        <p>Publishing annotated Jupyter notebooks for all projects with reproducible pipelines and SHAP visuals.</p>
-      </div>
+      <p class="decision-foot">This routing logic powers the <a href="projects.html#triage">AI Support Triage Agent</a> — 100% escalation recall on security &amp; legal tickets, measured separately from overall routing accuracy.</p>
+    </div>
+
+    <!-- STAT STRIP -->
+    <div class="stat-strip">
+      <div class="stat-tile"><div class="stat-num">9</div><div class="stat-lbl">Projects shipped</div></div>
+      <div class="stat-tile"><div class="stat-num">4</div><div class="stat-lbl">Live deployed apps</div></div>
+      <div class="stat-tile"><div class="stat-num">100%</div><div class="stat-lbl">Escalation recall, triage agent</div></div>
+      <div class="stat-tile"><div class="stat-num">0.97</div><div class="stat-lbl">Best model AUC (PCOS detection)</div></div>
     </div>
   </div>
-</section>
+</header>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-inner">
-    <div class="section-label">🌿 Work</div>
-    <h2 class="section-title">Projects &<br>Case Studies</h2>
-    <p class="section-sub">End-to-end ML and GenAI systems built with real data, real business questions, and full explainability. Every result traceable to a decision.</p>
+<!-- FEATURED PROJECTS -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Featured work</div>
+      <h2>Three systems, three different failure modes handled</h2>
+      <p>Each one answers a different version of "what should the system do when it isn't sure" — for a clinical RAG assistant, a support agent, and a deployed ML model.</p>
+    </div>
+    <div class="proj-grid">
 
-    <div class="projects-grid">
-
-      <!-- MEDICAL RAG - FEATURED -->
-      <div class="project-card featured">
-        <span class="project-icon">🧠</span>
-        <div class="project-type">GenAI · RAG · Medical AI · NLP</div>
-        <span class="status-badge live">Live — Running on Colab</span>
-        <h3>PCOS × Neurodivergence — Medical RAG Assistant</h3>
-        <p>A hallucination-aware RAG pipeline that answers clinical questions about the PCOS–neurodivergence connection — grounded in <strong>5 peer-reviewed research papers</strong> (Cherskov, Redkar, Berni, Dubey, Chen). The system explicitly refuses to answer when the papers don't cover something, and provides author + page-number citations on every response. Interactive Q&A widget runs directly in Colab.</p>
-        <div class="metrics-row">
-          <span class="metric-chip">5 peer-reviewed papers</span>
-          <span class="metric-chip">~376 chunks embedded</span>
-          <span class="metric-chip orange">Hallucination-aware prompt</span>
-          <span class="metric-chip blue">Author + page citations on every answer</span>
-        </div>
-        <div class="arch-diagram">
-          <p>RAG Architecture</p>
-          <div class="arch-flow">
-            <span class="arch-node">5 PDFs</span><span class="arch-arrow">→</span>
-            <span class="arch-node">Chunks (800 chars)</span><span class="arch-arrow">→</span>
-            <span class="arch-node">MiniLM embeddings</span><span class="arch-arrow">→</span>
-            <span class="arch-node">FAISS (~376 vectors)</span><span class="arch-arrow">→</span>
-            <span class="arch-node">Groq LLaMA 3.3 70B</span><span class="arch-arrow">→</span>
-            <span class="arch-node">Cited answer</span>
-          </div>
-        </div>
-        <div class="project-tags">
-          <span class="tag">LangChain</span><span class="tag">FAISS</span><span class="tag">Groq</span>
-          <span class="tag">LLaMA 3.3 70B</span><span class="tag">MiniLM</span><span class="tag">PyMuPDF</span><span class="tag">ipywidgets</span><span class="tag">Python</span>
-        </div>
-        <div class="project-links-row">
-          <a href="https://github.com/mistyvisty/pcos-neurodivergence-rag" target="_blank" class="project-link">🐙 GitHub Repo →</a>
-          <a href="#" onclick="openArticle('a2'); return false;" class="project-link">📝 How I built it →</a>
-        </div>
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">Agentic · Tool-calling</span><span class="chip shipped">Shipped</span></div>
+        <h3>AI Support Triage Agent</h3>
+        <p class="proj-desc">Routes support tickets to draft, escalate, or clarify using native function-calling. Hard-coded policy overrides model judgment for security/legal tickets.</p>
+        <div class="metric-row"><span class="metric-chip">100% escalation recall</span><span class="metric-chip">57.1% routing accuracy</span></div>
+        <div class="link-row"><a href="https://github.com/mistyvisty/support-triage-agent" target="_blank" class="link-pill">Repo →</a></div>
       </div>
 
-      <!-- AI CSV ANALYST -->
-      <div class="project-card featured">
-        <span class="project-icon">📊</span>
-        <div class="project-type">GenAI · Data Analysis · Streamlit App</div>
-        <span class="status-badge live">Live — Deployed</span>
-        <h3>AI CSV Analyst — Chat With Your Data</h3>
-        <p>A deployed Streamlit web app that lets anyone upload a CSV and chat with their data using Groq LLaMA AI. Ask plain English questions, get instant insights, and generate charts automatically — no coding required. Built end-to-end: from data ingestion to LLM-powered analysis to live deployment.</p>
-        <div class="metrics-row">
-          <span class="metric-chip">Natural language Q&A</span>
-          <span class="metric-chip">Auto chart generation</span>
-          <span class="metric-chip orange">Live on Streamlit Cloud</span>
-          <span class="metric-chip blue">Groq LLaMA 3.3 70B</span>
-        </div>
-        <div class="arch-diagram">
-          <p>App Architecture</p>
-          <div class="arch-flow">
-            <span class="arch-node">CSV Upload</span><span class="arch-arrow">→</span>
-            <span class="arch-node">pandas summary</span><span class="arch-arrow">→</span>
-            <span class="arch-node">Groq LLaMA</span><span class="arch-arrow">→</span>
-            <span class="arch-node">Insights + Charts</span>
-          </div>
-        </div>
-        <div class="project-tags">
-          <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Groq</span>
-          <span class="tag">LLaMA 3.3</span><span class="tag">pandas</span><span class="tag">matplotlib</span>
-        </div>
-        <div style="margin: 0.75rem 0 1rem; border-radius: var(--radius); overflow: hidden; border: 1.5px solid var(--border); background: #1a1612;">
-          <div style="background: #2d2d2d; padding: 0.4rem 0.75rem; display: flex; align-items: center; gap: 0.4rem;">
-            <span style="width:8px;height:8px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
-            <span style="width:8px;height:8px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
-            <span style="width:8px;height:8px;border-radius:50%;background:#28c840;display:inline-block;"></span>
-            <span style="font-family:var(--mono);font-size:0.65rem;color:#888;margin-left:0.5rem;">preeti-ai-csv-analyst.streamlit.app</span>
-          </div>
-          <div style="padding: 1.25rem; background: #f5f0e8; text-align: center;">
-            <div style="font-size: 1.4rem; font-weight: 800; color: #2e7d32; font-family: var(--serif);">AI CSV <em style="color:#a5835a;">Analyst</em></div>
-            <div style="font-size: 0.72rem; color: #666; margin: 0.3rem 0 0.9rem; font-family: var(--sans);">Upload a CSV · Ask questions · Get instant insights &amp; charts</div>
-            <div style="background: #1e1e1e; border-radius: 8px; padding: 0.75rem 1rem; display: inline-flex; align-items: center; gap: 0.6rem; width: 100%; max-width: 260px; box-sizing: border-box;">
-              <div style="background: #333; border-radius: 4px; padding: 0.3rem 0.6rem; font-size: 0.65rem; color: #aaa; font-family: var(--mono);">Browse files</div>
-              <span style="font-size: 0.65rem; color: #666; font-family: var(--sans);">200MB per file • CSV</span>
-            </div>
-            <div style="margin-top: 0.75rem; border: 1.5px dashed #2e7d32; border-radius: 8px; padding: 0.85rem; color: #2e7d32; font-size: 0.75rem; font-family: var(--sans);">🌿 Upload a CSV to begin</div>
-          </div>
-        </div>
-        <div class="project-links-row">
-          <a href="https://preeti-ai-csv-analyst.streamlit.app" target="_blank" class="project-link">🚀 Live App →</a>
-          <a href="https://github.com/mistyvisty/ai-csv-analyst" target="_blank" class="project-link">🐙 GitHub →</a>
-        </div>
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">GenAI · RAG · Medical</span><span class="chip shipped">Shipped</span></div>
+        <h3>PCOS × Neurodivergence RAG Assistant</h3>
+        <p class="proj-desc">Clinical Q&A grounded in 5 peer-reviewed papers. Refuses to answer when the papers don't cover something — every answer carries an author + page citation.</p>
+        <div class="metric-row"><span class="metric-chip">5 papers · ~376 chunks</span><span class="metric-chip">Refuses when ungrounded</span></div>
+        <div class="link-row"><a href="https://github.com/mistyvisty/pcos-neurodivergence-rag" target="_blank" class="link-pill">Repo →</a></div>
       </div>
 
-      <!-- HOSPITAL READMISSION PREDICTOR - NEW -->
-      <div class="project-card featured">
-        <span class="project-icon">🏥</span>
-        <div class="project-type">MLOps · Healthcare AI · Production ML</div>
-        <span class="status-badge live">Live — CI/CD Running</span>
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">MLOps · Healthcare</span><span class="chip live">Live</span></div>
         <h3>Hospital Readmission Risk Predictor</h3>
-        <p>An end-to-end MLOps project, not just a notebook. An XGBoost model trained to flag patients at risk of readmission, served through a FastAPI endpoint, packaged into a Docker container, and tested automatically on every push with GitHub Actions. The goal was to take a model past "it works on my machine" and into something that actually behaves like a real service.</p>
-        <div class="metrics-row">
-          <span class="metric-chip">XGBoost classifier</span>
-          <span class="metric-chip orange">FastAPI inference endpoint</span>
-          <span class="metric-chip blue">Dockerized</span>
-          <span class="metric-chip">CI/CD on every push</span>
-        </div>
-        <div class="arch-diagram">
-          <p>Pipeline</p>
-          <div class="arch-flow">
-            <span class="arch-node">Patient Data</span><span class="arch-arrow">→</span>
-            <span class="arch-node">Preprocessing</span><span class="arch-arrow">→</span>
-            <span class="arch-node">XGBoost Model</span><span class="arch-arrow">→</span>
-            <span class="arch-node">FastAPI /predict</span><span class="arch-arrow">→</span>
-            <span class="arch-node">Docker</span><span class="arch-arrow">→</span>
-            <span class="arch-node">GitHub Actions CI/CD</span>
-          </div>
-        </div>
-        <div class="project-tags">
-          <span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">FastAPI</span>
-          <span class="tag">Docker</span><span class="tag">GitHub Actions</span><span class="tag">pytest</span><span class="tag">scikit-learn</span>
-        </div>
-        <div class="project-links-row">
-          <a href="https://github.com/mistyvisty/hospital-readmission-predictor" target="_blank" class="project-link">🐙 GitHub →</a>
-          <a href="#" onclick="openArticle('a5'); return false;" class="project-link">📝 Why I built it this way →</a>
-        </div>
-      </div>
-
-      <!-- PCOS ML -->
-      <div class="project-card">
-        <span class="project-icon">🔬</span>
-        <div class="project-type">Medical AI · Classification · Healthcare</div>
-        <span class="status-badge live">Live in Portfolio</span>
-        <h3>PCOS Detection & Risk Prediction</h3>
-        <p>End-to-end ML pipeline on 541 patient records from 10 hospitals. Zero-leakage SMOTE inside ImbPipeline, threshold-tuned to catch 90%+ of positive cases. SHAP identified fast food consumption as a top-3 risk factor.</p>
-        <div class="metrics-row">
-          <span class="metric-chip">AUC 0.97</span>
-          <span class="metric-chip">Mean CV AUC 0.97 · 5-fold</span>
-          <span class="metric-chip orange">90%+ recall (threshold-tuned)</span>
-        </div>
-        <div class="arch-diagram">
-          <p>Pipeline</p>
-          <div class="arch-flow">
-            <span class="arch-node">Raw Data</span><span class="arch-arrow">→</span>
-            <span class="arch-node">ImbPipeline + SMOTE</span><span class="arch-arrow">→</span>
-            <span class="arch-node">XGBoost</span><span class="arch-arrow">→</span>
-            <span class="arch-node">SHAP</span>
-          </div>
-        </div>
-        <div class="project-tags">
-          <span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">SHAP</span><span class="tag">SMOTE</span><span class="tag">ImbPipeline</span>
-        </div>
-        <div class="project-links-row">
-          <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank" class="project-link">🐙 GitHub →</a>
-          <a href="#" onclick="openArticle('a1'); return false;" class="project-link">📝 Blog Post →</a>
-        </div>
-      </div>
-
-      <!-- BANK CHURN -->
-      <div class="project-card">
-        <span class="project-icon">🏦</span>
-        <div class="project-type">BFSI · Churn Prediction</div>
-        <span class="status-badge live">Live in Portfolio</span>
-        <h3>Bank Customer Churn Prediction</h3>
-        <p>10,000 customer records. Removed a 0.996-correlated feature (Complain) because it appears <em>after</em> churn begins — not before. Production-thinking that leaves a model retention teams can actually use.</p>
-        <div class="metrics-row">
-          <span class="metric-chip">ROC-AUC 0.847</span>
-          <span class="metric-chip">CV AUC 0.87 · 5-fold</span>
-          <span class="metric-chip orange">Germany: 32.4% churn identified</span>
-        </div>
-        <div class="project-tags">
-          <span class="tag">XGBoost</span><span class="tag">SHAP Beeswarm</span><span class="tag">SMOTE</span><span class="tag">Python</span>
-        </div>
-        <div class="project-links-row">
-          <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank" class="project-link">🐙 GitHub →</a>
-          <a href="#" onclick="openArticle('a1'); return false;" class="project-link">📝 Article →</a>
-        </div>
-      </div>
-
-      <!-- SUPERSTORE -->
-      <div class="project-card">
-        <span class="project-icon">🛒</span>
-        <div class="project-type">Retail · BI Dashboard · SQL</div>
-        <span class="status-badge live">Live in Portfolio</span>
-        <h3>Superstore Sales Analysis</h3>
-        <p>12 SQL queries on 9,994 orders to surface hidden losses. Found that deep discounting cost the business $125K/year — Texas alone losing $25,729 despite $170K revenue. Full Power BI dashboard with KPIs and region map.</p>
-        <div class="metrics-row">
-          <span class="metric-chip">$125K annual loss found</span>
-          <span class="metric-chip orange">Texas: $25.7K loss on $170K revenue</span>
-          <span class="metric-chip blue">9,994 orders analyzed</span>
-        </div>
-        <div class="project-tags">
-          <span class="tag">SQLite</span><span class="tag">Power BI</span><span class="tag">Window Functions</span><span class="tag">CASE WHEN</span>
-        </div>
-        <div class="project-links-row">
-          <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank" class="project-link">🐙 GitHub →</a>
-        </div>
+        <p class="proj-desc">XGBoost model served via FastAPI, containerized with Docker, tested and deployed automatically through GitHub Actions CI/CD on every push.</p>
+        <div class="metric-row"><span class="metric-chip">Mean CV AUC 0.581</span><span class="metric-chip">101,766 patient records</span></div>
+        <div class="link-row"><a href="https://hospital-readmission-bz7hqjeye7fgsppfs3pwqm.streamlit.app/" target="_blank" class="link-pill">Live app →</a><a href="https://github.com/mistyvisty/hospital-readmission-predictor" target="_blank" class="link-pill">Repo →</a></div>
       </div>
 
     </div>
+    <a href="projects.html" class="section-foot-link">View all 9 projects →</a>
   </div>
 </section>
 
-<!-- BLOG -->
-<section id="blog">
-  <div class="section-inner">
-    <div class="section-label">✍️ Writing</div>
-    <h2 class="section-title">Technical<br>Writing</h2>
-    <p class="section-sub">Writing about ML, GenAI and data — things I learn, build and figure out the hard way. No filler, no theory for theory's sake.</p>
-    <div class="blog-grid">
-      <div>
-        <div class="blog-list">
-          <a href="https://medium.com/@bhardwajpreeti357/the-man-who-taught-the-world-ai-just-joined-anthropic-and-its-kind-of-a-big-deal-45b80502e5e7" target="_blank" class="blog-card live" style="text-decoration:none;">
-            <div>
-              <span class="live-badge">✓ On Medium</span>
-              <div class="post-cat" style="color:#c2185b;">AI · Industry</div>
-              <h3>🤖✨ The Man Who Taught the World AI Just Joined Anthropic (And It's Kind of a Big Deal 🦭)</h3>
-              <p>Why this hire matters for the future of AI education and what it signals about Anthropic's direction.</p>
-            </div>
-            <div class="post-time">Read →<br><span style="font-size:0.65rem;">Medium</span></div>
-          </a>
-          <a href="https://medium.com/@bhardwajpreeti357/i-tried-vibe-coding-and-the-vibe-is-imminent-doom-d6a27b523412" target="_blank" class="blog-card live" style="text-decoration:none;">
-            <div>
-              <span class="live-badge">✓ On Medium</span>
-              <div class="post-cat amber">GenAI · Opinion</div>
-              <h3>I Tried Vibe Coding and the Vibe is Imminent Doom 💀</h3>
-              <p>Honest take on AI-assisted coding — what actually works, what falls apart, and why the vibe isn't always good.</p>
-            </div>
-            <div class="post-time">Read →<br><span style="font-size:0.65rem;">Medium</span></div>
-          </a>
-          <a href="https://medium.com/@bhardwajpreeti357/the-ml-books-that-actually-helped-me-535aff74174b" target="_blank" class="blog-card live" style="text-decoration:none;">
-            <div>
-              <span class="live-badge">✓ On Medium</span>
-              <div class="post-cat amber">Career · Resources</div>
-              <h3>The ML Books That Actually Helped Me</h3>
-              <p>Not a generic booklist — the specific books that moved the needle when I was learning ML from scratch, and why.</p>
-            </div>
-            <div class="post-time">Read →<br><span style="font-size:0.65rem;">Medium</span></div>
-          </a>
-          <div class="blog-card live" onclick="openArticle('a1')">
-            <div>
-              <span class="live-badge">✓ Published</span>
-              <div class="post-cat">Machine Learning</div>
-              <h3>Why I Deleted a 0.996 Correlated Feature — And Why That Was Right</h3>
-              <p>The Complain column almost perfectly predicted churn. Here's why I removed it anyway — and what it reveals about production ML thinking.</p>
-            </div>
-            <div class="post-time">Read →<br><span style="font-size:0.65rem;">5 min</span></div>
-          </div>
-          <div class="blog-card live" onclick="openArticle('a2')">
-            <div>
-              <span class="live-badge">✓ Published</span>
-              <div class="post-cat">GenAI</div>
-              <h3>Building Your First RAG Pipeline — No Fluff, Just Steps</h3>
-              <p>LangChain, FAISS, and Groq (free). A real working tutorial for data analysts entering GenAI — written from experience building the Medical RAG Assistant.</p>
-            </div>
-            <div class="post-time">Read →<br><span style="font-size:0.65rem;">8 min</span></div>
-          </div>
-          <div class="blog-card live" onclick="openArticle('a3')">
-            <div>
-              <span class="live-badge">✓ Published</span>
-              <div class="post-cat amber">Data Analysis</div>
-              <h3>SHAP Values Explained Simply — Without Math Jargon</h3>
-              <p>What SHAP actually tells you, with real examples from the PCOS project.</p>
-            </div>
-            <div class="post-time">Read →<br><span style="font-size:0.65rem;">6 min</span></div>
-          </div>
-          <div class="blog-card live" onclick="openArticle('a4')">
-            <div>
-              <span class="live-badge">✓ Published</span>
-              <div class="post-cat">Machine Learning</div>
-              <h3>SMOTE Inside a Pipeline — Why Placement Matters for Data Leakage</h3>
-              <p>Most tutorials do SMOTE wrong. Here's how ImbPipeline fixes it.</p>
-            </div>
-            <div class="post-time">Read →<br><span style="font-size:0.65rem;">5 min</span></div>
-          </div>
-          <div class="blog-card live" onclick="openArticle('a5')">
-            <div>
-              <span class="live-badge">✓ Published</span>
-              <div class="post-cat" style="color:var(--sky-deep);">MLOps</div>
-              <h3>From Notebook to Endpoint — Taking a Model Past "It Works On My Machine"</h3>
-              <p>FastAPI, Docker, and GitHub Actions — what each one actually buys you when a model has to leave your laptop, built around the Hospital Readmission Predictor.</p>
-            </div>
-            <div class="post-time">Read →<br><span style="font-size:0.65rem;">7 min</span></div>
-          </div>
-        </div>
-        <div class="blog-soon-note">
-          ✨ More articles on <a href="https://medium.com/@bhardwajpreeti357" target="_blank" style="color:var(--forest);font-weight:700;">Medium @bhardwajpreeti357</a> — follow to get notified
-        </div>
-      </div>
-      <div class="blog-sidebar">
-        <div class="sidebar-box">
-          <h4>Topics</h4>
-          <span class="topic-pill">Machine Learning</span>
-          <span class="topic-pill">GenAI</span>
-          <span class="topic-pill">RAG</span>
-          <span class="topic-pill">SHAP</span>
-          <span class="topic-pill">Power BI</span>
-          <span class="topic-pill">SQL</span>
-          <span class="topic-pill">LangChain</span>
-          <span class="topic-pill">Healthcare AI</span>
-          <span class="topic-pill">EDA</span>
-          <span class="topic-pill">LLMs</span>
-          <span class="topic-pill">Python</span>
-          <span class="topic-pill">MLOps</span>
-          <span class="topic-pill">FastAPI</span>
-          <span class="topic-pill">Docker</span>
-          <span class="topic-pill">CI/CD</span>
-        </div>
-        <div class="sidebar-box">
-          <h4>RAG Architecture</h4>
-          <div style="display:flex;flex-direction:column;gap:0.4rem;margin-top:0.5rem;">
-            <div style="display:flex;align-items:center;gap:0.5rem;"><span style="background:rgba(46,125,50,0.1);border:1px solid rgba(46,125,50,0.2);border-radius:6px;padding:0.2rem 0.5rem;font-size:0.68rem;font-family:var(--mono);color:var(--forest);">User Query</span><span style="color:var(--forest);font-size:0.7rem;">↓</span></div>
-            <div style="display:flex;align-items:center;gap:0.5rem;"><span style="background:rgba(46,125,50,0.1);border:1px solid rgba(46,125,50,0.2);border-radius:6px;padding:0.2rem 0.5rem;font-size:0.68rem;font-family:var(--mono);color:var(--forest);">MiniLM Embedding</span><span style="color:var(--forest);font-size:0.7rem;">↓</span></div>
-            <div style="display:flex;align-items:center;gap:0.5rem;"><span style="background:rgba(46,125,50,0.1);border:1px solid rgba(46,125,50,0.2);border-radius:6px;padding:0.2rem 0.5rem;font-size:0.68rem;font-family:var(--mono);color:var(--forest);">FAISS Vector DB</span><span style="color:var(--forest);font-size:0.7rem;">↓</span></div>
-            <div style="display:flex;align-items:center;gap:0.5rem;"><span style="background:rgba(46,125,50,0.1);border:1px solid rgba(46,125,50,0.2);border-radius:6px;padding:0.2rem 0.5rem;font-size:0.68rem;font-family:var(--mono);color:var(--forest);">Top-5 Retrieval</span><span style="color:var(--forest);font-size:0.7rem;">↓</span></div>
-            <div style="display:flex;align-items:center;gap:0.5rem;"><span style="background:rgba(46,125,50,0.1);border:1px solid rgba(46,125,50,0.2);border-radius:6px;padding:0.2rem 0.5rem;font-size:0.68rem;font-family:var(--mono);color:var(--forest);">Groq LLaMA 3.1</span><span style="color:var(--forest);font-size:0.7rem;">↓</span></div>
-            <div><span style="background:rgba(46,125,50,0.15);border:1px solid rgba(46,125,50,0.3);border-radius:6px;padding:0.2rem 0.5rem;font-size:0.68rem;font-family:var(--mono);color:var(--forest);font-weight:700;">Cited Answer ✓</span></div>
-          </div>
-        </div>
-        <div class="sidebar-box" style="text-align:center;">
-          <p style="font-size:0.85rem;color:var(--text2);margin-bottom:0.9rem;line-height:1.5;">Want to know when articles drop? Say hi 🌿</p>
-          <a href="mailto:bhardwajpreeti357@gmail.com" class="btn-primary" style="font-size:0.82rem;padding:0.55rem 1.2rem;display:inline-block;">Get in touch ↗</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-inner">
-    <div class="section-label">🌸 Background</div>
-    <h2 class="section-title">About Me</h2>
+<!-- ABOUT TEASER -->
+<section class="section section-alt">
+  <div class="container">
     <div class="about-grid">
       <div class="about-text">
-        <p>I'm a <strong>Data Analyst and ML Engineer</strong> — trained as an Electronics & Communication engineer with a strong foundation in maths, statistics, and systems thinking.</p>
-        <p>My work lives at the intersection of <strong>rigorous ML engineering</strong> and <strong>real business impact</strong>. I don't just build models that score well — I ask whether the features make business sense, whether the pipeline has data leakage, and whether the output actually drives a decision.</p>
-        <p>I've now moved into <strong>Generative AI</strong> — building RAG pipelines grounded in real documents, with hallucination-aware prompting. My Medical RAG Assistant answers clinical questions about PCOS from actual research papers, citing the source page for every answer.</p>
-        <p>I also write technical articles explaining ML and GenAI concepts from first principles — because understanding <em>why</em> a technique works matters more than knowing <em>that</em> it works.</p>
-        <div style="margin-top:1.5rem;display:flex;gap:0.75rem;flex-wrap:wrap;">
-          <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank" class="btn-primary">GitHub Portfolio ↗</a>
-          <a href="mailto:bhardwajpreeti357@gmail.com" class="btn-ghost">Email me 🌿</a>
+        <div class="eyebrow">About</div>
+        <h2 style="font-family:var(--display);font-weight:500;font-size:1.7rem;margin-bottom:1rem;">Trained in engineering, working in responsible AI</h2>
+        <p>I'm a Data Analyst and ML Engineer trained as an Electronics &amp; Communication engineer, with a strong foundation in maths, statistics, and systems thinking.</p>
+        <p>My work sits at the intersection of rigorous ML engineering and real business impact — I ask whether features make business sense, whether a pipeline has data leakage, and whether the output actually drives a decision. Lately that's extended into GenAI: RAG pipelines grounded in real documents, with hallucination-aware prompting baked in from the start.</p>
+        <a href="about.html" class="section-foot-link">Read more about me →</a>
+      </div>
+      <div class="now-list">
+        <div class="now-item">
+          <h4>Currently studying</h4>
+          <p>ML/GenAI interview prep — Chip Huyen's <em>ML Interviews</em> book + Grokking ML, with live reading notes on <a href="https://spiral-game-e5b.notion.site/ML-Interview-Prep-Live-Reading-Notes-566ee8267299463b90dbe8c04434e496" target="_blank">Notion</a>.</p>
+        </div>
+        <div class="now-item">
+          <h4>Open to roles</h4>
+          <p>Data Scientist / GenAI Engineer / ML Engineer — full-time or remote.</p>
+        </div>
+        <div class="now-item">
+          <h4>Latest writing</h4>
+          <p>Notes on agentic systems, RAG, and production ML — see the <a href="writing.html">writing page</a>.</p>
         </div>
       </div>
-      <div>
-        </div></div></section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-inner contact-inner">
-    <div class="section-label" style="display:flex;justify-content:center;">🌸 Contact</div>
-    <h2 class="section-title">Let's work<br><em style="color:var(--forest);">together</em></h2>
-    <p class="section-sub" style="margin:0 auto;text-align:center;">Open to Data Analyst, ML Engineer and GenAI roles — full time or remote. Always happy to connect with fellow data people 🌿</p>
-    <div class="contact-cards">
-      <a href="mailto:bhardwajpreeti357@gmail.com" class="contact-card">✉️ bhardwajpreeti357@gmail.com</a>
-      <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank" class="contact-card">🐙 GitHub Portfolio</a>
-      <a href="https://www.kaggle.com/mistyvisty" target="_blank" class="contact-card">🏆 Kaggle</a>
-      <a href="https://medium.com/@bhardwajpreeti357" target="_blank" class="contact-card">✍️ Medium Blog</a>
     </div>
   </div>
 </section>
 
-<footer>Made with 🌿 by <span>Preeti Bhardwaj</span> · bhardwajpreeti357@gmail.com</footer>
-
-<!-- ARTICLE 1 -->
-<div class="article-overlay" id="overlay-a1">
-  <div class="article-nav"><button class="back-btn" onclick="closeArticle('a1')">← Back to blog</button></div>
-  <div class="article-body">
-    <div class="art-cat">Machine Learning · 5 min read</div>
-    <h1>Why I Deleted a 0.996 Correlated Feature — And Why That Was Right</h1>
-    <div class="article-meta">Preeti Bhardwaj &nbsp;·&nbsp; May 2026</div>
-    <p>When I was building a bank customer churn prediction model on 10,000 records, my correlation matrix threw up something that made me stop and stare.</p>
-    <p>One feature — <strong>Complain</strong> (whether a customer had filed a complaint) — had a <strong>0.996 correlation with the target variable</strong> (Exited). That's almost perfect. A data scientist's dream, right?</p>
-    <p>I deleted it anyway. Here's why.</p>
-    <h2>What the number was telling me</h2>
-    <p>A 0.996 correlation means: almost every customer who complained, churned. Almost every customer who didn't complain, stayed. On the surface, that sounds like a powerful signal. Your model would love it.</p>
-    <p>But ask yourself — <strong>in the real world, when does a bank know a customer has complained?</strong></p>
-    <p>Only <em>after</em> the customer has already complained. Which happens right before they leave. So what you've built is not a churn <em>predictor</em>. It's a churn <em>confirmer</em>. By the time you have the Complain value, the customer has one foot out the door. There's no time to intervene.</p>
-    <h2>The difference between correlation and usefulness</h2>
-    <blockquote>Test 1 — Is it statistically useful? (correlation, feature importance)<br>Test 2 — Is it available and actionable at prediction time?</blockquote>
-    <p>Complain passed Test 1 with flying colours. It failed Test 2 completely.</p>
-    <h2>What I kept instead</h2>
-    <p>After removing Complain, SHAP analysis revealed the actual drivers: <strong>Age</strong> (older customers churn more), <strong>NumOfProducts</strong> (single-product customers churn at much higher rates), and <strong>Geography</strong> (Germany showed 32.4% churn vs ~16% in France and Spain).</p>
-    <p>These are features a retention team can actually use. You can identify a 45-year-old single-product German customer <em>today</em> and reach out before they decide to leave.</p>
-    <h2>The model still performed well</h2>
-    <p><strong>ROC-AUC: 0.847</strong> · <strong>Mean CV AUC: 0.87 across 5 folds</strong></p>
-    <p>A lower AUC built on honest features is worth more than a higher AUC built on a feature that tells you what you already know.</p>
-    <div class="article-footer">Part of my <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank">Data Analytics Portfolio</a> · <a href="https://mistyvisty.github.io">mistyvisty.github.io</a></div>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-links">
+      <a href="mailto:bhardwajpreeti357@gmail.com">Email</a>
+      <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank">GitHub</a>
+      <a href="https://www.kaggle.com/mistyvisty" target="_blank">Kaggle</a>
+      <a href="https://medium.com/@bhardwajpreeti357" target="_blank">Medium</a>
+    </div>
+    <div class="footer-copy">© 2026 Preeti Bhardwaj</div>
   </div>
-</div>
+</footer>
 
-<!-- ARTICLE 2 -->
-<div class="article-overlay" id="overlay-a2">
-  <div class="article-nav"><button class="back-btn" onclick="closeArticle('a2')">← Back to blog</button></div>
-  <div class="article-body">
-    <div class="art-cat">GenAI · 8 min read</div>
-    <h1>Building Your First RAG Pipeline — No Fluff, Just Steps</h1>
-    <div class="article-meta">Preeti Bhardwaj &nbsp;·&nbsp; May 2026</div>
-    <p>This is the tutorial I wish I had when I built the PCOS × Neurodivergence RAG Assistant — no fluff, no jargon walls, just the actual steps to build a working RAG pipeline from scratch. The full project indexes 5 peer-reviewed clinical papers and answers questions with source citations.</p>
-    <h2>What is RAG and why does it matter?</h2>
-    <p><strong>RAG = Retrieval-Augmented Generation.</strong> LLMs don't know your documents. RAG fixes this: it takes your documents, turns them into searchable chunks, finds the most relevant ones for your question, and sends them to the LLM as context. The LLM answers <em>from your documents</em>, not from training data — and can cite the source.</p>
-    <h2>Stack</h2>
-    <p>Python · LangChain · FAISS · Groq (free API, no credit card) · MiniLM embeddings (local, free)</p>
-    <h2>Step 1 — Install</h2>
-    <pre><code>pip install langchain langchain-groq faiss-cpu pypdf sentence-transformers langchain-community</code></pre>
-    <h2>Step 2 — Load your PDF</h2>
-    <pre><code>from langchain_community.document_loaders import PyPDFLoader
-loader = PyPDFLoader("your_document.pdf")
-documents = loader.load()</code></pre>
-    <h2>Step 3 — Chunk it</h2>
-    <pre><code>from langchain_text_splitters import RecursiveCharacterTextSplitter
-splitter = RecursiveCharacterTextSplitter(chunk_size=600, chunk_overlap=80)
-chunks = splitter.split_documents(documents)</code></pre>
-    <h2>Step 4 — Embed and store</h2>
-    <pre><code>from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_community.vectorstores import FAISS
-embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
-vectorstore = FAISS.from_documents(chunks, embeddings)</code></pre>
-    <h2>Step 5 — Connect Groq and ask</h2>
-    <pre><code>from langchain_groq import ChatGroq
-llm = ChatGroq(model="llama-3.1-8b-instant", temperature=0.1, api_key="your-gsk-key")
-retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
-# Now build your chain and ask questions!</code></pre>
-    <h2>The hallucination-aware trick</h2>
-    <p>The most important part is your prompt. Tell the model explicitly: <strong>"If the answer is not in the context, say you cannot find it. Never make up medical facts."</strong> This is what separates a toy RAG from a trustworthy one.</p>
-    <div class="article-footer"><a href="https://mistyvisty.github.io">mistyvisty.github.io</a> · <a href="https://github.com/mistyvisty/pcos-neurodivergence-rag" target="_blank">PCOS × Neurodivergence RAG Repo</a></div>
-  </div>
-</div>
-
-<!-- ARTICLE 3 — SHAP -->
-<div class="article-overlay" id="overlay-a3">
-  <div class="article-nav"><button class="back-btn" onclick="closeArticle('a3')">← Back to blog</button></div>
-  <div class="article-body">
-    <div class="art-cat">Data Analysis · 6 min read</div>
-    <h1>SHAP Values Explained Simply — Without Math Jargon</h1>
-    <div class="article-meta">Preeti Bhardwaj &nbsp;·&nbsp; June 2026</div>
-    <p>Every ML tutorial shows you how to train a model. Almost none of them tell you <em>why</em> the model made the decision it did. That's where SHAP comes in — and it's one of the most practically useful tools I've added to my workflow.</p>
-    <h2>The problem SHAP solves</h2>
-    <p>Imagine you build a PCOS detection model with 0.97 AUC. Your model is accurate. But your doctor asks: <strong>"Why did you flag this patient as high risk?"</strong> You can't say "because the model said so." That's not medicine. That's a black box.</p>
-    <p>SHAP — SHapley Additive exPlanations — opens the black box. It tells you, for every single prediction, how much each feature pushed the output up or down.</p>
-    <h2>The core idea (no equations)</h2>
-    <p>Think of your model's prediction as a starting point — the average prediction across all patients. SHAP then asks: for <em>this specific patient</em>, which features moved the prediction away from that average, and by how much?</p>
-    <blockquote>SHAP value = how much did this feature contribute to <em>this prediction</em>, compared to the average?</blockquote>
-    <p>A positive SHAP value means the feature pushed the prediction <em>higher</em> (more likely PCOS). A negative value means it pushed it <em>lower</em>. The magnitude tells you how strongly.</p>
-    <h2>What I found in the PCOS project</h2>
-    <p>When I ran SHAP on the XGBoost classifier trained on 541 patient records, the results were medically interesting:</p>
-    <ul>
-      <li><strong>Total follicle count</strong> — the single strongest predictor. High follicle count = strong push toward positive PCOS diagnosis. Makes clinical sense.</li>
-      <li><strong>Fast food consumption</strong> — appeared as a top-3 risk factor. Diet and PCOS have a documented link, and SHAP surfaced it from the data alone.</li>
-      <li><strong>BMI and weight gain</strong> — significant contributors, consistent with clinical literature.</li>
-    </ul>
-    <p>These aren't just feature importances from a leaderboard. These are decision-level explanations that a doctor can look at and say "yes, this makes sense" — or flag if something looks wrong.</p>
-    <h2>Three ways to use SHAP</h2>
-    <p><strong>1. Summary plot</strong> — shows global importance across all predictions. Which features matter most overall?</p>
-    <pre><code>import shap
-explainer = shap.TreeExplainer(model)
-shap_values = explainer.shap_values(X_test)
-shap.summary_plot(shap_values, X_test)</code></pre>
-    <p><strong>2. Beeswarm plot</strong> — my favourite. Shows both importance AND direction. Each dot is one prediction. Red = high feature value, blue = low. The x-axis shows SHAP impact.</p>
-    <pre><code>shap.plots.beeswarm(shap.Explanation(
-    values=shap_values,
-    base_values=explainer.expected_value,
-    data=X_test,
-    feature_names=X_test.columns.tolist()
-))</code></pre>
-    <p><strong>3. Force plot (single prediction)</strong> — explains one patient's result. Red arrows pushed the prediction up, blue arrows pushed it down.</p>
-    <pre><code>shap.force_plot(explainer.expected_value, shap_values[0], X_test.iloc[0])</code></pre>
-    <h2>The thing most tutorials miss</h2>
-    <p>SHAP works best on <strong>TreeExplainer for tree-based models</strong> (XGBoost, Random Forest, LightGBM). It's exact and fast. For neural networks or linear models, use <code>DeepExplainer</code> or <code>LinearExplainer</code> — but the interpretation is the same.</p>
-    <p>The bigger lesson: explainability isn't a nice-to-have. In healthcare, finance, or any domain where a decision affects a real person, being able to explain <em>why</em> your model made a call is not optional. SHAP makes that possible.</p>
-    <div class="article-footer">From the <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank">PCOS Detection project</a> · <a href="https://mistyvisty.github.io">mistyvisty.github.io</a></div>
-  </div>
-</div>
-
-<!-- ARTICLE 4 — SMOTE -->
-<div class="article-overlay" id="overlay-a4">
-  <div class="article-nav"><button class="back-btn" onclick="closeArticle('a4')">← Back to blog</button></div>
-  <div class="article-body">
-    <div class="art-cat">Machine Learning · 5 min read</div>
-    <h1>SMOTE Inside a Pipeline — Why Placement Matters for Data Leakage</h1>
-    <div class="article-meta">Preeti Bhardwaj &nbsp;·&nbsp; June 2026</div>
-    <p>Most SMOTE tutorials look like this:</p>
-    <pre><code>from imblearn.over_sampling import SMOTE
-sm = SMOTE()
-X_resampled, y_resampled = sm.fit_resample(X, y)
-
-# Then split...
-X_train, X_test, y_train, y_test = train_test_split(X_resampled, y_resampled)</code></pre>
-    <p>This is wrong. And the model you build with it is lying to you.</p>
-    <h2>What SMOTE actually does</h2>
-    <p>SMOTE — Synthetic Minority Over-sampling Technique — creates synthetic samples of the minority class by interpolating between existing minority samples. If you have 100 PCOS-positive patients and 400 negative, SMOTE generates new synthetic positive patients to balance the dataset.</p>
-    <p>The goal is to stop your model from just predicting "negative" for everything and still being 80% accurate. Imbalanced data is a real problem. SMOTE is a real solution. But only if you use it correctly.</p>
-    <h2>Why the common approach leaks data</h2>
-    <p>When you apply SMOTE to the <em>entire dataset</em> before splitting, synthetic samples built from your training data end up in your test set. Your cross-validation is no longer testing on unseen data — it's testing on data it effectively already "saw" when SMOTE interpolated from it.</p>
-    <p>Your AUC goes up. Your model looks great. And then it fails in production, because real-world data wasn't generated by SMOTE.</p>
-    <blockquote>Rule: anything that learns from data — including SMOTE — must only see training data, never test data.</blockquote>
-    <h2>The fix: SMOTE inside ImbPipeline</h2>
-    <p><code>ImbPipeline</code> from <code>imbalanced-learn</code> is the correct tool. It applies SMOTE only inside each cross-validation fold — on the training portion — and leaves the validation fold untouched.</p>
-    <pre><code>from imblearn.pipeline import Pipeline as ImbPipeline
-from imblearn.over_sampling import SMOTE
-from sklearn.preprocessing import StandardScaler
-from xgboost import XGBClassifier
-from sklearn.model_selection import StratifiedKFold, cross_val_score
-
-pipeline = ImbPipeline([
-    ('scaler', StandardScaler()),
-    ('smote', SMOTE(random_state=42)),
-    ('model', XGBClassifier(random_state=42))
-])
-
-cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
-scores = cross_val_score(pipeline, X, y, cv=cv, scoring='roc_auc')
-print(f"Mean AUC: {scores.mean():.3f}")</code></pre>
-    <p>With this setup, for each of the 5 folds: SMOTE runs on the 80% training portion only, the model trains on the balanced training data, and evaluation happens on the 20% that SMOTE never touched. That's a honest AUC.</p>
-    <h2>Why StratifiedKFold matters too</h2>
-    <p>Regular KFold splits randomly. With imbalanced data, you can end up with a fold that has almost no minority class samples. <code>StratifiedKFold</code> preserves the class ratio in every fold — so each validation set is representative of the real distribution.</p>
-    <h2>The result in the PCOS project</h2>
-    <p>Using ImbPipeline with SMOTE inside StratifiedKFold on 541 patient records gave a <strong>Mean ROC-AUC of 0.97 across 5 folds</strong> with <strong>90%+ recall on positive cases</strong>. That's a result I trust — because the evaluation was honest.</p>
-    <p>When someone asks me "how do you know this will generalise?" I can point to the pipeline and show them exactly why leakage was impossible.</p>
-    <div class="article-footer">From the <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank">PCOS Detection project</a> · <a href="https://mistyvisty.github.io">mistyvisty.github.io</a></div>
-  </div>
-</div>
-
-<!-- ARTICLE 5 — MLOPS / NOTEBOOK TO ENDPOINT -->
-<div class="article-overlay" id="overlay-a5">
-  <div class="article-nav"><button class="back-btn" onclick="closeArticle('a5')">← Back to blog</button></div>
-  <div class="article-body">
-    <div class="art-cat">MLOps · 7 min read</div>
-    <h1>From Notebook to Endpoint — Taking a Model Past "It Works On My Machine"</h1>
-    <div class="article-meta">Preeti Bhardwaj &nbsp;·&nbsp; June 2026</div>
-    <p>Most ML portfolios stop at a notebook. You train a model, get a good AUC, plot a confusion matrix, and call it done. That's a real skill — but it's not the same skill as putting a model somewhere another piece of software can actually call it. The <strong>Hospital Readmission Predictor</strong> was my attempt to close that gap, end to end.</p>
-    <h2>The question that started it</h2>
-    <p>A trained model sitting in a <code>.pkl</code> file isn't useful to anyone except the person who trained it. A hospital's existing software doesn't know how to "open a notebook." It needs something it can send patient data to and get a risk score back — instantly, reliably, the same way every time. That's the gap between a model and a product.</p>
-    <h2>Step 1 — Wrapping the model in an API</h2>
-    <p>I used <strong>FastAPI</strong> to expose the trained XGBoost model as an HTTP endpoint. The pattern is simple but it matters: incoming data gets validated with <code>pydantic</code> schemas before it ever reaches the model, so malformed input fails loudly with a clear error instead of silently breaking a prediction.</p>
-    <pre><code>from fastapi import FastAPI
-from pydantic import BaseModel
-import joblib
-
-app = FastAPI()
-model = joblib.load("model.pkl")
-
-class PatientData(BaseModel):
-    age: int
-    num_procedures: int
-    num_diagnoses: int
-    # ...remaining features
-
-@app.post("/predict")
-def predict(data: PatientData):
-    features = [[data.age, data.num_procedures, data.num_diagnoses]]
-    risk_score = model.predict_proba(features)[0][1]
-    return {"readmission_risk": float(risk_score)}</code></pre>
-    <p>That's the whole contract: send patient features, get a probability back. Anything downstream — a dashboard, an internal hospital tool, a scheduling system — can now talk to the model without knowing it's XGBoost underneath.</p>
-    <h2>Step 2 — Why Docker, not just "pip install"</h2>
-    <p>"It works on my machine" is the most expensive sentence in software. My laptop has a specific Python version, specific package versions, specific OS quirks. None of that is guaranteed to exist wherever this actually needs to run.</p>
-    <p><strong>Docker</strong> solves this by packaging the exact environment — Python version, dependencies, the app itself — into one image that runs identically anywhere a container can run.</p>
-    <pre><code>FROM python:3.11-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-COPY . .
-EXPOSE 8000
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]</code></pre>
-    <p>Once this builds, the question "does it work on your machine?" stops being relevant. It works inside the container, and the container is the same everywhere.</p>
-    <h2>Step 3 — CI/CD: catching breakage before it ships</h2>
-    <p>The last piece is <strong>GitHub Actions</strong>. Every time code is pushed, a workflow automatically spins up, installs dependencies, and runs the test suite against the FastAPI app. If a change breaks the <code>/predict</code> endpoint or the model loading logic, the pipeline fails immediately — before it ever reaches anything resembling production.</p>
-    <blockquote>The point of CI/CD isn't speed. It's that a human doesn't have to remember to test things — the pipeline remembers for you, every single time.</blockquote>
-    <p>This is the same underlying principle behind using <code>ImbPipeline</code> with SMOTE in my PCOS project: don't trust a manual step that's easy to forget. Encode the correct behavior into the system itself, so it happens automatically whether you remember to do it or not.</p>
-    <h2>Why this matters more than another 0.01 AUC</h2>
-    <p>It's tempting to chase model accuracy as the main metric of a project. But a model with excellent AUC that can't be reliably served, breaks silently on bad input, or can't be redeployed without manual babysitting isn't actually usable in a real setting. A slightly simpler model wrapped in a tested, containerized, automatically-verified pipeline is worth more in practice — because it's the version that can actually be trusted to run unattended.</p>
-    <p>That's the real lesson from building this: in healthcare especially, "did we test this properly before it touched real data" is not optional, and it shouldn't depend on someone remembering to do it by hand.</p>
-    <div class="article-footer">From the <a href="https://github.com/mistyvisty/hospital-readmission-predictor" target="_blank">Hospital Readmission Predictor</a> · <a href="https://mistyvisty.github.io">mistyvisty.github.io</a></div>
-  </div>
-</div>
-
-<script>
-document.querySelectorAll('.particle').forEach(p => {
-  p.style.animationDelay = (Math.random() * -20) + 's';
-  p.style.animationDuration = (16 + Math.random() * 14) + 's';
-});
-function openArticle(id) {
-  const o = document.getElementById('overlay-' + id);
-  o.classList.add('open'); o.scrollTop = 0;
-  document.body.style.overflow = 'hidden';
-}
-function closeArticle(id) {
-  document.getElementById('overlay-' + id).classList.remove('open');
-  document.body.style.overflow = '';
-}
-function toggleDark() {
-  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-  document.documentElement.setAttribute('data-theme', isDark ? '' : 'dark');
-  document.getElementById('darkBtn').textContent = isDark ? '🌙 Dark' : '☀️ Light';
-  localStorage.setItem('theme', isDark ? 'light' : 'dark');
-}
-if (localStorage.getItem('theme') === 'dark') {
-  document.documentElement.setAttribute('data-theme', 'dark');
-  document.getElementById('darkBtn').textContent = '☀️ Light';
-}
-</script>
+<script src="main.js"></script>
 </body>
 </html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Preeti Bhardwaj</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Work+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">PB</span>
+      <span class="brand-name">Preeti Bhardwaj</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="writing.html">Writing</a></li>
+      <li><a href="about.html" class="is-active">About</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" onclick="toggleDark()" id="darkBtn">◐ Dark</button>
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" style="padding-bottom: 2.5rem;">
+  <div class="container">
+    <div class="eyebrow">Background</div>
+    <h1 class="hero-title" style="font-size: clamp(2rem, 5vw, 3.2rem);">About</h1>
+    <p class="hero-lede">Trained in engineering, working in responsible AI.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a <strong>Data Analyst and ML Engineer</strong> — trained as an Electronics &amp; Communication engineer with a strong foundation in maths, statistics, and systems thinking.</p>
+        <p>My work lives at the intersection of <strong>rigorous ML engineering</strong> and <strong>real business impact</strong>. I don't just build models that score well — I ask whether the features make business sense, whether the pipeline has data leakage, and whether the output actually drives a decision.</p>
+        <p>I've now moved into <strong>Generative AI</strong> — building RAG pipelines grounded in real documents, with hallucination-aware prompting baked in from the start. My Medical RAG Assistant answers clinical questions about PCOS from actual research papers, citing the source page for every answer. My Support Triage Agent hard-codes escalation rules for security and legal tickets, so the highest-stakes decisions never depend on a model's confidence alone.</p>
+        <p>I also write technical articles explaining ML and GenAI concepts from first principles — because understanding <em>why</em> a technique works matters more than knowing <em>that</em> it works.</p>
+        <div style="margin-top: 1.6rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank" class="btn btn-solid">GitHub Portfolio →</a>
+          <a href="mailto:bhardwajpreeti357@gmail.com" class="btn btn-line">Email me</a>
+        </div>
+      </div>
+      <div class="now-list">
+        <div class="now-item">
+          <h4>Currently studying</h4>
+          <p>Live reading notes on ML/GenAI interview prep — Chip Huyen's <em>ML Interviews</em> book + Grokking ML. <a href="https://spiral-game-e5b.notion.site/ML-Interview-Prep-Live-Reading-Notes-566ee8267299463b90dbe8c04434e496" target="_blank">Notion notes →</a></p>
+        </div>
+        <div class="now-item">
+          <h4>Study repo</h4>
+          <p>Markdown notes + study guide on GitHub. <a href="https://github.com/mistyvisty/ml-study-notes" target="_blank">ml-study-notes →</a></p>
+        </div>
+        <div class="now-item">
+          <h4>Open to</h4>
+          <p>Data Scientist / GenAI Engineer / ML Engineer roles — full-time or remote.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="contact">
+  <div class="container">
+    <div class="section-head" style="margin-bottom: 1.8rem;">
+      <div class="eyebrow">Get in touch</div>
+      <h2 style="font-size: 1.7rem;">Let's work together</h2>
+      <p>Open to Data Analyst, ML Engineer, and GenAI roles — full-time or remote. Always happy to connect with fellow data people.</p>
+    </div>
+    <div class="contact-grid">
+      <a href="mailto:bhardwajpreeti357@gmail.com" class="contact-card">
+        <span class="clabel">Email</span>
+        <span class="cval">bhardwajpreeti357@gmail.com</span>
+      </a>
+      <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank" class="contact-card">
+        <span class="clabel">GitHub</span>
+        <span class="cval">mistyvisty</span>
+      </a>
+      <a href="https://www.kaggle.com/mistyvisty" target="_blank" class="contact-card">
+        <span class="clabel">Kaggle</span>
+        <span class="cval">mistyvisty</span>
+      </a>
+      <a href="https://medium.com/@bhardwajpreeti357" target="_blank" class="contact-card">
+        <span class="clabel">Medium</span>
+        <span class="cval">@bhardwajpreeti357</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-links">
+      <a href="mailto:bhardwajpreeti357@gmail.com">Email</a>
+      <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank">GitHub</a>
+      <a href="https://www.kaggle.com/mistyvisty" target="_blank">Kaggle</a>
+      <a href="https://medium.com/@bhardwajpreeti357" target="_blank">Medium</a>
+    </div>
+    <div class="footer-copy">© 2026 Preeti Bhardwaj</div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

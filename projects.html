@@ -12,12 +12,12 @@
 
 <nav class="site-nav">
   <div class="nav-inner">
-    <a href="index.html" class="brand">
+    <a href="./" class="brand">
       <span class="brand-mark">PB</span>
       <span class="brand-name">Preeti Bhardwaj</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="./">Home</a></li>
       <li><a href="projects.html" class="is-active">Projects</a></li>
       <li><a href="writing.html">Writing</a></li>
       <li><a href="about.html">About</a></li>
@@ -32,15 +32,151 @@
 
 <header class="hero" style="padding-bottom: 2.5rem;">
   <div class="container">
-    <div class="eyebrow">9 systems, end to end</div>
+    <div class="eyebrow">10 systems, end to end</div>
     <h1 class="hero-title" style="font-size: clamp(2rem, 5vw, 3.2rem);">Projects &amp; case studies</h1>
-    <p class="hero-lede">GenAI, agentic systems, and production ML — built with real data, real failure modes, and a result reported honestly even when it's not flattering.</p>
+    <p class="hero-lede">Organized by what's actually doing the work — classic data science, retrieval-augmented generation, and agentic GenAI systems. Built with real data, real failure modes, and a result reported honestly even when it's not flattering.</p>
+    <div class="hero-actions" style="margin-top: 1.5rem;">
+      <a href="#data-science" class="btn btn-line">Data Science</a>
+      <a href="#rag" class="btn btn-line">RAG</a>
+      <a href="#genai" class="btn btn-line">GenAI</a>
+    </div>
   </div>
 </header>
 
-<!-- FEATURED -->
-<section class="section">
+<!-- ===================== DATA SCIENCE ===================== -->
+<section class="section" id="data-science">
   <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Category 01 · Data Science</div>
+      <h2 style="font-size: 1.6rem;">Production ML, dashboards &amp; classifiers</h2>
+      <p>Classical ML and analytics — feature engineering, leakage-free evaluation, and models that ship past the notebook.</p>
+    </div>
+    <div class="proj-grid featured-grid">
+
+      <!-- HOSPITAL READMISSION -->
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">MLOps · Healthcare AI · Production ML</span><span class="chip live">Live</span></div>
+        <h3>Hospital Readmission Risk Predictor</h3>
+        <p class="proj-desc">An end-to-end MLOps project on 101,766 patient records, not just a notebook. Removed target-leaking features (variables only knowable after the outcome), SMOTE inside ImbPipeline so synthetic data can't leak into validation folds, served via FastAPI with Pydantic schemas, containerized with Docker, and deployed through automated CI/CD on every push.</p>
+
+        <span class="flow-label">Pipeline</span>
+        <div class="flow">
+          <span class="flow-node">Patient data</span><span class="flow-arrow">→</span>
+          <span class="flow-node">Leak-free preprocessing</span><span class="flow-arrow">→</span>
+          <span class="flow-node">XGBoost</span><span class="flow-arrow">→</span>
+          <span class="flow-node">FastAPI /predict</span><span class="flow-arrow">→</span>
+          <span class="flow-node">Docker</span><span class="flow-arrow">→</span>
+          <span class="flow-node">GitHub Actions CI/CD</span>
+        </div>
+
+        <div class="metric-row"><span class="metric-chip">Mean CV AUC 0.581</span><span class="metric-chip">101,766 records</span><span class="metric-chip">Reported honestly — matches published benchmarks</span></div>
+        <div class="tag-row"><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">SMOTE</span><span class="tag">SHAP</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span></div>
+        <div class="link-row"><a href="https://hospital-readmission-bz7hqjeye7fgsppfs3pwqm.streamlit.app/" target="_blank" class="link-pill">🚀 Live app →</a><a href="https://github.com/mistyvisty/hospital-readmission-predictor" target="_blank" class="link-pill">🐙 Repo →</a></div>
+      </div>
+
+    </div>
+
+    <div class="proj-grid" style="margin-top: 1.1rem;">
+
+      <!-- INSURANCE FRAUD -->
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">SQL · BI Dashboard</span><span class="chip live">Live</span></div>
+        <h3>Healthcare Insurance Fraud Detection Dashboard</h3>
+        <p class="proj-desc">Full-stack fraud detection dashboard analyzing 10,000 healthcare insurance claims using SQL window functions and CTEs, containerized with Docker Compose. Surfaces fraud by provider specialty, insurance type, state, visit type, and chronic condition, plus a monthly trend and a high-risk claims table.</p>
+        <div class="metric-row"><span class="metric-chip">829 / 10,000 claims flagged (8.29%)</span><span class="metric-chip">$972,902 fraud gap on $5,728,044 claimed</span></div>
+        <div class="tag-row"><span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">Streamlit</span><span class="tag">Plotly</span></div>
+        <div class="link-row"><a href="https://insurance-fraud-d5ex7mayryye9gjonynmbg.streamlit.app/" target="_blank" class="link-pill">🚀 Live app →</a><a href="https://github.com/mistyvisty/insurance-fraud" target="_blank" class="link-pill">🐙 Repo →</a></div>
+      </div>
+
+      <!-- PCOS DETECTION -->
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">Medical AI · Classification</span><span class="chip shipped">Shipped</span></div>
+        <h3>PCOS Detection &amp; Risk Prediction</h3>
+        <p class="proj-desc">ML pipeline on 541 records from 10 hospitals. Engineered a <code style="font-family:var(--mono);background:var(--paper);padding:0.1em 0.4em;border-radius:4px;">Total_follicles</code> feature that became the #1 SHAP predictor, above either individual follicle count. Zero data leakage across 5-fold stratified CV; threshold tuned for recall &gt; 90% because false negatives are clinically worse than false positives.</p>
+        <div class="metric-row"><span class="metric-chip">Mean AUC 0.973</span><span class="metric-chip">Recall 91.4% at tuned threshold</span></div>
+        <div class="tag-row"><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">Random Forest</span><span class="tag">SHAP</span><span class="tag">SMOTE</span><span class="tag">ImbPipeline</span></div>
+        <div class="link-row"><a href="https://github.com/mistyvisty/Data-Analytics-Portfolio/blob/main/PCOS_Detection_Medical.ipynb" target="_blank" class="link-pill">📓 Notebook →</a><a href="https://medium.com/@bhardwajpreeti357/why-i-built-a-pcos-prediction-model-and-why-it-was-never-just-a-portfolio-project-85f64126ed2f" target="_blank" class="link-pill">📝 Write-up →</a></div>
+      </div>
+
+      <!-- BANK CHURN -->
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">BFSI · Churn Prediction</span><span class="chip shipped">Shipped</span></div>
+        <h3>Bank Customer Churn Prediction</h3>
+        <p class="proj-desc">Caught a target-leaking feature (Complain, 0.996 correlation with churn — but only knowable after the customer already churned) and removed it. SHAP Beeswarm surfaced Age and NumOfProducts as the real predictors, and identified Germany as the highest-risk market.</p>
+        <div class="metric-row"><span class="metric-chip">ROC-AUC 0.847</span><span class="metric-chip">Germany flagged as highest-risk market</span></div>
+        <div class="tag-row"><span class="tag">XGBoost</span><span class="tag">SHAP Beeswarm</span><span class="tag">ImbPipeline</span><span class="tag">Python</span></div>
+        <div class="link-row"><a href="https://github.com/mistyvisty/Data-Analytics-Portfolio/blob/main/Bank_Customer_Churn_Prediction.ipynb" target="_blank" class="link-pill">📓 Notebook →</a></div>
+      </div>
+
+      <!-- SUPERSTORE -->
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">Retail · SQL · BI</span><span class="chip shipped">Shipped</span></div>
+        <h3>Superstore Sales Analysis</h3>
+        <p class="proj-desc">12 SQL queries on 9,994 orders to surface hidden losses. Found that deep discounting cost the business $125K a year — Texas alone losing money despite strong revenue. Full Power BI dashboard with KPIs and a region map.</p>
+        <div class="metric-row"><span class="metric-chip">$125K annual loss found</span><span class="metric-chip">Texas: $25.7K loss on $170K revenue</span></div>
+        <div class="tag-row"><span class="tag">SQLite</span><span class="tag">Power BI</span><span class="tag">Window Functions</span></div>
+        <div class="link-row"><a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank" class="link-pill">🐙 Repo →</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RAG ===================== -->
+<section class="section section-alt" id="rag">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Category 02 · RAG</div>
+      <h2 style="font-size: 1.6rem;">Retrieval-augmented generation</h2>
+      <p>Hallucination-aware pipelines grounded in real documents — every answer is either cited or refused.</p>
+    </div>
+    <div class="proj-grid featured-grid">
+
+      <!-- PCOS RAG -->
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">GenAI · RAG · Medical AI</span><span class="chip shipped">Shipped</span></div>
+        <h3>PCOS × Neurodivergence — Medical RAG Assistant</h3>
+        <p class="proj-desc">A hallucination-aware RAG pipeline that answers clinical questions about the PCOS–neurodivergence connection — an underresearched intersection that affects a lot of people who don't have good answers. Grounded in 5 peer-reviewed papers, the system explicitly refuses to answer when the papers don't cover something, and provides author + page-number citations on every response.</p>
+
+        <span class="flow-label">RAG architecture</span>
+        <div class="flow">
+          <span class="flow-node">5 PDFs</span><span class="flow-arrow">→</span>
+          <span class="flow-node">Chunks (800 chars)</span><span class="flow-arrow">→</span>
+          <span class="flow-node">MiniLM embeddings</span><span class="flow-arrow">→</span>
+          <span class="flow-node">FAISS (~376 vectors)</span><span class="flow-arrow">→</span>
+          <span class="flow-node">Groq LLaMA 3.3-70B</span><span class="flow-arrow">→</span>
+          <span class="flow-node">Cited answer</span>
+        </div>
+
+        <div class="metric-row"><span class="metric-chip">5 peer-reviewed papers</span><span class="metric-chip">~376 chunks embedded</span><span class="metric-chip">Refuses when ungrounded</span></div>
+        <div class="tag-row"><span class="tag">LangChain</span><span class="tag">FAISS</span><span class="tag">Groq</span><span class="tag">LLaMA 3.3 70B</span><span class="tag">MiniLM</span><span class="tag">PyMuPDF</span><span class="tag">ipywidgets</span></div>
+        <div class="link-row"><a href="https://github.com/mistyvisty/pcos-neurodivergence-rag" target="_blank" class="link-pill">🐙 Repo →</a><a href="https://medium.com/@bhardwajpreeti357/i-built-an-ai-that-reads-clinical-research-papers-and-answers-questions-about-pcos-and-b1f526784409" target="_blank" class="link-pill">📝 Write-up →</a></div>
+      </div>
+
+    </div>
+
+    <div class="proj-grid" style="margin-top: 1.1rem;">
+      <!-- MEDICAL RAG (PUBMED) -->
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">GenAI · RAG · Clinical Literature</span><span class="chip shipped">Shipped</span></div>
+        <h3>Medical RAG Assistant — PCOS Clinical Literature</h3>
+        <p class="proj-desc">RAG pipeline on PubMed PCOS literature: 361 chunks, MiniLM embeddings, FAISS retrieval, and a hallucination-aware system prompt that refuses out-of-context queries and requires exact source + page citations on every answer.</p>
+        <div class="metric-row"><span class="metric-chip">361 chunks indexed</span><span class="metric-chip">Citations required on every answer</span></div>
+        <div class="tag-row"><span class="tag">LangChain</span><span class="tag">FAISS</span><span class="tag">MiniLM</span><span class="tag">Groq LLaMA 3.1</span></div>
+        <div class="link-row"><a href="https://github.com/mistyvisty/Data-Analytics-Portfolio/blob/main/Medical_RAG_Assistant.ipynb" target="_blank" class="link-pill">📓 Notebook →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GENAI ===================== -->
+<section class="section" id="genai">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Category 03 · GenAI</div>
+      <h2 style="font-size: 1.6rem;">Agentic systems &amp; LLM copilots</h2>
+      <p>Beyond single-shot Q&amp;A — agents that take actions, route decisions, and chain multiple LLM calls toward a verified result.</p>
+    </div>
     <div class="proj-grid featured-grid">
 
       <!-- TRIAGE AGENT -->
@@ -85,71 +221,9 @@
         <div class="link-row"><a href="https://medical-research-agent-3mbhgune6spud5lszhhvqs.streamlit.app/" target="_blank" class="link-pill">🚀 Live app →</a><a href="https://github.com/mistyvisty/medical-research-agent" target="_blank" class="link-pill">🐙 Repo →</a></div>
       </div>
 
-      <!-- PCOS RAG -->
-      <div class="proj-card">
-        <div class="proj-top"><span class="proj-kicker">GenAI · RAG · Medical AI</span><span class="chip shipped">Shipped</span></div>
-        <h3>PCOS × Neurodivergence — Medical RAG Assistant</h3>
-        <p class="proj-desc">A hallucination-aware RAG pipeline that answers clinical questions about the PCOS–neurodivergence connection — an underresearched intersection that affects a lot of people who don't have good answers. Grounded in 5 peer-reviewed papers, the system explicitly refuses to answer when the papers don't cover something, and provides author + page-number citations on every response.</p>
-
-        <span class="flow-label">RAG architecture</span>
-        <div class="flow">
-          <span class="flow-node">5 PDFs</span><span class="flow-arrow">→</span>
-          <span class="flow-node">Chunks (800 chars)</span><span class="flow-arrow">→</span>
-          <span class="flow-node">MiniLM embeddings</span><span class="flow-arrow">→</span>
-          <span class="flow-node">FAISS (~376 vectors)</span><span class="flow-arrow">→</span>
-          <span class="flow-node">Groq LLaMA 3.3-70B</span><span class="flow-arrow">→</span>
-          <span class="flow-node">Cited answer</span>
-        </div>
-
-        <div class="metric-row"><span class="metric-chip">5 peer-reviewed papers</span><span class="metric-chip">~376 chunks embedded</span><span class="metric-chip">Refuses when ungrounded</span></div>
-        <div class="tag-row"><span class="tag">LangChain</span><span class="tag">FAISS</span><span class="tag">Groq</span><span class="tag">LLaMA 3.3 70B</span><span class="tag">MiniLM</span><span class="tag">PyMuPDF</span><span class="tag">ipywidgets</span></div>
-        <div class="link-row"><a href="https://github.com/mistyvisty/pcos-neurodivergence-rag" target="_blank" class="link-pill">🐙 Repo →</a><a href="https://medium.com/@bhardwajpreeti357/i-built-an-ai-that-reads-clinical-research-papers-and-answers-questions-about-pcos-and-b1f526784409" target="_blank" class="link-pill">📝 Write-up →</a></div>
-      </div>
-
-      <!-- HOSPITAL READMISSION -->
-      <div class="proj-card">
-        <div class="proj-top"><span class="proj-kicker">MLOps · Healthcare AI · Production ML</span><span class="chip live">Live</span></div>
-        <h3>Hospital Readmission Risk Predictor</h3>
-        <p class="proj-desc">An end-to-end MLOps project on 101,766 patient records, not just a notebook. Removed target-leaking features (variables only knowable after the outcome), SMOTE inside ImbPipeline so synthetic data can't leak into validation folds, served via FastAPI with Pydantic schemas, containerized with Docker, and deployed through automated CI/CD on every push.</p>
-
-        <span class="flow-label">Pipeline</span>
-        <div class="flow">
-          <span class="flow-node">Patient data</span><span class="flow-arrow">→</span>
-          <span class="flow-node">Leak-free preprocessing</span><span class="flow-arrow">→</span>
-          <span class="flow-node">XGBoost</span><span class="flow-arrow">→</span>
-          <span class="flow-node">FastAPI /predict</span><span class="flow-arrow">→</span>
-          <span class="flow-node">Docker</span><span class="flow-arrow">→</span>
-          <span class="flow-node">GitHub Actions CI/CD</span>
-        </div>
-
-        <div class="metric-row"><span class="metric-chip">Mean CV AUC 0.581</span><span class="metric-chip">101,766 records</span><span class="metric-chip">Reported honestly — matches published benchmarks</span></div>
-        <div class="tag-row"><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">SMOTE</span><span class="tag">SHAP</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span></div>
-        <div class="link-row"><a href="https://hospital-readmission-bz7hqjeye7fgsppfs3pwqm.streamlit.app/" target="_blank" class="link-pill">🚀 Live app →</a><a href="https://github.com/mistyvisty/hospital-readmission-predictor" target="_blank" class="link-pill">🐙 Repo →</a></div>
-      </div>
-
     </div>
-  </div>
-</section>
 
-<!-- STANDARD GRID -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-head" style="margin-bottom: 1.8rem;">
-      <div class="eyebrow">More projects</div>
-      <h2 style="font-size: 1.5rem;">Dashboards, classifiers, and copilots</h2>
-    </div>
-    <div class="proj-grid">
-
-      <!-- INSURANCE FRAUD -->
-      <div class="proj-card">
-        <div class="proj-top"><span class="proj-kicker">SQL · BI Dashboard</span><span class="chip live">Live</span></div>
-        <h3>Healthcare Insurance Fraud Detection Dashboard</h3>
-        <p class="proj-desc">Full-stack fraud detection dashboard analyzing 10,000 healthcare insurance claims using SQL window functions and CTEs, containerized with Docker Compose. Surfaces fraud by provider specialty, insurance type, state, visit type, and chronic condition, plus a monthly trend and a high-risk claims table.</p>
-        <div class="metric-row"><span class="metric-chip">829 / 10,000 claims flagged (8.29%)</span><span class="metric-chip">$972,902 fraud gap on $5,728,044 claimed</span></div>
-        <div class="tag-row"><span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">Streamlit</span><span class="tag">Plotly</span></div>
-        <div class="link-row"><a href="https://insurance-fraud-d5ex7mayryye9gjonynmbg.streamlit.app/" target="_blank" class="link-pill">🚀 Live app →</a><a href="https://github.com/mistyvisty/insurance-fraud" target="_blank" class="link-pill">🐙 Repo →</a></div>
-      </div>
-
+    <div class="proj-grid" style="margin-top: 1.1rem;">
       <!-- AI CSV ANALYST -->
       <div class="proj-card">
         <div class="proj-top"><span class="proj-kicker">GenAI · Data Copilot</span><span class="chip live">Live</span></div>
@@ -159,47 +233,6 @@
         <div class="tag-row"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Groq LLaMA 3.3-70B</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span></div>
         <div class="link-row"><a href="https://preeti-ai-csv-analyst.streamlit.app/" target="_blank" class="link-pill">🚀 Live app →</a><a href="https://github.com/mistyvisty/ai_csv_analyst" target="_blank" class="link-pill">🐙 Repo →</a></div>
       </div>
-
-      <!-- PCOS DETECTION -->
-      <div class="proj-card">
-        <div class="proj-top"><span class="proj-kicker">Medical AI · Classification</span><span class="chip shipped">Shipped</span></div>
-        <h3>PCOS Detection &amp; Risk Prediction</h3>
-        <p class="proj-desc">ML pipeline on 541 records from 10 hospitals. Engineered a <code style="font-family:var(--mono);background:var(--paper);padding:0.1em 0.4em;border-radius:4px;">Total_follicles</code> feature that became the #1 SHAP predictor, above either individual follicle count. Zero data leakage across 5-fold stratified CV; threshold tuned for recall &gt; 90% because false negatives are clinically worse than false positives.</p>
-        <div class="metric-row"><span class="metric-chip">Mean AUC 0.973</span><span class="metric-chip">Recall 91.4% at tuned threshold</span></div>
-        <div class="tag-row"><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">Random Forest</span><span class="tag">SHAP</span><span class="tag">SMOTE</span><span class="tag">ImbPipeline</span></div>
-        <div class="link-row"><a href="https://github.com/mistyvisty/Data-Analytics-Portfolio/blob/main/PCOS_Detection_Medical.ipynb" target="_blank" class="link-pill">📓 Notebook →</a></div>
-      </div>
-
-      <!-- BANK CHURN -->
-      <div class="proj-card">
-        <div class="proj-top"><span class="proj-kicker">BFSI · Churn Prediction</span><span class="chip shipped">Shipped</span></div>
-        <h3>Bank Customer Churn Prediction</h3>
-        <p class="proj-desc">Caught a target-leaking feature (Complain, 0.996 correlation with churn — but only knowable after the customer already churned) and removed it. SHAP Beeswarm surfaced Age and NumOfProducts as the real predictors, and identified Germany as the highest-risk market.</p>
-        <div class="metric-row"><span class="metric-chip">ROC-AUC 0.847</span><span class="metric-chip">Germany flagged as highest-risk market</span></div>
-        <div class="tag-row"><span class="tag">XGBoost</span><span class="tag">SHAP Beeswarm</span><span class="tag">ImbPipeline</span><span class="tag">Python</span></div>
-        <div class="link-row"><a href="https://github.com/mistyvisty/Data-Analytics-Portfolio/blob/main/Bank_Customer_Churn_Prediction.ipynb" target="_blank" class="link-pill">📓 Notebook →</a></div>
-      </div>
-
-      <!-- MEDICAL RAG (PUBMED) -->
-      <div class="proj-card">
-        <div class="proj-top"><span class="proj-kicker">GenAI · RAG · Clinical Literature</span><span class="chip shipped">Shipped</span></div>
-        <h3>Medical RAG Assistant — PCOS Clinical Literature</h3>
-        <p class="proj-desc">RAG pipeline on PubMed PCOS literature: 361 chunks, MiniLM embeddings, FAISS retrieval, and a hallucination-aware system prompt that refuses out-of-context queries and requires exact source + page citations on every answer.</p>
-        <div class="metric-row"><span class="metric-chip">361 chunks indexed</span><span class="metric-chip">Citations required on every answer</span></div>
-        <div class="tag-row"><span class="tag">LangChain</span><span class="tag">FAISS</span><span class="tag">MiniLM</span><span class="tag">Groq LLaMA 3.1</span></div>
-        <div class="link-row"><a href="https://github.com/mistyvisty/Data-Analytics-Portfolio/blob/main/Medical_RAG_Assistant.ipynb" target="_blank" class="link-pill">📓 Notebook →</a></div>
-      </div>
-
-      <!-- SUPERSTORE -->
-      <div class="proj-card">
-        <div class="proj-top"><span class="proj-kicker">Retail · SQL · BI</span><span class="chip shipped">Shipped</span></div>
-        <h3>Superstore Sales Analysis</h3>
-        <p class="proj-desc">12 SQL queries on 9,994 orders to surface hidden losses. Found that deep discounting cost the business $125K a year — Texas alone losing money despite strong revenue. Full Power BI dashboard with KPIs and a region map.</p>
-        <div class="metric-row"><span class="metric-chip">$125K annual loss found</span><span class="metric-chip">Texas: $25.7K loss on $170K revenue</span></div>
-        <div class="tag-row"><span class="tag">SQLite</span><span class="tag">Power BI</span><span class="tag">Window Functions</span></div>
-        <div class="link-row"><a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank" class="link-pill">🐙 Repo →</a></div>
-      </div>
-
     </div>
   </div>
 </section>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing — Preeti Bhardwaj</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Work+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">PB</span>
+      <span class="brand-name">Preeti Bhardwaj</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="writing.html" class="is-active">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="about.html#contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" onclick="toggleDark()" id="darkBtn">◐ Dark</button>
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" style="padding-bottom: 2.5rem;">
+  <div class="container">
+    <div class="eyebrow">Field notes</div>
+    <h1 class="hero-title" style="font-size: clamp(2rem, 5vw, 3.2rem);">Writing</h1>
+    <p class="hero-lede">Notes on ML, GenAI, and data — things I learn, build, and figure out the hard way. No filler, no theory for theory's sake.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="post-list">
+
+      <a href="https://medium.com/@bhardwajpreeti357/the-man-who-taught-the-world-ai-just-joined-anthropic-and-its-kind-of-a-big-deal-45b80502e5e7" target="_blank" class="post-row">
+        <div>
+          <div class="post-cat">AI · Industry</div>
+          <h3>The Man Who Taught the World AI Just Joined Anthropic (And It's Kind of a Big Deal)</h3>
+          <p>Why this hire matters for the future of AI education and what it signals about Anthropic's direction.</p>
+        </div>
+        <div class="post-meta"><span class="ext-badge">Medium ↗</span></div>
+      </a>
+
+      <a href="https://medium.com/@bhardwajpreeti357/i-tried-vibe-coding-and-the-vibe-is-imminent-doom-d6a27b523412" target="_blank" class="post-row">
+        <div>
+          <div class="post-cat">GenAI · Opinion</div>
+          <h3>I Tried Vibe Coding and the Vibe is Imminent Doom</h3>
+          <p>Honest take on AI-assisted coding — what actually works, what falls apart, and why the vibe isn't always good.</p>
+        </div>
+        <div class="post-meta"><span class="ext-badge">Medium ↗</span></div>
+      </a>
+
+      <a href="https://medium.com/@bhardwajpreeti357/the-ml-books-that-actually-helped-me-535aff74174b" target="_blank" class="post-row">
+        <div>
+          <div class="post-cat">Career · Resources</div>
+          <h3>The ML Books That Actually Helped Me</h3>
+          <p>Not a generic booklist — the specific books that moved the needle when I was learning ML from scratch, and why.</p>
+        </div>
+        <div class="post-meta"><span class="ext-badge">Medium ↗</span></div>
+      </a>
+
+      <div class="post-row" onclick="openArticle('a1')">
+        <div>
+          <div class="post-cat">Machine Learning</div>
+          <h3>Why I Deleted a 0.996 Correlated Feature — And Why That Was Right</h3>
+          <p>The Complain column almost perfectly predicted churn. Here's why I removed it anyway — and what it reveals about production ML thinking.</p>
+        </div>
+        <div class="post-meta">5 min read</div>
+      </div>
+
+      <div class="post-row" onclick="openArticle('a2')">
+        <div>
+          <div class="post-cat">GenAI</div>
+          <h3>Building Your First RAG Pipeline — No Fluff, Just Steps</h3>
+          <p>LangChain, FAISS, and Groq (free). A real working tutorial for data analysts entering GenAI — written from experience building the Medical RAG Assistant.</p>
+        </div>
+        <div class="post-meta">8 min read</div>
+      </div>
+
+      <div class="post-row" onclick="openArticle('a3')">
+        <div>
+          <div class="post-cat">Data Analysis</div>
+          <h3>SHAP Values Explained Simply — Without Math Jargon</h3>
+          <p>What SHAP actually tells you, with real examples from the PCOS project.</p>
+        </div>
+        <div class="post-meta">6 min read</div>
+      </div>
+
+      <div class="post-row" onclick="openArticle('a4')">
+        <div>
+          <div class="post-cat">Machine Learning</div>
+          <h3>SMOTE Inside a Pipeline — Why Placement Matters for Data Leakage</h3>
+          <p>Most tutorials do SMOTE wrong. Here's how ImbPipeline fixes it.</p>
+        </div>
+        <div class="post-meta">5 min read</div>
+      </div>
+
+      <div class="post-row" onclick="openArticle('a5')">
+        <div>
+          <div class="post-cat">MLOps</div>
+          <h3>From Notebook to Endpoint — Taking a Model Past "It Works On My Machine"</h3>
+          <p>FastAPI, Docker, and GitHub Actions — what each one actually buys you when a model has to leave your laptop, built around the Hospital Readmission Predictor.</p>
+        </div>
+        <div class="post-meta">7 min read</div>
+      </div>
+
+    </div>
+
+    <p style="margin-top: 2rem; font-size: 0.9rem; color: var(--ink-soft);">More on <a href="https://medium.com/@bhardwajpreeti357" target="_blank" style="color: var(--teal); font-weight: 600; text-decoration: none;">Medium @bhardwajpreeti357</a> — follow to get notified.</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-links">
+      <a href="mailto:bhardwajpreeti357@gmail.com">Email</a>
+      <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank">GitHub</a>
+      <a href="https://www.kaggle.com/mistyvisty" target="_blank">Kaggle</a>
+      <a href="https://medium.com/@bhardwajpreeti357" target="_blank">Medium</a>
+    </div>
+    <div class="footer-copy">© 2026 Preeti Bhardwaj</div>
+  </div>
+</footer>
+
+<!-- ARTICLE 1 -->
+<div class="article-overlay" id="overlay-a1">
+  <div class="article-nav"><button class="back-btn" onclick="closeArticle('a1')">← Back to writing</button></div>
+  <div class="article-body">
+    <div class="art-cat">Machine Learning · 5 min read</div>
+    <h1>Why I Deleted a 0.996 Correlated Feature — And Why That Was Right</h1>
+    <div class="article-meta">Preeti Bhardwaj &nbsp;·&nbsp; May 2026</div>
+    <p>When I was building a bank customer churn prediction model on 10,000 records, my correlation matrix threw up something that made me stop and stare.</p>
+    <p>One feature — <strong>Complain</strong> (whether a customer had filed a complaint) — had a <strong>0.996 correlation with the target variable</strong> (Exited). That's almost perfect. A data scientist's dream, right?</p>
+    <p>I deleted it anyway. Here's why.</p>
+    <h2>What the number was telling me</h2>
+    <p>A 0.996 correlation means: almost every customer who complained, churned. Almost every customer who didn't complain, stayed. On the surface, that sounds like a powerful signal. Your model would love it.</p>
+    <p>But ask yourself — <strong>in the real world, when does a bank know a customer has complained?</strong></p>
+    <p>Only <em>after</em> the customer has already complained. Which happens right before they leave. So what you've built is not a churn <em>predictor</em>. It's a churn <em>confirmer</em>. By the time you have the Complain value, the customer has one foot out the door. There's no time to intervene.</p>
+    <h2>The difference between correlation and usefulness</h2>
+    <blockquote>Test 1 — Is it statistically useful? (correlation, feature importance)<br>Test 2 — Is it available and actionable at prediction time?</blockquote>
+    <p>Complain passed Test 1 with flying colours. It failed Test 2 completely.</p>
+    <h2>What I kept instead</h2>
+    <p>After removing Complain, SHAP analysis revealed the actual drivers: <strong>Age</strong> (older customers churn more), <strong>NumOfProducts</strong> (single-product customers churn at much higher rates), and <strong>Geography</strong> (Germany showed 32.4% churn vs ~16% in France and Spain).</p>
+    <p>These are features a retention team can actually use. You can identify a 45-year-old single-product German customer <em>today</em> and reach out before they decide to leave.</p>
+    <h2>The model still performed well</h2>
+    <p><strong>ROC-AUC: 0.847</strong> · <strong>Mean CV AUC: 0.87 across 5 folds</strong></p>
+    <p>A lower AUC built on honest features is worth more than a higher AUC built on a feature that tells you what you already know.</p>
+    <div class="article-footer">Part of my <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank">Data Analytics Portfolio</a> · <a href="https://mistyvisty.github.io">mistyvisty.github.io</a></div>
+  </div>
+</div>
+
+<!-- ARTICLE 2 -->
+<div class="article-overlay" id="overlay-a2">
+  <div class="article-nav"><button class="back-btn" onclick="closeArticle('a2')">← Back to writing</button></div>
+  <div class="article-body">
+    <div class="art-cat">GenAI · 8 min read</div>
+    <h1>Building Your First RAG Pipeline — No Fluff, Just Steps</h1>
+    <div class="article-meta">Preeti Bhardwaj &nbsp;·&nbsp; May 2026</div>
+    <p>This is the tutorial I wish I had when I built the PCOS × Neurodivergence RAG Assistant — no fluff, no jargon walls, just the actual steps to build a working RAG pipeline from scratch. The full project indexes 5 peer-reviewed clinical papers and answers questions with source citations.</p>
+    <h2>What is RAG and why does it matter?</h2>
+    <p><strong>RAG = Retrieval-Augmented Generation.</strong> LLMs don't know your documents. RAG fixes this: it takes your documents, turns them into searchable chunks, finds the most relevant ones for your question, and sends them to the LLM as context. The LLM answers <em>from your documents</em>, not from training data — and can cite the source.</p>
+    <h2>Stack</h2>
+    <p>Python · LangChain · FAISS · Groq (free API, no credit card) · MiniLM embeddings (local, free)</p>
+    <h2>Step 1 — Install</h2>
+    <pre><code>pip install langchain langchain-groq faiss-cpu pypdf sentence-transformers langchain-community</code></pre>
+    <h2>Step 2 — Load your PDF</h2>
+    <pre><code>from langchain_community.document_loaders import PyPDFLoader
+loader = PyPDFLoader("your_document.pdf")
+documents = loader.load()</code></pre>
+    <h2>Step 3 — Chunk it</h2>
+    <pre><code>from langchain_text_splitters import RecursiveCharacterTextSplitter
+splitter = RecursiveCharacterTextSplitter(chunk_size=600, chunk_overlap=80)
+chunks = splitter.split_documents(documents)</code></pre>
+    <h2>Step 4 — Embed and store</h2>
+    <pre><code>from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import FAISS
+embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+vectorstore = FAISS.from_documents(chunks, embeddings)</code></pre>
+    <h2>Step 5 — Connect Groq and ask</h2>
+    <pre><code>from langchain_groq import ChatGroq
+llm = ChatGroq(model="llama-3.1-8b-instant", temperature=0.1, api_key="your-gsk-key")
+retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
+# Now build your chain and ask questions!</code></pre>
+    <h2>The hallucination-aware trick</h2>
+    <p>The most important part is your prompt. Tell the model explicitly: <strong>"If the answer is not in the context, say you cannot find it. Never make up medical facts."</strong> This is what separates a toy RAG from a trustworthy one.</p>
+    <div class="article-footer"><a href="https://mistyvisty.github.io">mistyvisty.github.io</a> · <a href="https://github.com/mistyvisty/pcos-neurodivergence-rag" target="_blank">PCOS × Neurodivergence RAG Repo</a></div>
+  </div>
+</div>
+
+<!-- ARTICLE 3 -->
+<div class="article-overlay" id="overlay-a3">
+  <div class="article-nav"><button class="back-btn" onclick="closeArticle('a3')">← Back to writing</button></div>
+  <div class="article-body">
+    <div class="art-cat">Data Analysis · 6 min read</div>
+    <h1>SHAP Values Explained Simply — Without Math Jargon</h1>
+    <div class="article-meta">Preeti Bhardwaj &nbsp;·&nbsp; June 2026</div>
+    <p>Every ML tutorial shows you how to train a model. Almost none of them tell you <em>why</em> the model made the decision it did. That's where SHAP comes in — and it's one of the most practically useful tools I've added to my workflow.</p>
+    <h2>The problem SHAP solves</h2>
+    <p>Imagine you build a PCOS detection model with 0.97 AUC. Your model is accurate. But your doctor asks: <strong>"Why did you flag this patient as high risk?"</strong> You can't say "because the model said so." That's not medicine. That's a black box.</p>
+    <p>SHAP — SHapley Additive exPlanations — opens the black box. It tells you, for every single prediction, how much each feature pushed the output up or down.</p>
+    <h2>The core idea (no equations)</h2>
+    <p>Think of your model's prediction as a starting point — the average prediction across all patients. SHAP then asks: for <em>this specific patient</em>, which features moved the prediction away from that average, and by how much?</p>
+    <blockquote>SHAP value = how much did this feature contribute to <em>this prediction</em>, compared to the average?</blockquote>
+    <p>A positive SHAP value means the feature pushed the prediction <em>higher</em> (more likely PCOS). A negative value means it pushed it <em>lower</em>. The magnitude tells you how strongly.</p>
+    <h2>What I found in the PCOS project</h2>
+    <p>When I ran SHAP on the XGBoost classifier trained on 541 patient records, the results were medically interesting:</p>
+    <ul>
+      <li><strong>Total follicle count</strong> — the single strongest predictor. High follicle count = strong push toward positive PCOS diagnosis. Makes clinical sense.</li>
+      <li><strong>Fast food consumption</strong> — appeared as a top-3 risk factor. Diet and PCOS have a documented link, and SHAP surfaced it from the data alone.</li>
+      <li><strong>BMI and weight gain</strong> — significant contributors, consistent with clinical literature.</li>
+    </ul>
+    <p>These aren't just feature importances from a leaderboard. These are decision-level explanations that a doctor can look at and say "yes, this makes sense" — or flag if something looks wrong.</p>
+    <h2>Three ways to use SHAP</h2>
+    <p><strong>1. Summary plot</strong> — shows global importance across all predictions. Which features matter most overall?</p>
+    <pre><code>import shap
+explainer = shap.TreeExplainer(model)
+shap_values = explainer.shap_values(X_test)
+shap.summary_plot(shap_values, X_test)</code></pre>
+    <p><strong>2. Beeswarm plot</strong> — my favourite. Shows both importance AND direction. Each dot is one prediction. Red = high feature value, blue = low. The x-axis shows SHAP impact.</p>
+    <pre><code>shap.plots.beeswarm(shap.Explanation(
+    values=shap_values,
+    base_values=explainer.expected_value,
+    data=X_test,
+    feature_names=X_test.columns.tolist()
+))</code></pre>
+    <p><strong>3. Force plot (single prediction)</strong> — explains one patient's result. Red arrows pushed the prediction up, blue arrows pushed it down.</p>
+    <pre><code>shap.force_plot(explainer.expected_value, shap_values[0], X_test.iloc[0])</code></pre>
+    <h2>The thing most tutorials miss</h2>
+    <p>SHAP works best on <strong>TreeExplainer for tree-based models</strong> (XGBoost, Random Forest, LightGBM). It's exact and fast. For neural networks or linear models, use <code>DeepExplainer</code> or <code>LinearExplainer</code> — but the interpretation is the same.</p>
+    <p>The bigger lesson: explainability isn't a nice-to-have. In healthcare, finance, or any domain where a decision affects a real person, being able to explain <em>why</em> your model made a call is not optional. SHAP makes that possible.</p>
+    <div class="article-footer">From the <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank">PCOS Detection project</a> · <a href="https://mistyvisty.github.io">mistyvisty.github.io</a></div>
+  </div>
+</div>
+
+<!-- ARTICLE 4 -->
+<div class="article-overlay" id="overlay-a4">
+  <div class="article-nav"><button class="back-btn" onclick="closeArticle('a4')">← Back to writing</button></div>
+  <div class="article-body">
+    <div class="art-cat">Machine Learning · 5 min read</div>
+    <h1>SMOTE Inside a Pipeline — Why Placement Matters for Data Leakage</h1>
+    <div class="article-meta">Preeti Bhardwaj &nbsp;·&nbsp; June 2026</div>
+    <p>Most SMOTE tutorials look like this:</p>
+    <pre><code>from imblearn.over_sampling import SMOTE
+sm = SMOTE()
+X_resampled, y_resampled = sm.fit_resample(X, y)
+
+# Then split...
+X_train, X_test, y_train, y_test = train_test_split(X_resampled, y_resampled)</code></pre>
+    <p>This is wrong. And the model you build with it is lying to you.</p>
+    <h2>What SMOTE actually does</h2>
+    <p>SMOTE — Synthetic Minority Over-sampling Technique — creates synthetic samples of the minority class by interpolating between existing minority samples. If you have 100 PCOS-positive patients and 400 negative, SMOTE generates new synthetic positive patients to balance the dataset.</p>
+    <p>The goal is to stop your model from just predicting "negative" for everything and still being 80% accurate. Imbalanced data is a real problem. SMOTE is a real solution. But only if you use it correctly.</p>
+    <h2>Why the common approach leaks data</h2>
+    <p>When you apply SMOTE to the <em>entire dataset</em> before splitting, synthetic samples built from your training data end up in your test set. Your cross-validation is no longer testing on unseen data — it's testing on data it effectively already "saw" when SMOTE interpolated from it.</p>
+    <p>Your AUC goes up. Your model looks great. And then it fails in production, because real-world data wasn't generated by SMOTE.</p>
+    <blockquote>Rule: anything that learns from data — including SMOTE — must only see training data, never test data.</blockquote>
+    <h2>The fix: SMOTE inside ImbPipeline</h2>
+    <p><code>ImbPipeline</code> from <code>imbalanced-learn</code> is the correct tool. It applies SMOTE only inside each cross-validation fold — on the training portion — and leaves the validation fold untouched.</p>
+    <pre><code>from imblearn.pipeline import Pipeline as ImbPipeline
+from imblearn.over_sampling import SMOTE
+from sklearn.preprocessing import StandardScaler
+from xgboost import XGBClassifier
+from sklearn.model_selection import StratifiedKFold, cross_val_score
+
+pipeline = ImbPipeline([
+    ('scaler', StandardScaler()),
+    ('smote', SMOTE(random_state=42)),
+    ('model', XGBClassifier(random_state=42))
+])
+
+cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+scores = cross_val_score(pipeline, X, y, cv=cv, scoring='roc_auc')
+print(f"Mean AUC: {scores.mean():.3f}")</code></pre>
+    <p>With this setup, for each of the 5 folds: SMOTE runs on the 80% training portion only, the model trains on the balanced training data, and evaluation happens on the 20% that SMOTE never touched. That's a honest AUC.</p>
+    <h2>Why StratifiedKFold matters too</h2>
+    <p>Regular KFold splits randomly. With imbalanced data, you can end up with a fold that has almost no minority class samples. <code>StratifiedKFold</code> preserves the class ratio in every fold — so each validation set is representative of the real distribution.</p>
+    <h2>The result in the PCOS project</h2>
+    <p>Using ImbPipeline with SMOTE inside StratifiedKFold on 541 patient records gave a <strong>Mean ROC-AUC of 0.97 across 5 folds</strong> with <strong>90%+ recall on positive cases</strong>. That's a result I trust — because the evaluation was honest.</p>
+    <p>When someone asks me "how do you know this will generalise?" I can point to the pipeline and show them exactly why leakage was impossible.</p>
+    <div class="article-footer">From the <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank">PCOS Detection project</a> · <a href="https://mistyvisty.github.io">mistyvisty.github.io</a></div>
+  </div>
+</div>
+
+<!-- ARTICLE 5 -->
+<div class="article-overlay" id="overlay-a5">
+  <div class="article-nav"><button class="back-btn" onclick="closeArticle('a5')">← Back to writing</button></div>
+  <div class="article-body">
+    <div class="art-cat">MLOps · 7 min read</div>
+    <h1>From Notebook to Endpoint — Taking a Model Past "It Works On My Machine"</h1>
+    <div class="article-meta">Preeti Bhardwaj &nbsp;·&nbsp; June 2026</div>
+    <p>Most ML portfolios stop at a notebook. You train a model, get a good AUC, plot a confusion matrix, and call it done. That's a real skill — but it's not the same skill as putting a model somewhere another piece of software can actually call it. The <strong>Hospital Readmission Predictor</strong> was my attempt to close that gap, end to end.</p>
+    <h2>The question that started it</h2>
+    <p>A trained model sitting in a <code>.pkl</code> file isn't useful to anyone except the person who trained it. A hospital's existing software doesn't know how to "open a notebook." It needs something it can send patient data to and get a risk score back — instantly, reliably, the same way every time. That's the gap between a model and a product.</p>
+    <h2>Step 1 — Wrapping the model in an API</h2>
+    <p>I used <strong>FastAPI</strong> to expose the trained XGBoost model as an HTTP endpoint. The pattern is simple but it matters: incoming data gets validated with <code>pydantic</code> schemas before it ever reaches the model, so malformed input fails loudly with a clear error instead of silently breaking a prediction.</p>
+    <pre><code>from fastapi import FastAPI
+from pydantic import BaseModel
+import joblib
+
+app = FastAPI()
+model = joblib.load("model.pkl")
+
+class PatientData(BaseModel):
+    age: int
+    num_procedures: int
+    num_diagnoses: int
+    # ...remaining features
+
+@app.post("/predict")
+def predict(data: PatientData):
+    features = [[data.age, data.num_procedures, data.num_diagnoses]]
+    risk_score = model.predict_proba(features)[0][1]
+    return {"readmission_risk": float(risk_score)}</code></pre>
+    <p>That's the whole contract: send patient features, get a probability back. Anything downstream — a dashboard, an internal hospital tool, a scheduling system — can now talk to the model without knowing it's XGBoost underneath.</p>
+    <h2>Step 2 — Why Docker, not just "pip install"</h2>
+    <p>"It works on my machine" is the most expensive sentence in software. My laptop has a specific Python version, specific package versions, specific OS quirks. None of that is guaranteed to exist wherever this actually needs to run.</p>
+    <p><strong>Docker</strong> solves this by packaging the exact environment — Python version, dependencies, the app itself — into one image that runs identically anywhere a container can run.</p>
+    <pre><code>FROM python:3.11-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+EXPOSE 8000
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]</code></pre>
+    <p>Once this builds, the question "does it work on your machine?" stops being relevant. It works inside the container, and the container is the same everywhere.</p>
+    <h2>Step 3 — CI/CD: catching breakage before it ships</h2>
+    <p>The last piece is <strong>GitHub Actions</strong>. Every time code is pushed, a workflow automatically spins up, installs dependencies, and runs the test suite against the FastAPI app. If a change breaks the <code>/predict</code> endpoint or the model loading logic, the pipeline fails immediately — before it ever reaches anything resembling production.</p>
+    <blockquote>The point of CI/CD isn't speed. It's that a human doesn't have to remember to test things — the pipeline remembers for you, every single time.</blockquote>
+    <p>This is the same underlying principle behind using <code>ImbPipeline</code> with SMOTE in my PCOS project: don't trust a manual step that's easy to forget. Encode the correct behavior into the system itself, so it happens automatically whether you remember to do it or not.</p>
+    <h2>Why this matters more than another 0.01 AUC</h2>
+    <p>It's tempting to chase model accuracy as the main metric of a project. But a model with excellent AUC that can't be reliably served, breaks silently on bad input, or can't be redeployed without manual babysitting isn't actually usable in a real setting. A slightly simpler model wrapped in a tested, containerized, automatically-verified pipeline is worth more in practice — because it's the version that can actually be trusted to run unattended.</p>
+    <p>That's the real lesson from building this: in healthcare especially, "did we test this properly before it touched real data" is not optional, and it shouldn't depend on someone remembering to do it by hand.</p>
+    <div class="article-footer">From the <a href="https://github.com/mistyvisty/hospital-readmission-predictor" target="_blank">Hospital Readmission Predictor</a> · <a href="https://mistyvisty.github.io">mistyvisty.github.io</a></div>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

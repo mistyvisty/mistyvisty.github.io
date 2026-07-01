@@ -32,148 +32,23 @@
 
 <header class="hero" style="padding-bottom: 2.5rem;">
   <div class="container">
-    <div class="eyebrow">10 systems, end to end</div>
+    <div class="eyebrow">13 systems, end to end</div>
     <h1 class="hero-title" style="font-size: clamp(2rem, 5vw, 3.2rem);">Projects &amp; case studies</h1>
-    <p class="hero-lede">Organized by what's actually doing the work — classic data science, retrieval-augmented generation, and agentic GenAI systems. Built with real data, real failure modes, and a result reported honestly even when it's not flattering.</p>
+    <p class="hero-lede">Organized by what's actually doing the work — GenAI &amp; agentic systems, RAG pipelines, deep learning, production ML, and data analytics. Built with real data, real failure modes, and results reported honestly.</p>
     <div class="hero-actions" style="margin-top: 1.5rem;">
-      <a href="#data-science" class="btn btn-line">Data Science</a>
+      <a href="#genai" class="btn btn-line">GenAI &amp; Agents</a>
       <a href="#rag" class="btn btn-line">RAG</a>
-      <a href="#genai" class="btn btn-line">GenAI</a>
+      <a href="#deep-learning" class="btn btn-line">Deep Learning</a>
+      <a href="#data-science" class="btn btn-line">ML &amp; Data Science</a>
     </div>
   </div>
 </header>
-
-<!-- ===================== DATA SCIENCE ===================== -->
-<section class="section" id="data-science">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">Category 01 · Data Science</div>
-      <h2 style="font-size: 1.6rem;">Production ML, dashboards &amp; classifiers</h2>
-      <p>Classical ML and analytics — feature engineering, leakage-free evaluation, and models that ship past the notebook.</p>
-    </div>
-    <div class="proj-grid featured-grid">
-
-      <!-- HOSPITAL READMISSION -->
-      <div class="proj-card">
-        <div class="proj-top"><span class="proj-kicker">MLOps · Healthcare AI · Production ML</span><span class="chip live">Live</span></div>
-        <h3>Hospital Readmission Risk Predictor</h3>
-        <p class="proj-desc">An end-to-end MLOps project on 101,766 patient records, not just a notebook. Removed target-leaking features (variables only knowable after the outcome), SMOTE inside ImbPipeline so synthetic data can't leak into validation folds, served via FastAPI with Pydantic schemas, containerized with Docker, and deployed through automated CI/CD on every push.</p>
-
-        <span class="flow-label">Pipeline</span>
-        <div class="flow">
-          <span class="flow-node">Patient data</span><span class="flow-arrow">→</span>
-          <span class="flow-node">Leak-free preprocessing</span><span class="flow-arrow">→</span>
-          <span class="flow-node">XGBoost</span><span class="flow-arrow">→</span>
-          <span class="flow-node">FastAPI /predict</span><span class="flow-arrow">→</span>
-          <span class="flow-node">Docker</span><span class="flow-arrow">→</span>
-          <span class="flow-node">GitHub Actions CI/CD</span>
-        </div>
-
-        <div class="metric-row"><span class="metric-chip">Mean CV AUC 0.581</span><span class="metric-chip">101,766 records</span><span class="metric-chip">Reported honestly — matches published benchmarks</span></div>
-        <div class="tag-row"><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">SMOTE</span><span class="tag">SHAP</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span></div>
-        <div class="link-row"><a href="https://hospital-readmission-bz7hqjeye7fgsppfs3pwqm.streamlit.app/" target="_blank" class="link-pill">🚀 Live app →</a><a href="https://github.com/mistyvisty/hospital-readmission-predictor" target="_blank" class="link-pill">🐙 Repo →</a></div>
-      </div>
-
-    </div>
-
-    <div class="proj-grid" style="margin-top: 1.1rem;">
-
-      <!-- INSURANCE FRAUD -->
-      <div class="proj-card">
-        <div class="proj-top"><span class="proj-kicker">SQL · BI Dashboard</span><span class="chip live">Live</span></div>
-        <h3>Healthcare Insurance Fraud Detection Dashboard</h3>
-        <p class="proj-desc">Full-stack fraud detection dashboard analyzing 10,000 healthcare insurance claims using SQL window functions and CTEs, containerized with Docker Compose. Surfaces fraud by provider specialty, insurance type, state, visit type, and chronic condition, plus a monthly trend and a high-risk claims table.</p>
-        <div class="metric-row"><span class="metric-chip">829 / 10,000 claims flagged (8.29%)</span><span class="metric-chip">$972,902 fraud gap on $5,728,044 claimed</span></div>
-        <div class="tag-row"><span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">Streamlit</span><span class="tag">Plotly</span></div>
-        <div class="link-row"><a href="https://insurance-fraud-d5ex7mayryye9gjonynmbg.streamlit.app/" target="_blank" class="link-pill">🚀 Live app →</a><a href="https://github.com/mistyvisty/insurance-fraud" target="_blank" class="link-pill">🐙 Repo →</a></div>
-      </div>
-
-      <!-- PCOS DETECTION -->
-      <div class="proj-card">
-        <div class="proj-top"><span class="proj-kicker">Medical AI · Classification</span><span class="chip shipped">Shipped</span></div>
-        <h3>PCOS Detection &amp; Risk Prediction</h3>
-        <p class="proj-desc">ML pipeline on 541 records from 10 hospitals. Engineered a <code style="font-family:var(--mono);background:var(--paper);padding:0.1em 0.4em;border-radius:4px;">Total_follicles</code> feature that became the #1 SHAP predictor, above either individual follicle count. Zero data leakage across 5-fold stratified CV; threshold tuned for recall &gt; 90% because false negatives are clinically worse than false positives.</p>
-        <div class="metric-row"><span class="metric-chip">Mean AUC 0.973</span><span class="metric-chip">Recall 91.4% at tuned threshold</span></div>
-        <div class="tag-row"><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">Random Forest</span><span class="tag">SHAP</span><span class="tag">SMOTE</span><span class="tag">ImbPipeline</span></div>
-        <div class="link-row"><a href="https://github.com/mistyvisty/Data-Analytics-Portfolio/blob/main/PCOS_Detection_Medical.ipynb" target="_blank" class="link-pill">📓 Notebook →</a><a href="https://medium.com/@bhardwajpreeti357/why-i-built-a-pcos-prediction-model-and-why-it-was-never-just-a-portfolio-project-85f64126ed2f" target="_blank" class="link-pill">📝 Write-up →</a></div>
-      </div>
-
-      <!-- BANK CHURN -->
-      <div class="proj-card">
-        <div class="proj-top"><span class="proj-kicker">BFSI · Churn Prediction</span><span class="chip shipped">Shipped</span></div>
-        <h3>Bank Customer Churn Prediction</h3>
-        <p class="proj-desc">Caught a target-leaking feature (Complain, 0.996 correlation with churn — but only knowable after the customer already churned) and removed it. SHAP Beeswarm surfaced Age and NumOfProducts as the real predictors, and identified Germany as the highest-risk market.</p>
-        <div class="metric-row"><span class="metric-chip">ROC-AUC 0.847</span><span class="metric-chip">Germany flagged as highest-risk market</span></div>
-        <div class="tag-row"><span class="tag">XGBoost</span><span class="tag">SHAP Beeswarm</span><span class="tag">ImbPipeline</span><span class="tag">Python</span></div>
-        <div class="link-row"><a href="https://github.com/mistyvisty/Data-Analytics-Portfolio/blob/main/Bank_Customer_Churn_Prediction.ipynb" target="_blank" class="link-pill">📓 Notebook →</a></div>
-      </div>
-
-      <!-- SUPERSTORE -->
-      <div class="proj-card">
-        <div class="proj-top"><span class="proj-kicker">Retail · SQL · BI</span><span class="chip shipped">Shipped</span></div>
-        <h3>Superstore Sales Analysis</h3>
-        <p class="proj-desc">12 SQL queries on 9,994 orders to surface hidden losses. Found that deep discounting cost the business $125K a year — Texas alone losing money despite strong revenue. Full Power BI dashboard with KPIs and a region map.</p>
-        <div class="metric-row"><span class="metric-chip">$125K annual loss found</span><span class="metric-chip">Texas: $25.7K loss on $170K revenue</span></div>
-        <div class="tag-row"><span class="tag">SQLite</span><span class="tag">Power BI</span><span class="tag">Window Functions</span></div>
-        <div class="link-row"><a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank" class="link-pill">🐙 Repo →</a></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===================== RAG ===================== -->
-<section class="section section-alt" id="rag">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">Category 02 · RAG</div>
-      <h2 style="font-size: 1.6rem;">Retrieval-augmented generation</h2>
-      <p>Hallucination-aware pipelines grounded in real documents — every answer is either cited or refused.</p>
-    </div>
-    <div class="proj-grid featured-grid">
-
-      <!-- PCOS RAG -->
-      <div class="proj-card">
-        <div class="proj-top"><span class="proj-kicker">GenAI · RAG · Medical AI</span><span class="chip shipped">Shipped</span></div>
-        <h3>PCOS × Neurodivergence — Medical RAG Assistant</h3>
-        <p class="proj-desc">A hallucination-aware RAG pipeline that answers clinical questions about the PCOS–neurodivergence connection — an underresearched intersection that affects a lot of people who don't have good answers. Grounded in 5 peer-reviewed papers, the system explicitly refuses to answer when the papers don't cover something, and provides author + page-number citations on every response.</p>
-
-        <span class="flow-label">RAG architecture</span>
-        <div class="flow">
-          <span class="flow-node">5 PDFs</span><span class="flow-arrow">→</span>
-          <span class="flow-node">Chunks (800 chars)</span><span class="flow-arrow">→</span>
-          <span class="flow-node">MiniLM embeddings</span><span class="flow-arrow">→</span>
-          <span class="flow-node">FAISS (~376 vectors)</span><span class="flow-arrow">→</span>
-          <span class="flow-node">Groq LLaMA 3.3-70B</span><span class="flow-arrow">→</span>
-          <span class="flow-node">Cited answer</span>
-        </div>
-
-        <div class="metric-row"><span class="metric-chip">5 peer-reviewed papers</span><span class="metric-chip">~376 chunks embedded</span><span class="metric-chip">Refuses when ungrounded</span></div>
-        <div class="tag-row"><span class="tag">LangChain</span><span class="tag">FAISS</span><span class="tag">Groq</span><span class="tag">LLaMA 3.3 70B</span><span class="tag">MiniLM</span><span class="tag">PyMuPDF</span><span class="tag">ipywidgets</span></div>
-        <div class="link-row"><a href="https://github.com/mistyvisty/pcos-neurodivergence-rag" target="_blank" class="link-pill">🐙 Repo →</a><a href="https://medium.com/@bhardwajpreeti357/i-built-an-ai-that-reads-clinical-research-papers-and-answers-questions-about-pcos-and-b1f526784409" target="_blank" class="link-pill">📝 Write-up →</a></div>
-      </div>
-
-    </div>
-
-    <div class="proj-grid" style="margin-top: 1.1rem;">
-      <!-- MEDICAL RAG (PUBMED) -->
-      <div class="proj-card">
-        <div class="proj-top"><span class="proj-kicker">GenAI · RAG · Clinical Literature</span><span class="chip shipped">Shipped</span></div>
-        <h3>Medical RAG Assistant — PCOS Clinical Literature</h3>
-        <p class="proj-desc">RAG pipeline on PubMed PCOS literature: 361 chunks, MiniLM embeddings, FAISS retrieval, and a hallucination-aware system prompt that refuses out-of-context queries and requires exact source + page citations on every answer.</p>
-        <div class="metric-row"><span class="metric-chip">361 chunks indexed</span><span class="metric-chip">Citations required on every answer</span></div>
-        <div class="tag-row"><span class="tag">LangChain</span><span class="tag">FAISS</span><span class="tag">MiniLM</span><span class="tag">Groq LLaMA 3.1</span></div>
-        <div class="link-row"><a href="https://github.com/mistyvisty/Data-Analytics-Portfolio/blob/main/Medical_RAG_Assistant.ipynb" target="_blank" class="link-pill">📓 Notebook →</a></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ===================== GENAI ===================== -->
 <section class="section" id="genai">
   <div class="container">
     <div class="section-head">
-      <div class="eyebrow">Category 03 · GenAI</div>
+      <div class="eyebrow">Category 01 · GenAI &amp; Agentic Systems</div>
       <h2 style="font-size: 1.6rem;">Agentic systems &amp; LLM copilots</h2>
       <p>Beyond single-shot Q&amp;A — agents that take actions, route decisions, and chain multiple LLM calls toward a verified result.</p>
     </div>
@@ -183,20 +58,14 @@
       <div class="proj-card" id="triage">
         <div class="proj-top"><span class="proj-kicker">Agentic AI · Tool-Calling System</span><span class="chip shipped">Shipped</span></div>
         <h3>AI Support Triage Agent</h3>
-        <p class="proj-desc">An agent that routes support tickets across three actions — draft, escalate, or clarify — using native function-calling, not freeform text parsing. Hard-coded policy rules override model judgment for security/legal tickets, regardless of how confident the model is. Built a labeled eval harness that measures routing accuracy separately from hard-trigger escalation recall, because those two numbers mean very different things.</p>
-
+        <p class="proj-desc">An agent that routes support tickets across three actions — draft, escalate, or clarify — using native function-calling, not freeform text parsing. Hard-coded policy rules override model judgment for security/legal tickets, regardless of how confident the model is. Built a labeled eval harness that measures routing accuracy separately from hard-trigger escalation recall.</p>
         <span class="flow-label">The three actions</span>
         <div class="triage-row">
           <div class="triage-cell draft"><span class="ttag">Draft</span><div class="tval">Answer</div><div class="tdesc">Model responds directly when it has enough to go on</div></div>
           <div class="triage-cell clarify"><span class="ttag">Clarify</span><div class="tval">Ask</div><div class="tdesc">Model asks a follow-up rather than guessing intent</div></div>
           <div class="triage-cell escalate"><span class="ttag">Escalate</span><div class="tval">Hand off</div><div class="tdesc">Hard rule fires on security/legal — overrides the model</div></div>
         </div>
-
-        <div class="metric-row">
-          <span class="metric-chip">100% escalation recall on security/legal</span>
-          <span class="metric-chip">57.1% overall routing accuracy</span>
-          <span class="metric-chip">Documented diagnosis + fix</span>
-        </div>
+        <div class="metric-row"><span class="metric-chip">100% escalation recall on security/legal</span><span class="metric-chip">57.1% overall routing accuracy</span><span class="metric-chip">Documented diagnosis + fix</span></div>
         <div class="tag-row"><span class="tag">Python</span><span class="tag">Groq LLaMA 3.3-70B</span><span class="tag">Native Tool-Calling</span><span class="tag">FAISS</span><span class="tag">MiniLM</span><span class="tag">Eval Harness</span></div>
         <div class="link-row"><a href="https://github.com/mistyvisty/support-triage-agent" target="_blank" class="link-pill">🐙 Repo →</a></div>
       </div>
@@ -205,8 +74,7 @@
       <div class="proj-card">
         <div class="proj-top"><span class="proj-kicker">Multi-Agent System · GenAI</span><span class="chip live">Live</span></div>
         <h3>Medical Research Assistant — Multi-Agent System</h3>
-        <p class="proj-desc">A multi-agent system that researches any medical topic using three specialized agents working in sequence: a Researcher agent gathers comprehensive information, a Summariser converts it into patient-friendly language, and a Fact-Checker validates claims and flags anything uncertain. Containerized with Docker and shipped with a clear medical disclaimer — informational only, not a substitute for a doctor.</p>
-
+        <p class="proj-desc">A multi-agent system that researches any medical topic using three specialized agents in sequence: Researcher gathers information, Summariser converts it to patient-friendly language, and Fact-Checker validates claims. Containerized with Docker with a hard medical disclaimer.</p>
         <span class="flow-label">Pipeline</span>
         <div class="flow">
           <span class="flow-node">Topic</span><span class="flow-arrow">→</span>
@@ -215,7 +83,6 @@
           <span class="flow-node">Fact-Checker agent</span><span class="flow-arrow">→</span>
           <span class="flow-node">Validated answer</span>
         </div>
-
         <div class="metric-row"><span class="metric-chip">3-agent sequential pipeline</span><span class="metric-chip">Built-in claim validation</span><span class="metric-chip">Dockerized</span></div>
         <div class="tag-row"><span class="tag">Python</span><span class="tag">LangGraph</span><span class="tag">Groq LLaMA 3.3-70B</span><span class="tag">Streamlit</span><span class="tag">Docker</span></div>
         <div class="link-row"><a href="https://medical-research-agent-3mbhgune6spud5lszhhvqs.streamlit.app/" target="_blank" class="link-pill">🚀 Live app →</a><a href="https://github.com/mistyvisty/medical-research-agent" target="_blank" class="link-pill">🐙 Repo →</a></div>
@@ -228,7 +95,7 @@
       <div class="proj-card">
         <div class="proj-top"><span class="proj-kicker">GenAI · Data Copilot</span><span class="chip live">Live</span></div>
         <h3>AI CSV Analyst — Conversational Data Copilot</h3>
-        <p class="proj-desc">Full-stack copilot that lets non-technical users query raw CSVs in plain English with auto-rendered charts. Custom truncation algorithm handles datasets up to 200MB by preserving structural context while staying within context-window limits.</p>
+        <p class="proj-desc">Full-stack copilot that lets non-technical users query raw CSVs in plain English with auto-rendered charts. Custom truncation algorithm handles datasets up to 200MB by preserving structural context within context-window limits.</p>
         <div class="metric-row"><span class="metric-chip">Up to 200MB per file</span><span class="metric-chip">Auto chart generation</span></div>
         <div class="tag-row"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Groq LLaMA 3.3-70B</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span></div>
         <div class="link-row"><a href="https://preeti-ai-csv-analyst.streamlit.app/" target="_blank" class="link-pill">🚀 Live app →</a><a href="https://github.com/mistyvisty/ai_csv_analyst" target="_blank" class="link-pill">🐙 Repo →</a></div>
@@ -237,11 +104,194 @@
   </div>
 </section>
 
+<!-- ===================== RAG ===================== -->
+<section class="section section-alt" id="rag">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Category 02 · RAG &amp; LLM Fine-Tuning</div>
+      <h2 style="font-size: 1.6rem;">Retrieval-augmented generation &amp; fine-tuning</h2>
+      <p>Hallucination-aware pipelines grounded in real documents — every answer is either cited or refused. Plus production fine-tuning with LoRA.</p>
+    </div>
+    <div class="proj-grid featured-grid">
+
+      <!-- ADVANCED RAG PINECONE -->
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">Advanced RAG · Hybrid Search</span><span class="chip shipped">Shipped</span></div>
+        <h3>PCOS × Neurodivergence — Advanced RAG (Pinecone + Hybrid Search)</h3>
+        <p class="proj-desc">Production-grade RAG upgrade using Pinecone vector store, BM25 sparse retrieval alongside dense embeddings, Reciprocal Rank Fusion to merge results, and CrossEncoder reranking on top-10 candidates. A/B tested against FAISS baseline on 10 clinical queries with documented retrieval quality improvement.</p>
+        <span class="flow-label">Hybrid RAG pipeline</span>
+        <div class="flow">
+          <span class="flow-node">Query</span><span class="flow-arrow">→</span>
+          <span class="flow-node">LLM query expansion</span><span class="flow-arrow">→</span>
+          <span class="flow-node">Pinecone dense + BM25 sparse</span><span class="flow-arrow">→</span>
+          <span class="flow-node">RRF merge</span><span class="flow-arrow">→</span>
+          <span class="flow-node">CrossEncoder rerank</span><span class="flow-arrow">→</span>
+          <span class="flow-node">Cited answer</span>
+        </div>
+        <div class="metric-row"><span class="metric-chip">Pinecone + BM25 hybrid</span><span class="metric-chip">CrossEncoder reranking</span><span class="metric-chip">Outperforms FAISS baseline</span></div>
+        <div class="tag-row"><span class="tag">Pinecone</span><span class="tag">BM25</span><span class="tag">CrossEncoder</span><span class="tag">LangChain</span><span class="tag">MiniLM</span><span class="tag">Cohere Rerank</span></div>
+        <div class="link-row"><a href="https://github.com/mistyvisty/pcos-neurodivergence-advanced-rag-pinecone" target="_blank" class="link-pill">🐙 Repo →</a></div>
+      </div>
+
+      <!-- PCOS RAG BASELINE -->
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">GenAI · RAG · Medical AI</span><span class="chip shipped">Shipped</span></div>
+        <h3>PCOS × Neurodivergence — Medical RAG Assistant</h3>
+        <p class="proj-desc">A hallucination-aware RAG pipeline grounded in 5 peer-reviewed papers on the PCOS–neurodivergence connection. Explicitly refuses to answer when the papers don't cover something, and provides author + page-number citations on every response.</p>
+        <span class="flow-label">RAG architecture</span>
+        <div class="flow">
+          <span class="flow-node">5 PDFs</span><span class="flow-arrow">→</span>
+          <span class="flow-node">Chunks (800 chars)</span><span class="flow-arrow">→</span>
+          <span class="flow-node">MiniLM embeddings</span><span class="flow-arrow">→</span>
+          <span class="flow-node">FAISS (~376 vectors)</span><span class="flow-arrow">→</span>
+          <span class="flow-node">Groq LLaMA 3.3-70B</span><span class="flow-arrow">→</span>
+          <span class="flow-node">Cited answer</span>
+        </div>
+        <div class="metric-row"><span class="metric-chip">5 peer-reviewed papers</span><span class="metric-chip">~376 chunks embedded</span><span class="metric-chip">Refuses when ungrounded</span></div>
+        <div class="tag-row"><span class="tag">LangChain</span><span class="tag">FAISS</span><span class="tag">Groq</span><span class="tag">LLaMA 3.3 70B</span><span class="tag">MiniLM</span><span class="tag">PyMuPDF</span></div>
+        <div class="link-row"><a href="https://github.com/mistyvisty/pcos-neurodivergence-rag" target="_blank" class="link-pill">🐙 Repo →</a><a href="https://medium.com/@bhardwajpreeti357/i-built-an-ai-that-reads-clinical-research-papers-and-answers-questions-about-pcos-and-b1f526784409" target="_blank" class="link-pill">📝 Write-up →</a></div>
+      </div>
+
+    </div>
+
+    <div class="proj-grid" style="margin-top: 1.1rem;">
+      <!-- PHI-3 FINE-TUNING -->
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">LLM Fine-Tuning · QLoRA</span><span class="chip shipped">Shipped</span></div>
+        <h3>Fine-Tuned Phi-3 on PCOS Data — QLoRA</h3>
+        <p class="proj-desc">Fine-tuned Microsoft Phi-3-mini-4k-instruct with 4-bit quantisation and LoRA (rank=8, alpha=16) on a curated PCOS QA instruction dataset derived from RAG chunks. Only 0.78% of parameters trained. Compared base vs fine-tuned on 5 clinical questions — loss dropped from 1.164 to 1.086 across 3 epochs in 18 minutes on T4 GPU.</p>
+        <div class="metric-row"><span class="metric-chip">0.78% trainable parameters</span><span class="metric-chip">Final loss 1.086</span><span class="metric-chip">18 min on T4 GPU</span></div>
+        <div class="tag-row"><span class="tag">QLoRA</span><span class="tag">PEFT</span><span class="tag">Transformers</span><span class="tag">BitsAndBytes</span><span class="tag">Google Colab</span></div>
+        <div class="link-row"><a href="https://github.com/mistyvisty/pcos-finetune-phi3-lora" target="_blank" class="link-pill">🐙 Repo →</a></div>
+      </div>
+
+      <!-- MEDICAL RAG PUBMED -->
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">GenAI · RAG · Clinical Literature</span><span class="chip shipped">Shipped</span></div>
+        <h3>Medical RAG Assistant — PCOS Clinical Literature</h3>
+        <p class="proj-desc">RAG pipeline on PubMed PCOS literature: 361 chunks, MiniLM embeddings, FAISS retrieval, and a hallucination-aware system prompt that refuses out-of-context queries and requires exact source + page citations on every answer.</p>
+        <div class="metric-row"><span class="metric-chip">361 chunks indexed</span><span class="metric-chip">Citations required on every answer</span></div>
+        <div class="tag-row"><span class="tag">LangChain</span><span class="tag">FAISS</span><span class="tag">MiniLM</span><span class="tag">Groq LLaMA 3.1</span></div>
+        <div class="link-row"><a href="https://github.com/mistyvisty/Data-Analytics-Portfolio/blob/main/Medical_RAG_Assistant.ipynb" target="_blank" class="link-pill">📓 Notebook →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DEEP LEARNING ===================== -->
+<section class="section" id="deep-learning">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Category 03 · Deep Learning &amp; Computer Vision</div>
+      <h2 style="font-size: 1.6rem;">Neural networks &amp; image classifiers</h2>
+      <p>CNN architectures from scratch vs transfer learning — with explainability baked in via Grad-CAM.</p>
+    </div>
+    <div class="proj-grid featured-grid">
+
+      <!-- AMAZON CATALOG -->
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">Computer Vision · Transfer Learning</span><span class="chip shipped">Shipped</span></div>
+        <h3>Amazon Catalog Quality Gate — CNN + Transfer Learning</h3>
+        <p class="proj-desc">Automated image validation pipeline classifying e-commerce product photos as High / Low quality — solving the same problem Amazon and Flipkart face with millions of daily seller uploads. Built a custom 3-layer CNN from scratch, then upgraded to ResNet-18 transfer learning. Grad-CAM heatmaps confirm the model attends to fabric texture and product clarity — not background shortcuts.</p>
+        <span class="flow-label">Pipeline</span>
+        <div class="flow">
+          <span class="flow-node">44K Myntra images</span><span class="flow-arrow">→</span>
+          <span class="flow-node">Synthetic degradation</span><span class="flow-arrow">→</span>
+          <span class="flow-node">CNN from scratch</span><span class="flow-arrow">→</span>
+          <span class="flow-node">ResNet-18 fine-tune</span><span class="flow-arrow">→</span>
+          <span class="flow-node">Grad-CAM explainability</span>
+        </div>
+        <div class="metric-row"><span class="metric-chip">CNN scratch 99.1%</span><span class="metric-chip">ResNet-18 99.9%</span><span class="metric-chip">Grad-CAM validates learned features</span></div>
+        <div class="tag-row"><span class="tag">PyTorch</span><span class="tag">CNN</span><span class="tag">ResNet-18</span><span class="tag">Transfer Learning</span><span class="tag">Grad-CAM</span><span class="tag">Google Colab T4</span></div>
+        <div class="link-row"><a href="https://github.com/mistyvisty/amazon-catalog-quality-gate" target="_blank" class="link-pill">🐙 Repo →</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DATA SCIENCE ===================== -->
+<section class="section section-alt" id="data-science">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Category 04 · ML Engineering &amp; Data Science</div>
+      <h2 style="font-size: 1.6rem;">Production ML, dashboards &amp; classifiers</h2>
+      <p>Classical ML and analytics — feature engineering, leakage-free evaluation, and models that ship past the notebook.</p>
+    </div>
+    <div class="proj-grid featured-grid">
+
+      <!-- HOSPITAL READMISSION -->
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">MLOps · Healthcare AI · Production ML</span><span class="chip live">Live</span></div>
+        <h3>Hospital Readmission Risk Predictor + ML Monitoring</h3>
+        <p class="proj-desc">End-to-end MLOps project on 101,766 patient records. Removed target-leaking features, SMOTE inside ImbPipeline, served via FastAPI, containerized with Docker, automated CI/CD. Extended with Evidently AI drift detection, Prometheus metrics, and GitHub Actions drift check on every push.</p>
+        <span class="flow-label">Pipeline</span>
+        <div class="flow">
+          <span class="flow-node">Patient data</span><span class="flow-arrow">→</span>
+          <span class="flow-node">Leak-free preprocessing</span><span class="flow-arrow">→</span>
+          <span class="flow-node">XGBoost</span><span class="flow-arrow">→</span>
+          <span class="flow-node">FastAPI /predict</span><span class="flow-arrow">→</span>
+          <span class="flow-node">Evidently drift</span><span class="flow-arrow">→</span>
+          <span class="flow-node">Prometheus metrics</span>
+        </div>
+        <div class="metric-row"><span class="metric-chip">Mean CV AUC 0.581</span><span class="metric-chip">101,766 records</span><span class="metric-chip">Reported honestly — matches published benchmarks</span></div>
+        <div class="tag-row"><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">Evidently</span><span class="tag">Prometheus</span><span class="tag">GitHub Actions</span></div>
+        <div class="link-row"><a href="https://hospital-readmission-bz7hqjeye7fgsppfs3pwqm.streamlit.app/" target="_blank" class="link-pill">🚀 Live app →</a><a href="https://github.com/mistyvisty/hospital-readmission-predictor" target="_blank" class="link-pill">🐙 Repo →</a></div>
+      </div>
+
+    </div>
+
+    <div class="proj-grid" style="margin-top: 1.1rem;">
+
+      <!-- INSURANCE FRAUD -->
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">SQL · BI Dashboard · MLOps</span><span class="chip live">Live</span></div>
+        <h3>Healthcare Insurance Fraud Detection Dashboard</h3>
+        <p class="proj-desc">Full-stack fraud detection dashboard analyzing 10,000 healthcare insurance claims using SQL window functions and CTEs, containerized with Docker Compose, deployed on Streamlit Cloud with Supabase PostgreSQL. Surfaces fraud by provider specialty, insurance type, state, visit type, and chronic condition.</p>
+        <div class="metric-row"><span class="metric-chip">829 / 10,000 claims flagged (8.29%)</span><span class="metric-chip">$972,902 fraud gap on $5,728,044 claimed</span></div>
+        <div class="tag-row"><span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">Supabase</span><span class="tag">Docker</span><span class="tag">Streamlit</span><span class="tag">Plotly</span></div>
+        <div class="link-row"><a href="https://insurance-fraud-d5ex7mayryye9gjonynmbg.streamlit.app/" target="_blank" class="link-pill">🚀 Live app →</a><a href="https://github.com/mistyvisty/insurance-fraud" target="_blank" class="link-pill">🐙 Repo →</a></div>
+      </div>
+
+      <!-- PCOS DETECTION -->
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">Medical AI · Classification</span><span class="chip shipped">Shipped</span></div>
+        <h3>PCOS Detection &amp; Risk Prediction</h3>
+        <p class="proj-desc">ML pipeline on 541 records from 10 hospitals. Engineered a <code style="font-family:var(--mono);background:var(--paper);padding:0.1em 0.4em;border-radius:4px;">Total_follicles</code> feature that became the #1 SHAP predictor. Zero data leakage across 5-fold stratified CV; threshold tuned for recall &gt; 90% because false negatives are clinically worse than false positives.</p>
+        <div class="metric-row"><span class="metric-chip">Mean AUC 0.973</span><span class="metric-chip">Recall 91.4% at tuned threshold</span></div>
+        <div class="tag-row"><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">Random Forest</span><span class="tag">SHAP</span><span class="tag">SMOTE</span><span class="tag">ImbPipeline</span></div>
+        <div class="link-row"><a href="https://github.com/mistyvisty/PCOS_Detection_Medical" target="_blank" class="link-pill">🐙 Repo →</a><a href="https://medium.com/@bhardwajpreeti357/why-i-built-a-pcos-prediction-model-and-why-it-was-never-just-a-portfolio-project-85f64126ed2f" target="_blank" class="link-pill">📝 Write-up →</a></div>
+      </div>
+
+      <!-- BANK CHURN -->
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">BFSI · Churn Prediction</span><span class="chip shipped">Shipped</span></div>
+        <h3>Bank Customer Churn Prediction</h3>
+        <p class="proj-desc">Caught a target-leaking feature (Complain, 0.996 correlation with churn — but only knowable after the customer already churned) and removed it. SHAP Beeswarm surfaced Age and NumOfProducts as the real predictors, and identified Germany as the highest-risk market.</p>
+        <div class="metric-row"><span class="metric-chip">ROC-AUC 0.847</span><span class="metric-chip">Germany flagged as highest-risk market</span></div>
+        <div class="tag-row"><span class="tag">XGBoost</span><span class="tag">SHAP Beeswarm</span><span class="tag">ImbPipeline</span><span class="tag">Python</span></div>
+        <div class="link-row"><a href="https://github.com/mistyvisty/Bank-Churn-Prediction" target="_blank" class="link-pill">🐙 Repo →</a></div>
+      </div>
+
+      <!-- SUPERSTORE -->
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">Retail · SQL · BI</span><span class="chip shipped">Shipped</span></div>
+        <h3>Superstore Sales Analysis — SQL + Power BI</h3>
+        <p class="proj-desc">12 SQL queries on 9,994 orders to surface hidden losses. Found that deep discounting cost the business $125K a year — Texas alone losing money despite strong revenue. Full Power BI dashboard with KPIs, region map, and DAX measures.</p>
+        <div class="metric-row"><span class="metric-chip">$125K annual loss found</span><span class="metric-chip">Texas: $25.7K loss on $170K revenue</span></div>
+        <div class="tag-row"><span class="tag">SQLite</span><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Window Functions</span><span class="tag">Python</span></div>
+        <div class="link-row"><a href="https://github.com/mistyvisty/Superstore_SQL_and_Power_BI" target="_blank" class="link-pill">🐙 Repo →</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-links">
       <a href="mailto:bhardwajpreeti357@gmail.com">Email</a>
-      <a href="https://github.com/mistyvisty/Data-Analytics-Portfolio" target="_blank">GitHub</a>
+      <a href="https://github.com/mistyvisty" target="_blank">GitHub</a>
       <a href="https://www.kaggle.com/mistyvisty" target="_blank">Kaggle</a>
       <a href="https://medium.com/@bhardwajpreeti357" target="_blank">Medium</a>
     </div>

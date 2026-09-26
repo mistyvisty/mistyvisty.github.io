@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preeti Bhardwaj — Software Developer → GenAI / ML Engineer · Healthcare AI</title>
+<meta name="description" content="Software developer building production-ready AI systems for healthcare — RAG pipelines, agentic systems, fine-tuning and MLOps, with explicit rules for when models should refuse or escalate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Work+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="./" class="brand">
+      <span class="brand-mark">PB</span>
+      <span class="brand-name">Preeti Bhardwaj</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="./" class="is-active">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="writing.html">Writing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="about.html#contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" onclick="toggleDark()" id="darkBtn">◐ Dark</button>
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow">Software Developer → GenAI / ML Engineer · Healthcare AI 🩺</div>
+    <h1 class="hero-title">Preeti Bhardwaj</h1>
+    <div class="hero-role">RAG · Multi-agent LLMs · Fine-tuning · MLOps · Python</div>
+    <p class="hero-lede">A software developer who ships full-stack web apps by day, I build <strong>production-ready AI systems</strong> — mostly for <strong>healthcare</strong>, from RAG pipelines and agentic workflows to fine-tuning and MLOps. Every system I ship has an explicit answer to one question: <strong>what happens when the model is wrong?</strong> A pipeline that can't leak into its own evaluation. A RAG assistant that refuses to answer without grounding. An agent that hard-codes escalation for high-stakes tickets instead of leaving it to probability.</p>
+    <div class="hero-actions">
+      <a href="projects.html" class="btn btn-solid">View projects →</a>
+      <a href="mailto:bhardwajpreeti357@gmail.com" class="btn btn-line">Get in touch</a>
+    </div>
+
+    <!-- SIGNATURE: decision logic panel -->
+    <div class="decision-panel">
+      <div class="decision-head">
+        <h2>How my agents decide</h2>
+        <span>same logic that runs the Support Triage Agent</span>
+      </div>
+      <div class="decision-grid">
+        <div class="decision-card draft">
+          <span class="decision-tag">Draft</span>
+          <p>Answer directly when the evidence in context actually supports it — no hedging, no filler.</p>
+        </div>
+        <div class="decision-card clarify">
+          <span class="decision-tag">Clarify</span>
+          <p>Ask a question instead of guessing, when a request is genuinely ambiguous.</p>
+        </div>
+        <div class="decision-card escalate">
+          <span class="decision-tag">Escalate</span>
+          <p>Hand off automatically for security or legal stakes — a hard rule, not a model judgment call.</p>
+        </div>
+      </div>
+      <p class="decision-foot">This routing logic powers the <a href="projects.html#triage">AI Support Triage Agent</a> — 100% escalation recall on security &amp; legal tickets, measured separately from overall routing accuracy.</p>
+    </div>
+
+    <!-- STAT STRIP -->
+    <div class="stat-strip">
+      <div class="stat-tile"><div class="stat-num">13</div><div class="stat-lbl">Projects shipped</div></div>
+      <div class="stat-tile"><div class="stat-num">4</div><div class="stat-lbl">Live deployed apps</div></div>
+      <div class="stat-tile"><div class="stat-num">100%</div><div class="stat-lbl">Escalation recall, triage agent</div></div>
+      <div class="stat-tile"><div class="stat-num">101K</div><div class="stat-lbl">Patient records in my MLOps pipeline</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- FEATURED PROJECTS -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Featured work</div>
+      <h2>Three systems, three different failure modes handled</h2>
+      <p>Each one answers a different version of "what should the system do when it isn't sure" — for a clinical RAG assistant, a support agent, and a deployed ML model.</p>
+    </div>
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">Agentic · Tool-calling</span><span class="chip shipped">Shipped</span></div>
+        <h3>AI Support Triage Agent</h3>
+        <p class="proj-desc">Routes support tickets to draft, escalate, or clarify using native function-calling. Hard-coded policy overrides model judgment for security/legal tickets.</p>
+        <div class="metric-row"><span class="metric-chip">100% escalation recall</span><span class="metric-chip">57.1% routing accuracy</span></div>
+        <div class="link-row"><a href="https://github.com/mistyvisty/support-triage-agent" target="_blank" class="link-pill">Repo →</a></div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">GenAI · Advanced RAG</span><span class="chip shipped">Shipped</span></div>
+        <h3>PCOS Advanced RAG — Pinecone + Hybrid Search</h3>
+        <p class="proj-desc">Upgraded RAG with Pinecone vector store, BM25 sparse retrieval, Reciprocal Rank Fusion, and CrossEncoder reranking. A/B tested against FAISS baseline on 10 queries.</p>
+        <div class="metric-row"><span class="metric-chip">Hybrid search + reranking</span><span class="metric-chip">Honest A/B test vs dense-only</span></div>
+        <div class="link-row"><a href="https://github.com/mistyvisty/pcos-neurodivergence-advanced-rag-pinecone" target="_blank" class="link-pill">Repo →</a></div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-kicker">MLOps · Healthcare</span><span class="chip live">Live</span></div>
+        <h3>Hospital Readmission Risk Predictor</h3>
+        <p class="proj-desc">XGBoost model served via FastAPI, containerized with Docker, tested and deployed automatically through GitHub Actions CI/CD on every push. Evidently drift detection + Prometheus monitoring.</p>
+        <div class="metric-row"><span class="metric-chip">Mean CV AUC 0.581</span><span class="metric-chip">101,766 patient records</span></div>
+        <div class="link-row"><a href="https://hospital-readmission-bz7hqjeye7fgsppfs3pwqm.streamlit.app/" target="_blank" class="link-pill">Live app →</a><a href="https://github.com/mistyvisty/hospital-readmission-predictor" target="_blank" class="link-pill">Repo →</a></div>
+      </div>
+
+    </div>
+    <a href="projects.html" class="section-foot-link">View all 13 projects →</a>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="eyebrow">Skills</div>
+        <h2 style="font-family:var(--display);font-weight:500;font-size:1.7rem;margin-bottom:1rem;">Tools I reach for, and why</h2>
+        <p style="margin-bottom: 1.4rem;">Picked for the job, not for the resume — retrieval and agent frameworks for GenAI, leakage-aware evaluation for ML, and the deployment layer that gets a model out of a notebook.</p>
+
+        <div style="margin-bottom: 1.1rem;">
+          <h4 style="font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal); margin-bottom: 0.5rem;">GenAI &amp; Agentic AI</h4>
+          <div class="tag-row" style="margin-bottom: 0;"><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">FAISS</span><span class="tag">Pinecone</span><span class="tag">BM25</span><span class="tag">CrossEncoder</span><span class="tag">Groq</span><span class="tag">HuggingFace</span><span class="tag">Prompt Engineering</span></div>
+        </div>
+        <div style="margin-bottom: 1.1rem;">
+          <h4 style="font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal); margin-bottom: 0.5rem;">ML &amp; Evaluation</h4>
+          <div class="tag-row" style="margin-bottom: 0;"><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">scikit-learn</span><span class="tag">SHAP</span><span class="tag">SMOTE</span><span class="tag">Optuna</span></div>
+        </div>
+        <div style="margin-bottom: 1.1rem;">
+          <h4 style="font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal); margin-bottom: 0.5rem;">Deep Learning &amp; Computer Vision</h4>
+          <div class="tag-row" style="margin-bottom: 0;"><span class="tag">PyTorch</span><span class="tag">CNN</span><span class="tag">ResNet-18</span><span class="tag">Transfer Learning</span><span class="tag">Grad-CAM</span><span class="tag">QLoRA</span><span class="tag">PEFT</span></div>
+        </div>
+        <div style="margin-bottom: 1.1rem;">
+          <h4 style="font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal); margin-bottom: 0.5rem;">Production &amp; MLOps</h4>
+          <div class="tag-row" style="margin-bottom: 0;"><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span><span class="tag">Streamlit</span><span class="tag">Evidently</span><span class="tag">Prometheus</span></div>
+        </div>
+        <div style="margin-bottom: 1.4rem;">
+          <h4 style="font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal); margin-bottom: 0.5rem;">Data &amp; Visualization</h4>
+          <div class="tag-row" style="margin-bottom: 0;"><span class="tag">SQL</span><span class="tag">PostgreSQL</span><span class="tag">Pandas</span><span class="tag">Power BI</span><span class="tag">Plotly</span></div>
+        </div>
+
+        <a href="about.html" class="section-foot-link">Read my full background →</a>
+      </div>
+      <div class="now-list">
+        <div class="now-item">
+          <h4>Currently studying</h4>
+          <p>ML/GenAI interview prep — Chip Huyen's <em>ML Interviews</em> book + Grokking ML, with live reading notes on <a href="https://spiral-game-e5b.notion.site/ML-Interview-Prep-Live-Reading-Notes-566ee8267299463b90dbe8c04434e496" target="_blank">Notion</a>.</p>
+        </div>
+        <div class="now-item">
+          <h4>Open to roles</h4>
+          <p>GenAI Engineer / ML Engineer / Data Scientist — full-time or remote.</p>
+        </div>
+        <div class="now-item">
+          <h4>Latest writing</h4>
+          <p>Notes on agentic systems, RAG, and production ML — see the <a href="writing.html">writing page</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-links">
+      <a href="mailto:bhardwajpreeti357@gmail.com">Email</a>
+      <a href="https://github.com/mistyvisty" target="_blank">GitHub</a>
+      <a href="https://www.kaggle.com/mistyvisty/competitions" target="_blank">Kaggle</a>
+      <a href="https://medium.com/@bhardwajpreeti357" target="_blank">Medium</a>
+    </div>
+    <div class="footer-copy">© 2026 Preeti Bhardwaj</div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

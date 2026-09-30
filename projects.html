@@ -56,18 +56,19 @@
 
       <!-- TRIAGE AGENT -->
       <div class="proj-card" id="triage">
-        <div class="proj-top"><span class="proj-kicker">Agentic AI · Tool-Calling System</span><span class="chip shipped">Shipped</span></div>
+        <div class="proj-top"><span class="proj-kicker">Agentic AI · Tool-Calling System</span><span class="chip live">Live</span></div>
         <h3>AI Support Triage Agent</h3>
         <p class="proj-desc">An agent that routes support tickets across three actions — draft, escalate, or clarify — using native function-calling, not freeform text parsing. Hard-coded policy rules override model judgment for security/legal tickets, regardless of how confident the model is. Built a labeled eval harness that measures routing accuracy separately from hard-trigger escalation recall.</p>
+        <img class="proj-shot" src="app-triage.png" alt="AI Support Triage Agent live app escalating a security ticket" loading="lazy">
         <span class="flow-label">The three actions</span>
         <div class="triage-row">
           <div class="triage-cell draft"><span class="ttag">Draft</span><div class="tval">Answer</div><div class="tdesc">Model responds directly when it has enough to go on</div></div>
           <div class="triage-cell clarify"><span class="ttag">Clarify</span><div class="tval">Ask</div><div class="tdesc">Model asks a follow-up rather than guessing intent</div></div>
           <div class="triage-cell escalate"><span class="ttag">Escalate</span><div class="tval">Hand off</div><div class="tdesc">Hard rule fires on security/legal — overrides the model</div></div>
         </div>
-        <div class="metric-row"><span class="metric-chip">100% escalation recall on security/legal</span><span class="metric-chip">57.1% overall routing accuracy</span><span class="metric-chip">Documented diagnosis + fix</span></div>
-        <div class="tag-row"><span class="tag">Python</span><span class="tag">Groq LLaMA 3.3-70B</span><span class="tag">Native Tool-Calling</span><span class="tag">FAISS</span><span class="tag">MiniLM</span><span class="tag">Eval Harness</span></div>
-        <div class="link-row"><a href="https://github.com/mistyvisty/support-triage-agent" target="_blank" class="link-pill">🐙 Repo →</a></div>
+        <div class="metric-row"><span class="metric-chip">100% escalation recall on security/legal</span><span class="metric-chip">57.1% overall routing accuracy (Llama 3.3 run)</span><span class="metric-chip">Documented diagnosis + fix</span></div>
+        <div class="tag-row"><span class="tag">Python</span><span class="tag">Groq</span><span class="tag">Native Tool-Calling</span><span class="tag">FAISS</span><span class="tag">MiniLM</span><span class="tag">Streamlit</span><span class="tag">Eval Harness</span></div>
+        <div class="link-row"><a href="https://support-triage-agent-3rdpekkbtyma2bhjafya9z.streamlit.app/" target="_blank" class="link-pill">🚀 Live app →</a><a href="https://github.com/mistyvisty/support-triage-agent" target="_blank" class="link-pill">🐙 Repo →</a></div>
       </div>
 
       <!-- MEDICAL RESEARCH ASSISTANT -->
@@ -86,7 +87,7 @@
         </div>
         <div class="metric-row"><span class="metric-chip">3-agent sequential pipeline</span><span class="metric-chip">Built-in claim validation</span><span class="metric-chip">Dockerized</span></div>
         <div class="tag-row"><span class="tag">Python</span><span class="tag">LangGraph</span><span class="tag">Groq LLaMA 3.3-70B</span><span class="tag">Streamlit</span><span class="tag">Docker</span></div>
-        <div class="link-row"><a href="https://medical-research-agent-3mbhgune6spud5lszhhvqs.streamlit.app/" target="_blank" class="link-pill">🚀 Live app →</a><a href="https://github.com/mistyvisty/medical-research-agent" target="_blank" class="link-pill">🐙 Repo →</a><a href="https://medium.com/@bhardwajpreeti357/why-i-stopped-using-single-llm-calls-and-built-a-3-agent-medical-research-pipeline-with-langgraph-713fecf660b1" target="_blank" class="link-pill">📝 Write-up →</a><a href="https://medium.com/@bhardwajpreeti357/langchain-vs-langgraph-when-to-use-chains-vs-graphs-️-a5ed6f887615" target="_blank" class="link-pill">📝 LangChain vs LangGraph →</a></div>
+        <div class="link-row"><a href="https://medical-research-agent-3mbhgune6spud5lszhhvqs.streamlit.app/" target="_blank" class="link-pill">🚀 Live app →</a><a href="https://github.com/mistyvisty/medical-research-agent" target="_blank" class="link-pill">🐙 Repo →</a><a href="https://medium.com/@bhardwajpreeti357/why-i-stopped-using-single-llm-calls-and-built-a-3-agent-medical-research-pipeline-with-langgraph-713fecf660b1" target="_blank" class="link-pill">📝 Write-up →</a><a href="https://medium.com/@bhardwajpreeti357/langchain-vs-langgraph-when-to-use-chains-vs-graphs--a5ed6f887615" target="_blank" class="link-pill">📝 LangChain vs LangGraph →</a></div>
       </div>
 
     </div>
@@ -224,7 +225,7 @@
 
       <!-- HOSPITAL READMISSION -->
       <div class="proj-card">
-        <div class="proj-top"><span class="proj-kicker">MLOps · Healthcare AI · Production ML</span><span class="chip live">Live</span></div>
+        <div class="proj-top"><span class="proj-kicker">MLOps · Production ML</span><span class="chip live">Live</span></div>
         <h3>Hospital Readmission Risk Predictor + ML Monitoring</h3>
         <p class="proj-desc">End-to-end MLOps project on 101,766 patient records. Removed target-leaking features, SMOTE inside ImbPipeline, served via FastAPI, containerized with Docker, automated CI/CD. Extended with Evidently AI drift detection, Prometheus metrics, and GitHub Actions drift check on every push.</p>
         <img class="proj-shot" src="app-hospital.jpg" alt="Hospital Readmission Risk Predictor live app" loading="lazy">
